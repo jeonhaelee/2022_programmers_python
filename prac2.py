@@ -36,126 +36,173 @@ def solution(numbers, hand):
         if numbers[i] == 2:
             if numbers[i-1] == 2:
                 answer += answer[-1]
-            elif left == 1 or left == 5 or right == 5 or right == 3:
-                if hand == "right":
-                    answer += "R"
-                    right = 2
-                else :
+            elif left in (1,5) or right in (3,5):
+                if left in (1,5) and right in (3,5):
+                    if hand == "right":
+                        answer += "R"
+                        right = 2
+                    else :
+                        answer += "L"
+                        left = 2
+                elif left in (1,5):
                     answer += "L"
                     left = 2
-            elif left == 4 or left == 8 or right == 8 or right == 6:
-                if hand == "right":
+                elif right in (3,5):
                     answer += "R"
-                    right = 2
-                else :
+                    left = 2
+            elif left in (4,8) or right in (6,8):
+                if left in (4,8) and right in (6,8):
+                    if hand == "right":
+                        answer += "R"
+                        right = 2
+                    else :
+                        answer += "L"
+                        left = 2
+                elif left in (4,8):
                     answer += "L"
                     left = 2
-            elif left == 7 or left == 0 or right == 0 or right == 9:
-                if hand == "right":
+                elif right in (6,8):
                     answer += "R"
-                    right = 2
-                else :
+                    left = 2
+            elif left in (7,0) or right in (9,0):
+                if left in (7,0) and right in (9,0):
+                    if hand == "right":
+                        answer += "R"
+                        right = 2
+                    else :
+                        answer += "L"
+                        left = 2
+                elif left in (7,0):
                     answer += "L"
+                    left = 2
+                elif right in (9,0):
+                    answer += "R"
                     left = 2
             continue
                     
         if numbers[i] == 5:
             if numbers[i-1] == 5:
                 answer += answer[-1]
-            elif left == 4 or left == 2 or left == 8 or right == 2 or right == 8 or right == 6:
-                if left == 4 and right == 6:
+            elif left in (4,2,8) or right in (6,2,8):
+                if left in (4,2,8) and right in (6,2,8):
                     if hand == "right":
                         answer += "R"
                         right = 5
                     else :
                         answer += "L"
                         left = 5
-                elif left == 4:
+                elif left in (4,2,8):
                     answer += "L"
                     left = 5
-                elif right == 6:
+                elif right in (6,2,8):
                     answer += "R"
                     left = 5
-                else:
+            elif left in (1,7) or right in (3,9):
+                if left in (1,7) and right in (3,9):
                     if hand == "right":
                         answer += "R"
                         right = 5
                     else :
                         answer += "L"
                         left = 5
-            elif left == 1 or left == 7 or right == 3 or right == 9:
-                if hand == "right":
-                    answer += "R"
-                    right = 5
-                else :
+                elif left in (1,7):
                     answer += "L"
+                    left = 5
+                elif right in (3,9):
+                    answer += "R"
                     left = 5
             elif left == 0 or right == 0:
-                if hand == "right":
-                    answer += "R"
+                if left == 0:
+                    answer += "L"
                     right = 5
                 else :
-                    answer += "L"
+                    answer += "R"
                     left = 5
             continue
                     
         if numbers[i] == 8:
             if numbers[i-1] == 8:
                 answer += answer[-1]
-            elif left == 7 or left == 5 or left == 0 or right == 5 or right == 0 or right == 9:
-                if hand == "right":
-                    answer += "R"
-                    right = 8
-                else :
+            elif left in (7,5,0) or right in (9,5,0):
+                if left in (7,5,0) and right in (9,5,0):
+                    if hand == "right":
+                        answer += "R"
+                        right = 8
+                    else :
+                        answer += "L"
+                        left = 8
+                elif left in (7,5,0):
                     answer += "L"
                     left = 8
-            elif left == 4 or left == 2 or right == 2 or right == 6:
-                if hand == "right":
+                elif right in (9,5,0):
                     answer += "R"
-                    right = 8
-                else :
+                    left = 8
+            elif left in (4,2) or right in (6,2):
+                if left in (4,2) and right in (6,2):
+                    if hand == "right":
+                        answer += "R"
+                        right = 8
+                    else :
+                        answer += "L"
+                        left = 8
+                elif left in (4,2):
                     answer += "L"
                     left = 8
-            elif left == 1 or right == 3:
-                if hand == "right":
+                elif right in (6,2):
                     answer += "R"
-                    right = 8
-                else :
-                    answer += "L"
                     left = 8
+            elif left == 1:
+                answer += "L"
+                right = 8
+            elif right == 3:
+                answer += "R"
+                left = 8
             continue
                     
         if numbers[i] == 0:
             if numbers[i-1] == 0:
                 answer += answer[-1]
             elif left == 8 or right == 8:
-                if hand == "right":
-                    answer += "R"
+                if left == 8:
+                    answer += "L"
                     right = 0
                 else :
-                    answer += "L"
-                    left = 0
-            elif left == 7 or left == 5 or right == 5 or right == 9:
-                if hand == "right":
                     answer += "R"
-                    right = 0
-                else :
+                    left = 0
+            elif left in (7,5) or right in (9,5):
+                if left in (7,5) and right in (9,5):
+                    if hand == "right":
+                        answer += "R"
+                        right = 0
+                    else :
+                        answer += "L"
+                        left = 0
+                elif left in (7,5):
                     answer += "L"
                     left = 0
-            elif left == 4 or left == 2 or right == 2 or right == 6:
-                if hand == "right":
+                elif right in (9,5):
                     answer += "R"
-                    right = 0
-                else :
+                    left = 0
+            elif left in (4,2) or right in (6,2):
+                if left in (4,2) and right in (6,2):
+                    if hand == "right":
+                        answer += "R"
+                        right = 0
+                    else :
+                        answer += "L"
+                        left = 0
+                elif left in (4,2):
                     answer += "L"
                     left = 0
-            elif left == 1 or right == 3:
-                if hand == "right":
+                elif right in (6,2):
                     answer += "R"
-                    right = 0
-                else :
-                    answer += "L"
                     left = 0
+            elif left == 1:
+                answer += "L"
+                right = 0
+            elif right == 3:
+                answer += "R"
+                left = 0
             continue
             
     return answer
