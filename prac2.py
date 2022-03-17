@@ -3,8 +3,8 @@
 def solution(numbers, hand):
     answer = ''
     
-    left = 0
-    right = 0
+    left = '*'
+    right = '#'
     
     for i in range(0,len(numbers)):
         if numbers[i] == 1:
@@ -78,6 +78,13 @@ def solution(numbers, hand):
                 elif right in (9,0):
                     answer += "R"
                     right = 2
+            elif left == '*' or right == '#':
+                if left == '*':
+                    answer += "L"
+                    left = 5
+                else :
+                    answer += "R"
+                    right = 5
             continue
                     
         if numbers[i] == 5:
@@ -97,25 +104,18 @@ def solution(numbers, hand):
                 elif right in (6,2,8):
                     answer += "R"
                     right = 5
-            elif left in (1,7) or right in (3,9):
-                if left in (1,7) and right in (3,9):
+            elif left in (1,7,0) or right in (3,9,0):
+                if left in (1,7,0) and right in (3,9,0):
                     if hand == "right":
                         answer += "R"
                         right = 5
                     else :
                         answer += "L"
                         left = 5
-                elif left in (1,7):
+                elif left in (1,7,0):
                     answer += "L"
                     left = 5
-                elif right in (3,9):
-                    answer += "R"
-                    right = 5
-            elif left == 0 or right == 0:
-                if left == 0:
-                    answer += "L"
-                    left = 5
-                else :
+                elif right in (3,9,0):
                     answer += "R"
                     right = 5
             continue
@@ -137,18 +137,18 @@ def solution(numbers, hand):
                 elif right in (9,5,0):
                     answer += "R"
                     right = 8
-            elif left in (4,2) or right in (6,2):
-                if left in (4,2) and right in (6,2):
+            elif left in (4,2,'*') or right in (6,2,'#'):
+                if left in (4,2,'*') and right in (6,2,'#'):
                     if hand == "right":
                         answer += "R"
                         right = 8
                     else :
                         answer += "L"
                         left = 8
-                elif left in (4,2):
+                elif left in (4,2,'*'):
                     answer += "L"
                     left = 8
-                elif right in (6,2):
+                elif right in (6,2,'#'):
                     answer += "R"
                     right = 8
             elif left == 1:
@@ -162,11 +162,18 @@ def solution(numbers, hand):
         if numbers[i] == 0:
             if numbers[i-1] == 0:
                 answer += answer[-1]
-            elif left == 8 or right == 8:
-                if left == 8:
+            elif left in ('*',8) or right in ('#',8):
+                if left in ('*',8) and right in ('#',8):
+                    if hand == "right":
+                        answer += "R"
+                        right = 0
+                    else :
+                        answer += "L"
+                        left = 0
+                elif left in ('*',8):
                     answer += "L"
                     left = 0
-                else :
+                elif right in ('#',8):
                     answer += "R"
                     right = 0
             elif left in (7,5) or right in (9,5):
