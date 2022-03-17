@@ -49,7 +49,7 @@ def solution(numbers, hand):
                     left = 2
                 elif right in (3,5):
                     answer += "R"
-                    left = 2
+                    right = 2
             elif left in (4,8) or right in (6,8):
                 if left in (4,8) and right in (6,8):
                     if hand == "right":
@@ -63,7 +63,7 @@ def solution(numbers, hand):
                     left = 2
                 elif right in (6,8):
                     answer += "R"
-                    left = 2
+                    right = 2
             elif left in (7,0) or right in (9,0):
                 if left in (7,0) and right in (9,0):
                     if hand == "right":
@@ -77,7 +77,7 @@ def solution(numbers, hand):
                     left = 2
                 elif right in (9,0):
                     answer += "R"
-                    left = 2
+                    right = 2
             continue
                     
         if numbers[i] == 5:
@@ -96,7 +96,7 @@ def solution(numbers, hand):
                     left = 5
                 elif right in (6,2,8):
                     answer += "R"
-                    left = 5
+                    right = 5
             elif left in (1,7) or right in (3,9):
                 if left in (1,7) and right in (3,9):
                     if hand == "right":
@@ -110,14 +110,14 @@ def solution(numbers, hand):
                     left = 5
                 elif right in (3,9):
                     answer += "R"
-                    left = 5
+                    right = 5
             elif left == 0 or right == 0:
                 if left == 0:
                     answer += "L"
-                    right = 5
+                    left = 5
                 else :
                     answer += "R"
-                    left = 5
+                    right = 5
             continue
                     
         if numbers[i] == 8:
@@ -136,7 +136,7 @@ def solution(numbers, hand):
                     left = 8
                 elif right in (9,5,0):
                     answer += "R"
-                    left = 8
+                    right = 8
             elif left in (4,2) or right in (6,2):
                 if left in (4,2) and right in (6,2):
                     if hand == "right":
@@ -150,13 +150,13 @@ def solution(numbers, hand):
                     left = 8
                 elif right in (6,2):
                     answer += "R"
-                    left = 8
+                    right = 8
             elif left == 1:
                 answer += "L"
-                right = 8
+                left = 8
             elif right == 3:
                 answer += "R"
-                left = 8
+                right = 8
             continue
                     
         if numbers[i] == 0:
@@ -165,10 +165,10 @@ def solution(numbers, hand):
             elif left == 8 or right == 8:
                 if left == 8:
                     answer += "L"
-                    right = 0
+                    left = 0
                 else :
                     answer += "R"
-                    left = 0
+                    right = 0
             elif left in (7,5) or right in (9,5):
                 if left in (7,5) and right in (9,5):
                     if hand == "right":
@@ -182,7 +182,7 @@ def solution(numbers, hand):
                     left = 0
                 elif right in (9,5):
                     answer += "R"
-                    left = 0
+                    right = 0
             elif left in (4,2) or right in (6,2):
                 if left in (4,2) and right in (6,2):
                     if hand == "right":
@@ -196,13 +196,13 @@ def solution(numbers, hand):
                     left = 0
                 elif right in (6,2):
                     answer += "R"
-                    left = 0
+                    right = 0
             elif left == 1:
                 answer += "L"
-                right = 0
+                left = 0
             elif right == 3:
                 answer += "R"
-                left = 0
+                right = 0
             continue
             
     return answer
