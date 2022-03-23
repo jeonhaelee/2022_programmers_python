@@ -1,14 +1,8 @@
+import numpy as np
+
 def solution(arr1, arr2):
-    
-    answer = []
-    for i in range(len(arr1)):
-        answer.append([])
-        for j in range(len(arr1[0])):
-            answer[i].append(0)
-            
-    for i in range(len(arr1)):
-        for j in range(len(arr1[0])):
-            answer[i][j] = arr1[i][j] + arr2[i][j]
-            
-    return answer
+    arr1 = np.array(arr1)
+    arr2 = np.array(arr2)
+    answer = arr1 + arr2
+    return answer.tolist()
 
