@@ -1,10 +1,15 @@
+def isprime(number):
+    for i in range(2,number):
+        if number % i == 0:
+            return False
+    return True
+
+
 def solution(n):
     answer = 0
     for i in range(2,n+1):
-        count = 0
-        for j in range(1, i+1):
-            if i % j == 0:
-                count += 1
-        if count == 2:
+        if isprime(i) :
             answer += 1
     return answer
+
+
