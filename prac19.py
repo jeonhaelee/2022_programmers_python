@@ -13,10 +13,9 @@ def solution(scoville, k):
         del scoville[1]
         count += 1
         if len(scoville) == 1:
-            break
-    if is_scov_all_k(scoville, k) == False:
-        return -1
-    else: return count
+            if is_scov_all_k(scoville, k) == False:
+                return -1
+    return count
 
 
 
