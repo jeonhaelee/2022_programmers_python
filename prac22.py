@@ -3,10 +3,11 @@
 def solution(phone_book):
     answer = True
     phone_book.sort()
-    
+    print(phone_book)
     for num in range(len(phone_book)):
         for n in range(num+1, len(phone_book)):
-            if phone_book[n][:len(num)] == num:
+            print(phone_book[n][:len(str(num))])
+            if phone_book[n][:len(str(num))] == num:
                 answer = False
                 return answer
     return answer
