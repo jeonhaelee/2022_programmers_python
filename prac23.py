@@ -1,3 +1,10 @@
+
+
+from re import S
+
+from numpy import take
+
+
 def solution(priorities, location):
     answer = 0
     
@@ -7,10 +14,18 @@ def solution(priorities, location):
     print(tasks)
     
     value = tasks[location]
+    print("찾으려는 값 : {}".format(value))
     while value in tasks:
         temp_list = sorted(tasks, key= lambda x : -x[0])
         max_val = temp_list[0][0]
         print(max_val)
+        count = 0
+        for val in tasks:
+            if val[0] == max_val:
+                count += 1
+        if count == len(tasks):
+            answer += tasks.indexof(value)
+            break
         if tasks[0][0] != max_val:
             tasks.append(tasks[0])
             del tasks[0]
