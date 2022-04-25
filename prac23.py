@@ -8,12 +8,14 @@ def solution(priorities, location):
     
     value = tasks[location]
     while value in tasks:
-        max_val = max(tasks)
+        temp_list = sorted(tasks, key= lambda x : -x[0])
+        max_val = temp_list[0][0]
         print(max_val)
-        if tasks[0][0] != max_val[0]:
-            tasks.append(tasks[i])
+        if tasks[0][0] != max_val:
+            tasks.append(tasks[0])
             del tasks[0]
         else: del tasks[0]
+        print(tasks)
         answer += 1
         
     return answer
