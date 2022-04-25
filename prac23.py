@@ -24,29 +24,19 @@ def solution(priorities, location):
             if val[0] == max_val:
                 count += 1
         if count == len(tasks):
-            answer += tasks.indexof(value)
+            answer += (tasks.index(value) + 1)
             break
         if tasks[0][0] != max_val:
             tasks.append(tasks[0])
             del tasks[0]
-        else: del tasks[0]
+        else: 
+            del tasks[0]
+            answer += 1
         print(tasks)
-        answer += 1
         
     return answer
 
 
-# def solution(priorities, location):
-#     answer = 0
-#     work_idx = 0
-#     while work_idx == location:
-#         max_idx = list.index(priorities)
-#         work_idx = max_idx
-#         priorities[work_idx] = 0
-#         answer += 1
-#     return answer
-
-
-priorities = [1, 1, 9, 1, 1, 1]
-location = 0
+priorities = [2, 1, 3, 2]
+location = 2
 print(solution(priorities, location))
