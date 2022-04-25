@@ -7,9 +7,10 @@ def solution(priorities, location):
     print(tasks)
     
     value = tasks[location]
-    while value not in location:
-        max_val = max(priorities)
-        if tasks[0][0] != max_val:
+    while value in tasks:
+        max_val = max(tasks)
+        print(max_val)
+        if tasks[0][0] != max_val[0]:
             tasks.append(tasks[i])
             del tasks[0]
         else: del tasks[0]
