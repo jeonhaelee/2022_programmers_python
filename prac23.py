@@ -1,15 +1,20 @@
 def solution(priorities, location):
     answer = 0
+    
     tasks = []
     for i in range(len(priorities)):
         tasks.append((priorities[i], i))
-    while tasks[0][1] != location:
+    print(tasks)
+    
+    value = tasks[location]
+    while value not in location:
         max_val = max(priorities)
         if tasks[0][0] != max_val:
             tasks.append(tasks[i])
             del tasks[0]
         else: del tasks[0]
         answer += 1
+        
     return answer
 
 
