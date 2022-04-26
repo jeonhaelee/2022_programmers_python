@@ -1,72 +1,21 @@
 
-def find_test(result):
-    for i in range(len(result)-1):
-        if result[i] == result[i+1]:
-            return True
-    return False
-
-
+# 스택 이용
 def solution(s):
     answer = 0
     
     result = []
-    for i in range(len(s)):
-        result += s[i]
-        
-    while find_test(result) :
+    result.append(s[0])
+    
+    for i in range(1, len(s)):
+        if len(result) == 0:
+            result.append(s[i])
+            continue
+        if result[-1] == s[i]:
+            result.pop()
+        else: result.append(s[i])
         
     if len(result) == 0:
         answer = 1
         return answer
-    else : return answer
-
-
-
-
-
-# def solution(s):
-#     answer = -1
-#     result = []
-#     for i in range(len(s)):
-#         result += s[i]
-#     while find_test(result) :
-#         for i in range(len(result)-1):
-#             if i >= len(result):
-#                 break
-#             if result[i] == result[i+1]:
-#                 del result[i]
-#                 del result[i]
-#     if len(result) == 0:
-#         answer = 1
-#         return answer
-#     else:
-#         answer = 0
-#         return answer
-
-
-# def solution(s):
-#     answer = -1
-#     result = []
-#     for i in range(len(s)):
-#         result += s[i]
-#     print("초기 result : {}".format(result))
-#     i = 0
-#     while find_test(result) :
-#         if result[i] == result[i+1]:
-#             print("result 제거 전 : {}".format(result))
-#             del result[i]
-#             del result[i]
-#             print("result 제거 후 : {}".format(result))
-#         i += 1
-#         if i >= len(result):
-#             i = 0
-#     print("최종 result : {}".format(result))
-#     if len(result) == 0:
-#         answer = 1
-#         return answer
-#     else:
-#         answer = 0
-#         return answer
-
-s = "baabaa"
-print(solution(s))
+    else:
+        return answer
