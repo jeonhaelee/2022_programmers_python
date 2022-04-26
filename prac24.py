@@ -1,9 +1,6 @@
 
-from unittest import result
-
-
-def find_test(sub_result):
-    for i in range(len(sub_result)-1):
+def find_test(result):
+    for i in range(len(result)-1):
         if result[i] == result[i+1]:
             return True
     return False
