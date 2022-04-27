@@ -27,3 +27,6 @@ def solution(numbers):
         answer += prime_count(sub_nums, i)
     
     return answer
+
+numbers = "17"
+print(solution(numbers))
