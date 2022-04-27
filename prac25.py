@@ -1,6 +1,5 @@
 from itertools import permutations
 
-
 def is_prime(n):
     if n == 0 or n == 1:
         return False
@@ -23,8 +22,6 @@ def prime_count(sub_nums, i):
             sub_stack.append(number)
             if is_prime(number):
                 count += 1
-    print("sub_stack : {}".format(sub_stack))
-    print("count : {}".format(count))
     return count
     
 def solution(numbers):
@@ -33,7 +30,6 @@ def solution(numbers):
     nums = []
     for i in range(len(numbers)):
         nums.append(numbers[i])
-    print("nums : {}".format(nums))
     
     stack = []
     for i in range(len(nums)):
@@ -43,14 +39,9 @@ def solution(numbers):
             if is_prime(int(nums[i])):
                 stack.append(nums[i])
                 answer += 1
-    print("1개씩 소수 확인 후 answer : {}".format(answer))
     
     for i in range(2, len(nums)+1):
         sub_nums = list(permutations(nums, i))
-        print("{}개씩 sub_nums : {}".format(i, sub_nums))
         answer += prime_count(sub_nums, i)
         
     return answer
-
-numbers = "17"
-print(solution(numbers))
