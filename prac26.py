@@ -2,10 +2,13 @@
 def f(i, prices):
     count = 0
     for j in range(i+1, len(prices)):
-            if prices[i] <= prices[j]:
-                count += 1
-            else: 
-                return count
+        print("prices[i] : {}, prices[j] : {}".format(prices[i], prices[j]))
+        if prices[i] <= prices[j]:
+            count += 1
+        else: 
+            count += 1
+            break
+    return count
             
 def solution(prices):
     answer = []
