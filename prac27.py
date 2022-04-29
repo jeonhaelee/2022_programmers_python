@@ -19,10 +19,10 @@ def solution(arr1, arr2):
     answer = []
     for i in range(len(arr1)):
         sub_answer = []
-        for j in range(len(arr1[0])):
+        for j in range(len(arr2)):
             val = 0
             for k in range(len(arr2[0])):
-                val += arr1[i][j] * arr2[k][j]
+                val += arr1[i][k] * arr2[k][j]
             sub_answer.append(val)
         answer.append(sub_answer)
     return answer
