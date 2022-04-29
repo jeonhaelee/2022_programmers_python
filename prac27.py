@@ -2,9 +2,10 @@ import numpy as np
 
 def solution(arr1, arr2):
     answer = [[]]
-    arr1 = np.array(arr1)
-    arr2 = np.array(arr2)
+    arr1 = np.array(arr1, dtype=np.int64)
+    arr2 = np.array(arr2, dtype=np.int64)
     result = arr1.dot(arr2)
+    
     answer = []
     for i in range(len(result)):
         sub_answer = []
