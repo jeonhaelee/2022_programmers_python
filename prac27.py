@@ -16,15 +16,15 @@
 
 
 def solution(arr1, arr2):
-    answer = [[]]
+    answer = []
     for i in range(len(arr1)):
+        sub_answer = []
         for j in range(len(arr1[0])):
+            val = 0
             for k in range(len(arr2[0])):
-                val = arr1[i][j] * arr2[j][k]
-                print(val)
-                answer[i].append(val)
-                print(answer[i])
-    print(answer)
+                val += arr1[i][j] * arr2[k][j]
+            sub_answer.append(val)
+        answer.append(sub_answer)
     return answer
 
 arr1 = [[1, 4], [3, 2], [4, 1]]
