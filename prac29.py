@@ -11,6 +11,3 @@ def solution(s):
     answer += " "
     answer += str(max)
     return answer
-
-s = "-1 -2 -3 -4"
-print(solution(s))
