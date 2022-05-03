@@ -13,6 +13,3 @@ def solution(n):
                 start_num += 1
                 break
     return answer
-
-n = 15
-print(solution(n))
