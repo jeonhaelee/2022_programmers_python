@@ -7,7 +7,7 @@ def solution(s):
             else: 
                 answer += s[i]
         else:
-            answer += s[i]
+            answer += s[i].lower()
     return answer
 
 # def solution(s):
