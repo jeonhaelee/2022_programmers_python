@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(10000)
+
 def pivo(n):
     answer = pivo(n-2) + pivo(n-1)
     return answer
