@@ -11,6 +11,8 @@ def solution(s):
             if s[i+1] == "}":
                 break
     print(d)
+    for num in d[-1]:
+        answer.append(num)
     return answer
 
 s = "{{2},{2,1},{2,1,3},{2,1,3,4}}"
