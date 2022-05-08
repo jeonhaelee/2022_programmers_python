@@ -2,9 +2,12 @@ def solution(s):
     answer = [] # answer의 크기는 len(s)
     d = []
     sub = []
+    num = ""
     for i in range(len(s)-1):
         if s[i].isdigit():
-            sub += s[i]
+            num += s[i]
+        if s[i] == ",":
+            sub.append(int(num))
         if s[i] == "}":
             d.append(sub)
             sub = []
@@ -15,5 +18,5 @@ def solution(s):
         answer.append(num)
     return answer
 
-s = "{{2},{2,1},{2,1,3},{2,1,3,4}}"
+s = "{{20,111},{111}}"
 print(solution(s))
