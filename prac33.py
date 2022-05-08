@@ -7,7 +7,7 @@ def solution(s):
         if s[i].isdigit():
             num += s[i]
         if s[i] == ",":
-            sub.append(int(num))
+            d.append(int(num))
         if s[i] == "}":
             d.append(sub)
             sub = []
