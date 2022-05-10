@@ -42,15 +42,11 @@ def solution(s):
         if s[i] == "}":
             sub.append(int(num))
             num = ""
-            print(sub)
             d.append((sub, len(sub)))
-            print(d)
             if s[i+1] == "}":
                 break
     d.sort(key=lambda x:x[1])
-    print(d)
     s2 = d[-1][0]
-    print(s2)
     for num in s2:
         answer.append(num)
     return answer
