@@ -42,14 +42,15 @@ def solution(s):
         if s[i] == "}":
             sub.append(int(num))
             num = ""
-            d.append((sub, len(sub)))
+            d.append(sub)
             if s[i+1] == "}":
                 break
-    d.sort(key=lambda x:x[1])
-    s2 = d[-1][0]
-    for num in s2:
-        answer.append(num)
+    d.sort(key=len)
+    for nums in d:
+        for num in nums:
+            if num not in answer:
+                answer.append(num)
     return answer
 
-s = "{{20,111},{111}}"
+s = "{{1,2,3},{2,1},{1,2,4,3},{2}}"
 print(solution(s))
