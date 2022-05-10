@@ -35,11 +35,16 @@ def solution(s):
         if s[i].isdigit():
             num += s[i]
         if s[i] == ",":
+            if s[i+1] == "{":
+                continue
             sub.append(int(num))
             num = ""
         if s[i] == "}":
             sub.append(int(num))
+            num = ""
+            print(sub)
             d.append((sub, len(sub)))
+            print(d)
             if s[i+1] == "}":
                 break
     d.sort(key=lambda x:x[1])
