@@ -38,8 +38,8 @@ def solution(s):
             sub.append(int(num))
             num = ""
         if s[i] == "}":
+            sub.append(int(num))
             d.append((sub, len(sub)))
-            sub = []
             if s[i+1] == "}":
                 break
     d.sort(key=lambda x:x[1])
