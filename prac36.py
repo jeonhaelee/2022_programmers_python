@@ -8,6 +8,8 @@ def count_num(h, citations):
 
 def solution(citations):
     n = len(citations)
+    if n == 1:
+        return 0
     for h in range(n-1, -1, -1):
         if h == count_num(h, citations):
             return h
