@@ -1,13 +1,7 @@
-def count_num(h, citations):
-    count = 0
-    for num in citations:
-        if num >= h:
-            count += 1
-    return count
-
 def solution(citations):
-    n = len(citations)
-    for h in range(n, -1, -1):
-        if h <= count_num(h, citations):
-            return h
+    citations = sorted(citations)
+    l = len(citations)
+    for i in range(l):
+        if citations[i] >= l-i:
+            return l-i
     return 0
