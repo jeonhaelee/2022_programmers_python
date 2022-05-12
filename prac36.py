@@ -10,11 +10,13 @@ def solution(citations):
     n = len(citations)
     if n == 1:
         return 0
-    for h in range(n-1, -1, -1):
-        if h == count_num(h, citations):
+    for h in range(n, -1, -1):
+        if h <= count_num(h, citations):
             return h
+        if h == 0:
+            return 0
 
-citations = [3, 0, 6, 1, 5]
+citations = [0, 1, 1]
 print(solution(citations))
 
 # h는 n보다 작음
