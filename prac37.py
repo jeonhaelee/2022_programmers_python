@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(10**7)
 
 def solution(n):
     if n == 0: return 0
