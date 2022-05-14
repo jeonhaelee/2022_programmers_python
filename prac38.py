@@ -14,21 +14,24 @@ def solution(bridge_length, weight, truck_weights):
     bridge[-1] = truck_weights[0]
     del truck_weights[0]
     answer += 1
+    print("answer : {}".format(answer))
     
     while len(truck_weights) > 0:
         bridge[0], bridge[1] = bridge[1], -1
         bridge[-1] = truck_weights[0]
         if weight_is_possible(bridge, weight) :
             del truck_weights[0]
+            print("answer : {}".format(answer))
             print("bridge : {}".format(bridge))
             print("truck_weights : {}".format(truck_weights))
             answer += 1
         else:
             bridge[-1] = -1
+            print("answer : {}".format(answer))
             print("bridge : {}".format(bridge))
             print("truck_weights : {}".format(truck_weights))
             answer += 1
-
+    answer += 2
     return answer
 
 bridge_length = 2
