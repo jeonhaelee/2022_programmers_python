@@ -50,7 +50,7 @@ def solution(bridge_length, weight, truck_weights):
     answer = 0
     bridge = [-1]*bridge_length
     
-    bridge.pop(-1)
+    del bridge[0]
     bridge.append(truck_weights[0])
     del truck_weights[0]
     answer += 1
@@ -60,7 +60,7 @@ def solution(bridge_length, weight, truck_weights):
     
     while len(truck_weights) > 0:
         if weight_is_possible(bridge, weight, truck_weights) :
-            bridge.pop(0)
+            del bridge[0]
             bridge.append(truck_weights[0])
             del truck_weights[0]
             print("answer : {}".format(answer))
@@ -68,7 +68,7 @@ def solution(bridge_length, weight, truck_weights):
             print("truck_weights : {}".format(truck_weights))
             answer += 1
         else:
-            bridge.pop(0)
+            del bridge[0]
             bridge.append(-1)
             print("answer : {}".format(answer))
             print("bridge : {}".format(bridge))
