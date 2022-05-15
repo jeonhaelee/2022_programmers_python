@@ -1,5 +1,3 @@
-from audioop import reverse
-
 
 def solution(A,B):
     answer = 0
@@ -10,7 +8,3 @@ def solution(A,B):
         del A[0]
         del B[0]
     return answer
-
-A = [1, 4, 2]
-B = [5, 4, 4]	
-print(solution(A,B))
