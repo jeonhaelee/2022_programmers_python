@@ -1,7 +1,7 @@
-def solution(numbers, target):
+def solution(A,B):
     answer = 0
+
     return answer
 
-numbers = [1, 1, 1, 1, 1]
-target = 3
-print(solution(numbers, target))
+A = [1, 4, 2]
+B = [5, 4, 4]	
