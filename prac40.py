@@ -23,3 +23,7 @@ def solution(number, k):
     for x in numbers:
       answer += str(x)
     return answer
+  
+number = "4177252841"
+k = 4
+print(solution(number, k))
