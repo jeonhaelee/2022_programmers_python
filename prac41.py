@@ -15,13 +15,14 @@ def solution(relation):
         if is_dif(sub_d) == True:
             answer += 1
         else: d.append(sub_d)
-    while True:
-        for i in range(len(d)-1):
-            li = []
-            for j in range(len(d[0])):
-                li.append((d[i][j], d[i+1][j]))
-            if is_dif(li) == True:
-                answer += 1
+        
+    for i in range(len(d)-1):
+        li = []
+        for j in range(len(d[0])):
+            li.append((d[i][j], d[i+1][j]))
+        if is_dif(li) == True:
+            answer += 1
+            
     print(d)
     
     return answer
