@@ -14,8 +14,14 @@ def solution(relation):
             sub_d.append(row[i])
         if is_dif(sub_d) == True:
             answer += 1
-        d.append(sub_d)
-        
+        else: d.append(sub_d)
+    while True:
+        for i in range(len(d)-1):
+            li = []
+            for j in range(len(d[0])):
+                li.append((d[i][j], d[i+1][j]))
+            if is_dif(li) == True:
+                answer += 1
     print(d)
     
     return answer
