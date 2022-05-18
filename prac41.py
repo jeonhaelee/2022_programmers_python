@@ -20,10 +20,10 @@ def solution(relation):
         li = []
         for j in range(len(d[0])):
             li.append((d[i][j], d[i+1][j]))
+        print(li)
         if is_dif(li) == True:
             answer += 1
-            
-    print(d)
+        
     
     return answer
 
