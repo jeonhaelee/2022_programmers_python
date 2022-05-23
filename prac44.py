@@ -10,17 +10,10 @@ def solution(numbers, target):
         answer -= n
         li.append(('-', n))
     
-    sub = []
-    for i in range(len(li)):
-      sub_sub = [li[i]]
-      for j in range(i+1, len(li)):
-        if li[i][1] == li[j][1]:
-          sub_sub.append(li[j])
-      sub.append(sub_sub)
-    
-    for i in sub:
-      print(i)
+    print(li)
+    # 같은 수들 중 +, - 다른 것들 순열
 
+    
     return answer
 
 numbers = [1, 1, 1, 1, 1]
