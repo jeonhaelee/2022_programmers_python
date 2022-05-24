@@ -16,13 +16,13 @@ def solution(numbers, target):
     # 같은 수들 중 +, - 다른 것들 순열
 
     nums = []
-    numbers = []
+    nums_count = []
     for num in li:
       if num[1] in nums:
-        numbers[nums.index(num[1])][1] += 1
+        numbers[nums.index(num[1])] += 1
       else :
         nums.append(num[1])
-        numbers.append((num[1], 1))
+        numbers.append(1)
     print(numbers)
 
     # math.factorial()
