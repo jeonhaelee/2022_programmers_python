@@ -15,9 +15,10 @@ def solution(numbers, target):
     print(li)
     # 같은 수들 중 +, - 다른 것들 순열
 
+    nums = []
     numbers = []
     for num in li:
-      if num[1] in numbers:
+      if num[1] in nums:
         numbers[numbers.index(num[1])][1] += 1
       else :
         numbers.append((num[1], 1))
