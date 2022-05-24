@@ -13,6 +13,13 @@ def solution(numbers, target):
     print(li)
     # 같은 수들 중 +, - 다른 것들 순열
 
+    numbers = []
+    for num in li:
+      if num[1] in numbers:
+        continue
+      else :
+        numbers.append(num[1])
+    print(numbers)
     
     return answer
 
