@@ -1,3 +1,5 @@
+import math
+
 def solution(numbers, target):
     answer = 0
     li = []
@@ -16,10 +18,12 @@ def solution(numbers, target):
     numbers = []
     for num in li:
       if num[1] in numbers:
-        continue
+        numbers[numbers.index(num[1])][1] += 1
       else :
-        numbers.append(num[1])
+        numbers.append((num[1], 1))
     print(numbers)
+
+    # math.factorial()
     
     return answer
 
