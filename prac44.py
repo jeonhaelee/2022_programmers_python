@@ -19,7 +19,8 @@ def solution(numbers, target):
     numbers = []
     for num in li:
       if num[1] in nums:
-        numbers[numbers.index(num[1])][1] += 1
+        print(numbers.index(num[1]))
+        # numbers[numbers.index(num[1])][1] += 1
       else :
         nums.append(num[1])
         numbers.append((num[1], 1))
