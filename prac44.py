@@ -1,3 +1,5 @@
+import math
+
 def solution(numbers, target):
     answer = 0
     li = []
@@ -24,6 +26,15 @@ def solution(numbers, target):
         
     print(nums)
     print(nums_set)
+
+    
+    sub_ans = 1
+    for set in nums_set:
+      sub_ans *= math.factorial(set[1])
+
+    print(len(nums))
+    print(sub_ans)
+    answer = math.factorial(len(nums)) / sub_ans
 
     return answer
 
