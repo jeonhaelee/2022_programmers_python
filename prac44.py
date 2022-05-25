@@ -1,5 +1,3 @@
-import math
-
 def solution(numbers, target):
     answer = 0
     li = []
@@ -7,26 +5,26 @@ def solution(numbers, target):
     for n in numbers:
       if answer < target:
         answer += n
-        li.append(('+', n))
+        li.append(['+', n])
       else :
         answer -= n
-        li.append(('-', n))
+        li.append(['-', n])
     
     print(li)
     # 같은 수들 중 +, - 다른 것들 순열
 
     nums = []
-    nums_count = []
-    for num in li:
-      if num[1] in nums:
-        numbers[nums.index(num[1])] += 1
-      else :
-        nums.append(num[1])
-        numbers.append(1)
-    print(numbers)
+    nums_set = []
+    for n in li:
+      if n[1] in nums:
+        nums_set[nums.index(n[1])][1] += 1
+      else:
+        nums.append(n[1])
+        nums_set.append([n[1],1])
+        
+    print(nums)
+    print(nums_set)
 
-    # math.factorial()
-    
     return answer
 
 numbers = [1, 1, 1, 1, 1]
