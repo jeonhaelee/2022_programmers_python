@@ -34,13 +34,11 @@ def solution(numbers, target):
 
     print(len(nums))
     print(sub_ans)
-    answer = math.factorial(len(nums)) / sub_ans
 
-    return answer
+    answer = math.factorial(len(li)) / sub_ans
+
+    return int(answer)
 
 numbers = [1, 1, 1, 1, 1]
 target = 3
-print(solution(numbers, target))
-
-# numbers = [4, 1, 2, 1]
-# target = 4
+print(solution(numbers, target)) # 5
