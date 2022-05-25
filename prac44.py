@@ -1,41 +1,47 @@
-# 다시 새롭게 만들어보자.
-
 import math
 
 def solution(numbers, target):
     true_answer = 0
 
-    answer = numbers[0]
+    count = 0
+    while count < len(numbers):
+      answer = numbers[count]
+      li = [['+', numbers[count]]]
+      for i in range(len(numbers)):
+        if i == count:
+          continue
+        if answer < target:
+          answer += numbers[i]
+          li.append(['+', numbers[i]])
+        else :
+          answer -= numbers[i]
+          li.append(['-', numbers[i]])
+      
+      print(li)
+      print(answer)
+      if answer == target:
+        true_answer += 1
 
-    li = [['+', numbers[0]]]
-    for i in range(1, len(numbers)):
-      if answer < target:
-        answer += numbers[i]
-        li.append(['+', numbers[i]])
-      else :
-        answer -= numbers[i]
-        li.append(['-', numbers[i]])
-    
-    print(li)
-    print(answer)
-    if answer == target:
-      true_answer += 1
 
+      answer = -numbers[count]
+      li = [['-', numbers[count]]]
+      for i in range(len(numbers)):
+        if i == count:
+          continue
+        if answer < target:
+          answer += numbers[i]
+          li.append(['+', numbers[i]])
+        else :
+          answer -= numbers[i]
+          li.append(['-', numbers[i]])
 
-    answer = -numbers[0]
-    li = [['-', numbers[0]]]
-    for i in range(1, len(numbers)):
-      if answer < target:
-        answer += numbers[i]
-        li.append(['+', numbers[i]])
-      else :
-        answer -= numbers[i]
-        li.append(['-', numbers[i]])
+      print(li)
+      print(answer)
+      if answer == target:
+        true_answer += 1
 
-    print(li)
-    print(answer)
-    if answer == target:
-      true_answer += 1
+      count += 1
+
 
     return true_answer
 
