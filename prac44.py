@@ -23,22 +23,32 @@ def solution(numbers, target):
       else:
         nums.append(n)
         nums_set.append([n,1])
-        
+      
+    print("nums : ",end = "")
     print(nums)
+    print("nums_set : ",end = "")
     print(nums_set)
 
     
     sub_ans = 1
+    sub_over_one = 0
     for set in nums_set:
-      sub_ans *= math.factorial(set[1])
+      if set[1] > 1:
+        sub_over_one += 1
+        sub_ans *= math.factorial(set[1])
 
-    print(len(nums))
+
+
+    print("len(li)-sub_over_one : ", end = "")
+    print(len(li)-sub_over_one)
+    print("sub_ans : ",end = "")
     print(sub_ans)
 
-    answer = math.factorial(len(li)) / sub_ans
+    answer = sub_ans
 
     return int(answer)
 
-numbers = [1, 1, 1, 1, 1]
-target = 3
-print(solution(numbers, target)) # 5
+
+numbers = [4, 1, 2, 1]
+target = 4
+print(solution(numbers, target)) # 2
