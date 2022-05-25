@@ -16,11 +16,11 @@ def solution(numbers, target):
     nums = []
     nums_set = []
     for n in li:
-      if n[1] in nums:
-        nums_set[nums.index(n[1])][1] += 1
+      if n in nums:
+        nums_set[nums.index(n)][1] += 1
       else:
-        nums.append(n[1])
-        nums_set.append([n[1],1])
+        nums.append(n)
+        nums_set.append([n,1])
         
     print(nums)
     print(nums_set)
