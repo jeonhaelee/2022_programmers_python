@@ -48,6 +48,9 @@ def solution(numbers, target):
 
     return int(answer)
 
+numbers = [1, 1, 1, 1, 1]
+target = 3
+print(solution(numbers, target)) # 5
 
 numbers = [4, 1, 2, 1]
 target = 4
