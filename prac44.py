@@ -19,8 +19,6 @@ def solution(numbers, target):
           answer -= numbers[i]
           li.append(['-', numbers[i]])
       
-      print(li)
-      print(answer)
       if li not in li_answer:
         li_answer.append(li)
         if answer == target:
@@ -40,8 +38,6 @@ def solution(numbers, target):
           answer -= numbers[i]
           li.append(['-', numbers[i]])
 
-      print(li)
-      print(answer)
       if li not in li_answer:
         li_answer.append(li)
         if answer == target:
