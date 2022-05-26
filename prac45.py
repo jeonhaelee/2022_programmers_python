@@ -1,3 +1,5 @@
+import math
+
 def solution(n, words):
     answer = []
     finish = []
@@ -9,12 +11,12 @@ def solution(n, words):
         
         if words[i][0] != words[i-1][-1]:
             answer.append((i+1)%n)
-            answer.append((i+1)//n)
+            answer.append(math.ceil((i+1)/n))
             return answer
         
         if words[i] in finish:
             answer.append((i+1)%n)
-            answer.append((i+1)//n)
+            answer.append(math.ceil((i+1)/n))
             return answer
         
         else:
