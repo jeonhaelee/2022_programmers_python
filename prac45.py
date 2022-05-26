@@ -6,12 +6,12 @@ def solution(n, words):
         if words[i] in finish:
             answer.append((i+1)%n)
             answer.append((i+1)//n)
+            return answer
         else:
             finish.append(words[i])
 
-    return answer
+    return [0,0]
 
-n = 5
-words = ["hello", "observe", "effect", "take", "either", "recognize", 
-         "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"]
+n = 2
+words = ["hello", "one", "even", "never", "now", "world", "draw"]
 print(solution(n, words))
