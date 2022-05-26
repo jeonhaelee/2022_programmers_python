@@ -1,3 +1,5 @@
+# 스택? 큐? 이용해보자
+
 import math
 
 def solution(numbers, target):
