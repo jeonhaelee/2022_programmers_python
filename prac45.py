@@ -22,12 +22,7 @@ def solution(n, words):
             else: answer.append((i+1)%n)
             answer.append(math.ceil((i+1)/n))
             return answer
-        
-        else:
-            finish.append(words[i])
+
+        finish.append(words[i])
 
     return [0,0]
-
-n = 3
-words = ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"]
-print(solution(n, words)) # [1, 3]
