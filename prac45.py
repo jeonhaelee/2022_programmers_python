@@ -4,9 +4,15 @@ def solution(n, words):
     
     for i in range(len(words)):
         if words[i] in finish:
-            answer.append((i+1)%3)
+            if (i+1)%3 == 0:
+                answer.append(3)
+            elif (i+1)%3 == 1:
+                answer.append(1)
+            elif (i+1)%3 == 2:
+                answer.append(2)
             answer.append((i+1)//3)
-
+        else:
+            finish.append(words[i])
 
     return answer
 
