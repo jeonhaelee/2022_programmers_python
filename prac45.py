@@ -4,18 +4,14 @@ def solution(n, words):
     
     for i in range(len(words)):
         if words[i] in finish:
-            if (i+1)%3 == 0:
-                answer.append(3)
-            elif (i+1)%3 == 1:
-                answer.append(1)
-            elif (i+1)%3 == 2:
-                answer.append(2)
-            answer.append((i+1)//3)
+            answer.append((i+1)%n)
+            answer.append((i+1)//n)
         else:
             finish.append(words[i])
 
     return answer
 
-n = 3
-words = ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"]
+n = 5
+words = ["hello", "observe", "effect", "take", "either", "recognize", 
+         "encourage", "ensure", "establish", "hang", "gather", "refer", "reference", "estimate", "executive"]
 print(solution(n, words))
