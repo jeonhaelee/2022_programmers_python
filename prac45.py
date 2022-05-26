@@ -10,12 +10,16 @@ def solution(n, words):
             continue
         
         if words[i][0] != words[i-1][-1]:
-            answer.append((i+1)%n)
+            if (i+1)%n == 0:
+                answer.append(n)
+            else: answer.append((i+1)%n)
             answer.append(math.ceil((i+1)/n))
             return answer
         
         if words[i] in finish:
-            answer.append((i+1)%n)
+            if (i+1)%n == 0:
+                answer.append(n)
+            else: answer.append((i+1)%n)
             answer.append(math.ceil((i+1)/n))
             return answer
         
@@ -24,6 +28,6 @@ def solution(n, words):
 
     return [0,0]
 
-n = 2
-words = ["hello", "one", "even", "never", "now", "world", "draw"]
+n = 3
+words = ["tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"]
 print(solution(n, words)) # [1, 3]
