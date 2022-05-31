@@ -1,5 +1,7 @@
 def solution(p):
-    answer = ''
+    answer = ""
+    rear_answer = ""
+    
     if p == "":
         return ""
     
@@ -9,7 +11,12 @@ def solution(p):
         if u.count("(") == u. count(")"):
             v += p[i]
         else: u += p[i]
-        
+    
+    for i in range(len(u)/2):
+        if u[i] != "(":
+            
+            break
+    answer += u
     return answer
 
 p = "(()())()"
