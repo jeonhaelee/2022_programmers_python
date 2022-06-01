@@ -41,9 +41,7 @@ def solution(p):
                 v = p[i+1:]
                 answer += solution(v)
                 answer += ")"
-                if len(v) == 0 or len(v) == 2:
-                    pass
-                else: answer += change(u[1:len(u)])
+                answer += change(u[1:len(u)])
                 break
 
     return answer
@@ -53,3 +51,6 @@ print('1번', solution(p)) #"(()())()"
 
 p = ")("
 print('2번', solution(p)) #"()"
+
+p = "()))((()"
+print('3번', solution(p)) #"()(())()"
