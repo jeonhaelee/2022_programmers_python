@@ -23,15 +23,13 @@ def change(u):
     
 def solution(p):
     answer = ""
-    rear_answer = ""
     
     if p == "":
         return ""
     
-    w = ""
     u = ""; v = ""
     for i in range(len(p)):
-        if w.count("(") == w. count(")"):
+        if u.count("(") == u. count(")"):
             if check(u):
                 answer += u
                 v = p[i:]
