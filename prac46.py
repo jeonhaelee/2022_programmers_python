@@ -1,5 +1,3 @@
-# import sys
-# sys.setrecursionlimit(10**6)
 
 def check(u):
     left = 0; right = 0
@@ -19,7 +17,6 @@ def change(u):
             result += ")"
         else: result += "("
     return result
-    
     
 def solution(p):
     answer = ""
@@ -41,7 +38,7 @@ def solution(p):
                 v = p[i+1:]
                 answer += solution(v)
                 answer += ")"
-                answer += change(u[1:len(u)])
+                answer += change(u[1:len(u)-1])
                 break
 
     return answer
