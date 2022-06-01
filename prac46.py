@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(10**6)
 
 def check(u):
     left = 0; right = 0
@@ -17,7 +19,6 @@ def change(u):
             result += ")"
         else: result += "("
     return result
-    
     
     
 def solution(p):
