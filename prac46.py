@@ -1,5 +1,5 @@
-import sys
-sys.setrecursionlimit(10**6)
+# import sys
+# sys.setrecursionlimit(10**6)
 
 def check(u):
     left = 0; right = 0
@@ -27,25 +27,27 @@ def solution(p):
     if p == "":
         return ""
     
-    u = ""; v = ""
+    u = ""
     for i in range(len(p)):
+        u += p[i]
         if u.count("(") == u. count(")"):
             if check(u):
                 answer += u
-                v = p[i:]
+                v = p[i+1:]
                 answer += solution(v)
+                break
             else:
                 answer += "("
-                v = p[i:]
+                v = p[i+1:]
                 answer += solution(v)
                 answer += ")"
                 answer += change(u[1:len(u)])
-        else: u += p[i]
+                break
 
     return answer
 
-p = "(()())()"
-print('1번', solution(p)) #"(()())()"
+# p = "(()())()"
+# print('1번', solution(p)) #"(()())()"
 
-p = ")("
-print('2번', solution(p)) #"()"
+# p = ")("
+# print('2번', solution(p)) #"()"
