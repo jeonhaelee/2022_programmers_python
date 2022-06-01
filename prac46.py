@@ -1,23 +1,25 @@
-def check(w):
+
+def check(u):
     left = 0; right = 0
-    for i in range(len(w)):
-        if w[i] == "(":
+    for i in range(len(u)):
+        if u[i] == "(":
             left += 1
-        elif w[i] == ")":
+        elif u[i] == ")":
             right += 1
         if left < right:
             return False
     return True
 
-def get_right(w):
-    u = ""; v = ""
-    for i in range(int(len(u)/2)):
-        if u[i] != "(":
-            answer += "("
-            break
-    answer += u
-
-
+def change(u):
+    result = ""
+    for i in range(len(u)):
+        if u[i] == "(":
+            result += ")"
+        else: result += "("
+    return result
+    
+    
+    
 def solution(p):
     answer = ""
     rear_answer = ""
@@ -26,11 +28,20 @@ def solution(p):
         return ""
     
     w = ""
+    u = ""; v = ""
     for i in range(len(p)):
         if w.count("(") == w. count(")"):
-            get_right(w)
-            w = ""
-        else: w += p[i]
+            if check(u):
+                answer += u
+                v = p[i:]
+                answer += solution(v)
+            else:
+                answer += "("
+                v = p[i:]
+                answer += solution(v)
+                answer += ")"
+                answer += change(u[1:len(u)])
+        else: u += p[i]
 
     return answer
 
