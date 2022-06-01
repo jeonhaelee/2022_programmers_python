@@ -1,3 +1,14 @@
+def check(w):
+    left = 0; right = 0
+    for i in range(len(w)):
+        if w[i] == "(":
+            left += 1
+        elif w[i] == ")":
+            right += 1
+        if left < right:
+            return False
+    return True
+
 def get_right(w):
     u = ""; v = ""
     for i in range(int(len(u)/2)):
