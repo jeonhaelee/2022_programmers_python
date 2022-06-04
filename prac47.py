@@ -3,6 +3,11 @@
 
 def solution(n):
     answer = 0
+    if n % 2 == 0:
+        
+    else:
+        
+        
     return answer
 
 n = 4
