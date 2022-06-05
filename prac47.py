@@ -11,7 +11,7 @@ def solution(n):
         i += 1
         
         
-    return answer
+    return int(answer)
 
 n = 4
 print(solution(n))
