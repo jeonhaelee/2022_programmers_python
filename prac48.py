@@ -6,6 +6,8 @@ def solution(w,h):
     loss = 0
     if w == h:
         loss = w
+    elif w > h:
+        loss = 2 * h - 2
     else:
         loss = 2 * w
     return answer - loss
