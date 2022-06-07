@@ -7,10 +7,10 @@ def solution(w,h):
     if w == h:
         loss = w
     elif w > h:
-        loss = 2 * h - 2
+        loss = 2 * h
     else:
         loss = 2 * w
     return answer - loss
 
-w = 8; h = 12
+w = 4; h = 3
 print(solution(w,h))
