@@ -1,5 +1,5 @@
 # 멀쩡한 사각형
-
+# w * h - (w + h - 최대공약수)
 
 def solution(w,h):
     answer = w * h
