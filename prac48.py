@@ -2,8 +2,10 @@
 
 
 def solution(w,h):
-    answer = 1
-    return answer
+    answer = w * h
+    loss = 0
+    
+    return answer - loss
 
 w = 8; h = 12
 print(solution(w,h))
