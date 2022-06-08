@@ -2,6 +2,13 @@
 
 def solution(lottos, win_nums):
     answer = []
+    zero = 0; same = 0
+    for n in lottos:
+        if n == 0:
+            zero += 1
+        elif n in win_nums:
+            same += 1
+    
     return answer
 
 lottos = [44, 1, 0, 0, 31, 25]
