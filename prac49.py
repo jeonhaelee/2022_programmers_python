@@ -8,7 +8,8 @@ def solution(lottos, win_nums):
             zero += 1
         elif n in win_nums:
             same += 1
-    
+    answer.append(same)
+    answer.append(zero)
     return answer
 
 lottos = [44, 1, 0, 0, 31, 25]
