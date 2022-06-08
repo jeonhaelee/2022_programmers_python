@@ -9,21 +9,21 @@ def solution(lottos, win_nums):
             zero += 1
         elif n in win_nums:
             same += 1
-            
-    if same == 6:
+    
+    max_rank = same + zero    
+    if max_rank == 6:
         answer.append(1)
-    elif same == 5:
+    elif max_rank == 5:
         answer.append(2)
-    elif same == 4:
+    elif max_rank == 4:
         answer.append(3)
-    elif same == 3:
+    elif max_rank == 3:
         answer.append(4)
-    elif same == 2:
+    elif max_rank == 2:
         answer.append(5)
     else:
         answer.append(6)
-        
-    same += zero
+
     if same == 6:
         answer.append(1)
     elif same == 5:
