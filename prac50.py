@@ -3,17 +3,25 @@
 
 def solution(id_list, report, k):
     answer = []
-    
+    count = []
     result = []
     for i in range(len(id_list)):
         result.append([])
+        count.append(0)
 
     for id in report:
         id1, id2 = id.split(" ")
         result[id_list.index(id1)].append(id2)
+        count[id_list.index(id2)] += 1
     
+    print(result)
+    print(count)
     
-       
+    target = []
+    for i in range(len(id_list)):
+        if count[i] >= k:
+            target.append(id_list[i])
+      
     return answer
 
 id_list = ["muzi", "frodo", "apeach", "neo"]
