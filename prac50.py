@@ -12,6 +12,8 @@ def solution(id_list, report, k):
 
     for id in report:
         id1, id2 = id.split(" ")
+        if id2 in result[id_list.index(id1)]:
+            continue
         result[id_list.index(id1)].append(id2)
         count[id_list.index(id2)] += 1
     
