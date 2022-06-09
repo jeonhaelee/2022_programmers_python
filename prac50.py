@@ -7,6 +7,7 @@ def solution(id_list, report, k):
     result = []
     for i in range(len(id_list)):
         result.append([])
+        answer.append(0)
         count.append(0)
 
     for id in report:
@@ -21,10 +22,21 @@ def solution(id_list, report, k):
     for i in range(len(id_list)):
         if count[i] >= k:
             target.append(id_list[i])
-      
+    
+    for i in range(len(result)):
+        for j in result[i]:
+            if j in target:
+                answer[i] += 1
+    print('answer :', answer)
+    
     return answer
 
 id_list = ["muzi", "frodo", "apeach", "neo"]
 report = ["muzi frodo","apeach frodo","frodo neo","muzi neo","apeach muzi"]
 k = 2
 print(solution(id_list, report, k))    # [2,1,1,0]
+
+id_list = ["con", "ryan"]
+report = ["ryan con", "ryan con", "ryan con", "ryan con"]
+k = 3
+print(solution(id_list, report, k))    # [0,0]
