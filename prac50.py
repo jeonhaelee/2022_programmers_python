@@ -10,8 +10,10 @@ def solution(id_list, report, k):
 
     for id in report:
         id1, id2 = id.split(" ")
-        result[id_list.index(id1)].append([id2])
-        
+        result[id_list.index(id1)].append(id2)
+    
+    
+       
     return answer
 
 id_list = ["muzi", "frodo", "apeach", "neo"]
