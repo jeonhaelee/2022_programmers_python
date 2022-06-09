@@ -2,9 +2,7 @@
 
 
 def solution(id_list, report, k):
-    answer = []
-    count = []
-    result = []
+    answer = []; count = []; result = []
     for i in range(len(id_list)):
         result.append([])
         answer.append(0)
@@ -16,10 +14,7 @@ def solution(id_list, report, k):
             continue
         result[id_list.index(id1)].append(id2)
         count[id_list.index(id2)] += 1
-    
-    print(result)
-    print(count)
-    
+
     target = []
     for i in range(len(id_list)):
         if count[i] >= k:
@@ -29,7 +24,6 @@ def solution(id_list, report, k):
         for j in result[i]:
             if j in target:
                 answer[i] += 1
-    print('answer :', answer)
     
     return answer
 
