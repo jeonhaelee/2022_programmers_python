@@ -1,9 +1,6 @@
 # 신고 결과 받기
 
 
-from operator import indexOf
-
-
 def solution(id_list, report, k):
     answer = []
     
@@ -13,7 +10,7 @@ def solution(id_list, report, k):
 
     for id in report:
         id1, id2 = id.split(" ")
-        result[indexOf(id1)].append([id2])
+        result[id_list.index(id1)].append([id2])
         
     return answer
 
