@@ -1,8 +1,20 @@
 # 신고 결과 받기
 
 
+from operator import indexOf
+
+
 def solution(id_list, report, k):
     answer = []
+    
+    result = []
+    for i in range(len(id_list)):
+        result.append([])
+
+    for id in report:
+        id1, id2 = id.split(" ")
+        result[indexOf(id1)].append([id2])
+        
     return answer
 
 id_list = ["muzi", "frodo", "apeach", "neo"]
