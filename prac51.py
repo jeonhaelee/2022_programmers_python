@@ -4,6 +4,8 @@
 
 def solution(N, stages):
     answer = []
+    sub_answer = []
+    
     sub = []
     for i in range(N):
         sub.append(0)
@@ -13,8 +15,11 @@ def solution(N, stages):
             sub[j-1] += 1
     
     for i in range(N):
-        answer.append((len(stages)-sub[i])/len(stages))
-            
+        sub_answer.append([(len(stages)-sub[i])/len(stages), i])
+    
+    sub_answer.sort(reverse=True)
+    
+    print(sub_answer)
     return answer
 
 N = 5
