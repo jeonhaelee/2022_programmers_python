@@ -11,6 +11,9 @@ def solution(N, stages):
     for i in range(len(stages)):
         for j in range(stages[i]):
             sub[j-1] += 1
+    
+    for i in range(N):
+        answer.append((len(stages)-sub[i])/len(stages))
             
     return answer
 
