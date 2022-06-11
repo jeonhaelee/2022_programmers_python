@@ -19,7 +19,9 @@ def solution(N, stages):
     
     sub_answer.sort(reverse=True)
     
-    print(sub_answer)
+    for n in sub_answer:
+        answer.append(n[1])
+        
     return answer
 
 N = 5
