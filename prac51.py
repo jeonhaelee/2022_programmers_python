@@ -21,7 +21,7 @@ def solution(N, stages):
     print(sub_answer)
     
     for n in sub_answer:
-        answer.append(n[1])
+        answer.append(n[1] + 1)
         
     return answer
 
