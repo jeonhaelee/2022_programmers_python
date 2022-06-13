@@ -18,6 +18,7 @@ def solution(N, stages):
         sub_answer.append([(len(stages)-sub[i])/len(stages), i])
     
     sub_answer.sort(reverse=True)
+    print(sub_answer)
     
     for n in sub_answer:
         answer.append(n[1])
