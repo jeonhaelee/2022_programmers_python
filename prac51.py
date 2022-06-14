@@ -32,10 +32,14 @@
 def solution(N, stages):
     answer = []
     success = []; loss =[]
+    for i in range(N):
+        success.append(0)
+        loss.append(0)
+    
     
     for i in range(N):
         for person in stages:
-            if person >= i+1:
+            if person > i+1:
                 success[i] += 1
             else:
                 loss[i] += 1
