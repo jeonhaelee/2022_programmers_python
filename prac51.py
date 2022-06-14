@@ -2,35 +2,6 @@
 # 스테이지 개수 : N
 # stages 각 자연수는 사용자가 현재 도전 중인 스테이지의 번호를 나타낸다.
 
-# def solution(N, stages):
-#     answer = []
-#     sub_answer = []
-    
-#     sub = []
-#     for i in range(N):
-#         sub.append(0)
-        
-#     for i in range(len(stages)):
-#         for j in range(stages[i]):
-#             sub[j-1] += 1
-    
-#     print(sub)
-#     for i in range(N):
-#         sub_answer.append([(len(stages)-sub[i])/len(stages), i])
-    
-#     sub_answer.sort(reverse=True)
-#     print(sub_answer)
-    
-#     for n in sub_answer:
-#         answer.append(n[1] + 1)
-        
-#     return answer
-
-
-
-
-
-
 def solution(N, stages):
     answer = []
     sub = []
@@ -54,14 +25,18 @@ def solution(N, stages):
     print(f'loss : {loss}')
     
     for i in range(N):
+        print(f'{loss[i]}/{remain}')
         ratio = (loss[i]/remain)
+        print(f'{i+1}번째 ratio : {ratio}')
         remain -= loss[i]
         sub.append([ratio, i+1])
-        
-    sub.sort(reverse=True) 
+    
+    print(f'정렬 전 sub : {sub}')
+    sub.sort(key= lambda x : (-x[0], x[1])) 
+    print(f'정렬 후 sub : {sub}')
     
     for i in range(N):
-        answer.append(sub[1])
+        answer.append(sub[i][1])
         
     return answer
 
