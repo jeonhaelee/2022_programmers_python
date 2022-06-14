@@ -44,3 +44,8 @@ def solution(N, stages):
 N = 5
 stages = [2, 1, 2, 6, 2, 4, 3, 3]
 print(solution(N, stages))  # [3,4,2,1,5]
+
+N = 4
+stages = [4,4,4,4,4]
+print(solution(N, stages))  # [4,1,2,3]
+
