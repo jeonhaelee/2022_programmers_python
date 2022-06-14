@@ -14,6 +14,7 @@ def solution(N, stages):
         for j in range(stages[i]):
             sub[j-1] += 1
     
+    print(sub)
     for i in range(N):
         sub_answer.append([(len(stages)-sub[i])/len(stages), i])
     
