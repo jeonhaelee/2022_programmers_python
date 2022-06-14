@@ -29,23 +29,39 @@
 
 
 
+
+
 def solution(N, stages):
     answer = []
-    success = []; loss =[]
+    sub = []
+    
+    loss =[]
+    remain = len(stages)
+    
     for i in range(N):
-        success.append(0)
         loss.append(0)
     
     
-    for i in range(N):
-        for person in stages:
-            if person > i+1:
-                success[i] += 1
+    for i in range(1, N+1):
+        for p in range(len(stages)):
+            if i == 1:
+                if stages[p] <= i:
+                    loss[i-1] += 1
             else:
-                loss[i] += 1
-            
-    print(f'success : {success}')
+                if stages[p] == i:
+                    loss[i-1] += 1
+
     print(f'loss : {loss}')
+    
+    for i in range(N):
+        ratio = (loss[i]/remain)
+        remain -= loss[i]
+        sub.append([ratio, i+1])
+        
+    sub.sort(reverse=True) 
+    
+    for i in range(N):
+        answer.append(sub[1])
         
     return answer
 
