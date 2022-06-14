@@ -27,9 +27,21 @@
 #     return answer
 
 
+
+
 def solution(N, stages):
     answer = []
+    success = []; loss =[]
     
+    for i in range(N):
+        for person in stages:
+            if person >= i+1:
+                success[i] += 1
+            else:
+                loss[i] += 1
+            
+    print(f'success : {success}')
+    print(f'loss : {loss}')
         
     return answer
 
