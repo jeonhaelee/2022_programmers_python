@@ -29,7 +29,10 @@ def solution(N, stages):
     
     for i in range(N):
         print(f'{loss[i]}/{remain}')
-        ratio = (loss[i]/remain)
+        if remain == 0:
+            ratio = 0
+        else:
+            ratio = (loss[i]/remain)
         print(f'{i+1}번째 ratio : {ratio}')
         remain -= loss[i]
         sub.append([ratio, i+1])
@@ -44,11 +47,14 @@ def solution(N, stages):
     return answer
 
 
+# N = 5
+# stages = [2, 1, 2, 6, 2, 4, 3, 3]
+# print(solution(N, stages))  # [3,4,2,1,5]
+
+# N = 4
+# stages = [4,4,4,4,4]
+# print(solution(N, stages))  # [4,1,2,3]
+
 N = 5
-stages = [2, 1, 2, 6, 2, 4, 3, 3]
-print(solution(N, stages))  # [3,4,2,1,5]
-
-N = 4
-stages = [4,4,4,4,4]
-print(solution(N, stages))  # [4,1,2,3]
-
+stages = [3, 3, 3, 3]
+print(solution(N, stages))  
