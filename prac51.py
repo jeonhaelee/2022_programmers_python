@@ -2,6 +2,8 @@
 # 스테이지 개수 : N
 # stages 각 자연수는 사용자가 현재 도전 중인 스테이지의 번호를 나타낸다.
 
+# 내 풀이
+
 def solution(N, stages):
     answer = []
     sub = []
@@ -52,3 +54,37 @@ print(solution(N, stages))  # [4,1,2,3]
 N = 5
 stages = [3, 3, 3, 3]
 print(solution(N, stages))  
+
+
+# 다른 사람 풀이1
+
+def solution(N, stages):
+    result = {}
+    denominator = len(stages)
+    for stage in range(1, N+1):
+        if denominator != 0:
+            count = stages.count(stage)
+            result[stage] = count / denominator
+            denominator -= count
+        else:
+            result[stage] = 0
+    return sorted(result, key=lambda x : result[x], reverse=True)
+
+# 다른 사람 풀이2
+
+def solution(N, stages):
+    answer = []
+    fail = []
+    info = [0] * (N + 2)
+    for stage in stages:
+        info[stage] += 1
+    for i in range(N):
+        be = sum(info[(i + 1):])
+        yet = info[i + 1]
+        if be == 0:
+            fail.append((str(i + 1), 0))
+        else:
+            fail.append((str(i + 1), yet / be))
+    for item in sorted(fail, key=lambda x: x[1], reverse=True):
+        answer.append(int(item[0]))
+    return answer
