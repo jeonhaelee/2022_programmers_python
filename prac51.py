@@ -12,8 +12,8 @@ def solution(N, stages):
     for i in range(N):
         loss.append(0)
     
-    
-    for i in range(1, N+1):
+    i = 1
+    while True:
         for p in range(len(stages)):
             if i == 1:
                 if stages[p] <= i:
@@ -21,6 +21,9 @@ def solution(N, stages):
             else:
                 if stages[p] == i:
                     loss[i-1] += 1
+        i += 1
+        if i == N + 1:
+            break
 
     print(f'loss : {loss}')
     
