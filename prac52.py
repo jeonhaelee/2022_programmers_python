@@ -12,15 +12,16 @@ def get_number(s):
     elif s == "T":
         return 3
     
-    
-    
 def solution(dartResult):
     answer = 0
     for i in range(len(dartResult)):
+        sub = 0
         if dartResult[i].isdigit:    
-            answer += math.pow(dartResult[i],get_number(dartResult[i+1]))
-        elif dartResult[i] == "*":
-            
+            sub = math.pow(dartResult[i],get_number(dartResult[i+1]))
+            if dartResult[i+2] == "*":
+                answer += sub * 2
+            elif dartResult[i+2] == "#":
+                answer -= sub
     return answer
 
 dartResult = "1S2D*3T"
