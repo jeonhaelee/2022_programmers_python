@@ -2,8 +2,12 @@
 # 점수와 함께 Single(S), Double(D), Triple(T) 영역이 존재하고 
 # 각 영역 당첨 시 점수에서 1제곱, 2제곱, 3제곱 (점수1 , 점수2 , 점수3 )으로 계산.
 
+import math
+
 def solution(dartResult):
     answer = 0
+    for i in range(len(dartResult)):
+        answer += math.pow(dartResult[i],dartResult[i+1])
     return answer
 
 dartResult = "1S2D*3T"
