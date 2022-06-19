@@ -4,10 +4,23 @@
 
 import math
 
+def get_number(s):
+    if s == "S":
+        return 1
+    elif s == "D":
+        return 2
+    elif s == "T":
+        return 3
+    
+    
+    
 def solution(dartResult):
     answer = 0
     for i in range(len(dartResult)):
-        answer += math.pow(dartResult[i],dartResult[i+1])
+        if dartResult[i].isdigit:    
+            answer += math.pow(dartResult[i],get_number(dartResult[i+1]))
+        elif dartResult[i] == "*":
+            
     return answer
 
 dartResult = "1S2D*3T"
