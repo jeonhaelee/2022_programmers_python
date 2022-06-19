@@ -25,9 +25,11 @@ def solution(dartResult):
         sub = math.pow(int(number),get_number(dartResult[i]))
         
         if i == len(dartResult) - 1:
+            answer += sub
             pass
         else:
             if dartResult[i+1] == "*":
+                answer = answer * 2
                 answer += sub * 2
             elif dartResult[i+1] == "#":
                 answer -= sub
