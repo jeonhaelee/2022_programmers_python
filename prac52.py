@@ -16,12 +16,22 @@ def solution(dartResult):
     answer = 0
     for i in range(len(dartResult)):
         sub = 0
-        if dartResult[i].isdigit:    
-            sub = math.pow(dartResult[i],get_number(dartResult[i+1]))
-            if dartResult[i+2] == "*":
+        
+        number = ""
+        if dartResult[i].isdigit:
+            number += dartResult[i]    
+            continue
+        
+        sub = math.pow(int(number),get_number(dartResult[i]))
+        
+        if i == len(dartResult) - 1:
+            pass
+        else:
+            if dartResult[i+1] == "*":
                 answer += sub * 2
-            elif dartResult[i+2] == "#":
+            elif dartResult[i+1] == "#":
                 answer -= sub
+            
     return answer
 
 dartResult = "1S2D*3T"
