@@ -12,6 +12,13 @@ def get_number(s):
     elif s == "T":
         return 3
 
+def get_sub_sum(sub_list):
+    ans = 0
+    for sub in sub_list:
+        ans += sub
+    return ans
+    
+    
 def solution(dartResult):
     answer = 0
     sub_list = []
@@ -39,8 +46,8 @@ def solution(dartResult):
             print(f'sub_list : {sub_list}')
             
             if len(li) == 0:
-                for sub in sub_list:
-                    answer += sub
+                print(f'sub_list : {sub_list}')
+                answer += get_sub_sum(sub_list)
                 break
                 
             if li[0] == "*":
@@ -49,11 +56,15 @@ def solution(dartResult):
                 answer += sub_list[-1] * 2
                 del sub_list[-1]
                 del li[0]
+                answer += get_sub_sum(sub_list)
+                sub_list = []
 
             elif li[0] == "#":
                 answer -= sub_list[-1]
                 del sub_list[-1]
                 del li[0]
+                answer += get_sub_sum(sub_list)
+                sub_list = []
             
     return int(answer)
 
