@@ -15,35 +15,39 @@ def get_number(s):
 def solution(dartResult):
     answer = 0
     
+    li = list(dartResult)
+    print(li)
+    
     number = ""; sub = 0
     
     i = 0
-    while i < len(dartResult):
+    while i < len(li):
         
-        if dartResult[i].isdigit():
-            number += dartResult[i] 
+        if li[i].isdigit():
+            number += li[i] 
             i += 1
             continue
         
-        sub = math.pow(int(number),get_number(dartResult[i]))
-        
-        if i == len(dartResult) - 1:
-            answer += sub
-            number = ""
-            sub = 0
-            i += 1
-        else:
-            if dartResult[i+1] == "*":
+        sub = math.pow(int(number),get_number(li[i]))
+
+        if i != len(li) - 1:
+            
+            if li[i+1] == "*":
                 answer = answer * 2
                 answer += sub * 2
                 number = ""
                 sub = 0
                 i += 2
-            elif dartResult[i+1] == "#":
+            elif li[i+1] == "#":
                 answer -= sub
                 number = ""
                 sub = 0
                 i += 2
+            else:
+                answer += sub
+                number = ""
+                sub = 0
+                i += 1
             
     return answer
 
