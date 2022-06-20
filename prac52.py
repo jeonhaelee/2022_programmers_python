@@ -35,6 +35,8 @@ def solution(dartResult):
             
             sub = math.pow(done_num, get_num)
             sub_list.append(sub)
+            print(f'sub : {sub}')
+            print(f'sub_list : {sub_list}')
             
             if len(li) == 0:
                 for sub in sub_list:
@@ -55,49 +57,6 @@ def solution(dartResult):
             
     return int(answer)
 
-# def solution(dartResult):
-#     answer = 0
-    
-#     li = list(dartResult)
-#     print(li)
-    
-#     number = ""
-#     while len(li) > 0:
-        
-#         if li[0].isdigit():
-#             number += li[0]
-#             del li[0]
-#             print(li)
-            
-#         else:
-#             done_num = int(number)
-#             number = ""
-            
-#             get_num = get_number(li[0])
-#             del li[0]
-#             print(li)
-            
-#             sub = math.pow(done_num, get_num)
-            
-#             if len(li) == 0:
-#                 answer += sub
-#                 break
-                
-#             if li[0] == "*":
-#                 answer = answer * 2
-#                 answer += sub * 2
-#                 del li[0]
-#                 print(li)
-
-#             elif li[0] == "#":
-#                 answer -= sub
-#                 del li[0]
-#                 print(li)
-
-#             else:
-#                 answer += sub
-            
-#     return int(answer)
 
 dartResult = "1S2D*3T" # 37
 print(solution(dartResult)) 
