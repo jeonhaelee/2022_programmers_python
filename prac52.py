@@ -24,6 +24,7 @@ def solution(dartResult):
         if li[0].isdigit():
             number += li[0]
             del li[0]
+            print(li)
             
         else:
             done_num = int(number)
@@ -31,22 +32,29 @@ def solution(dartResult):
             
             get_num = get_number(li[0])
             del li[0]
+            print(li)
             
             sub = math.pow(done_num, get_num)
             
+            if len(li) == 0:
+                answer += sub
+                break
+                
             if li[0] == "*":
                 answer = answer * 2
                 answer += sub * 2
                 del li[0]
+                print(li)
 
             elif li[0] == "#":
                 answer -= sub
                 del li[0]
+                print(li)
 
             else:
                 answer += sub
             
-    return answer
+    return int(answer)
 
 dartResult = "1S2D*3T"
 answer = 37
