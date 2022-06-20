@@ -51,10 +51,16 @@ def solution(dartResult):
                 break
                 
             if li[0] == "*":
-                answer += sub_list[-1] * 2
-                del sub_list[-1]
-                answer += sub_list[-1] * 2
-                del sub_list[-1]
+                if len(sub_list) == 1:
+                    answer += sub_list[-1] * 2
+                    del sub_list[-1]
+    
+                else:
+                    answer += sub_list[-1] * 2
+                    del sub_list[-1]
+                    answer += sub_list[-1] * 2
+                    del sub_list[-1]
+                    
                 del li[0]
                 answer += get_sub_sum(sub_list)
                 sub_list = []
