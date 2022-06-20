@@ -25,7 +25,6 @@ def solution(dartResult):
         if li[0].isdigit():
             number += li[0]
             del li[0]
-            print(li)
             
         else:
             done_num = int(number)
@@ -33,32 +32,26 @@ def solution(dartResult):
             
             get_num = get_number(li[0])
             del li[0]
-            print(li)
             
             sub = math.pow(done_num, get_num)
             sub_list.append(sub)
             
             if len(li) == 0:
-                answer += sub_list[0]
+                for sub in sub_list:
+                    answer += sub
                 break
                 
             if li[0] == "*":
-                answer += sub_list[0] * 2
-                answer += sub_list[1] * 2
-                sub_list = []
+                answer += sub_list[-1] * 2
+                del sub_list[-1]
+                answer += sub_list[-1] * 2
+                del sub_list[-1]
                 del li[0]
-                print(li)
 
             elif li[0] == "#":
-                answer += sub_list[0]
-                answer -= sub_list[1]
-                sub_list = []
+                answer -= sub_list[-1]
+                del sub_list[-1]
                 del li[0]
-                print(li)
-
-            else:
-                for sub in sub_list:
-                    answer += sub
             
     return int(answer)
 
