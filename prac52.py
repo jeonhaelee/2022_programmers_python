@@ -12,72 +12,38 @@ def get_number(s):
     elif s == "T":
         return 3
 
-def get_sub_sum(sub_list):
-    ans = 0
-    for sub in sub_list:
-        ans += sub
-    return ans
-    
-    
 def solution(dartResult):
     answer = 0
     sub_list = []
     
     li = list(dartResult)
-    print(li)
     
     number = ""
-    while len(li) > 0:
-        
-        if li[0].isdigit():
-            number += li[0]
-            del li[0]
-            
-        else:
+    for i in range(len(li)):
+        if li[i].isdigit():
+            number += li[i]
+        elif li[i] in ("S","D","T"):
             done_num = int(number)
             number = ""
             
-            get_num = get_number(li[0])
-            del li[0]
+            get_num = get_number(li[i])
             
             sub = math.pow(done_num, get_num)
-            
-            
-            
-            if li[0] == "#":
-                sub_list.append(-sub)
-                del li[0]
-            else:
-                sub_list.append(sub)
-                
-            print(f'sub : {sub}')
-            print(f'sub_list : {sub_list}')
-            
-            if len(li) == 0:
-                print(f'sub_list : {sub_list}')
-                answer += get_sub_sum(sub_list)
-                print(f'answer : {answer}')
-                break
-            
-            if li[0] == "*":
-                if len(sub_list) == 1:
-                    answer += sub_list[-1] * 2
-                    del sub_list[-1]
-                    print(f'answer : {answer}')
-    
-                else:
-                    answer += sub_list[-1] * 2
-                    del sub_list[-1]
-                    answer += sub_list[-1] * 2
-                    del sub_list[-1]
-                    print(f'answer : {answer}')
-                    
-                del li[0]
-                answer += get_sub_sum(sub_list)
-                print(f'answer : {answer}')
-                sub_list = []
+            sub_list.append(sub)
+ 
+        elif li[i] == "#":
+            sub_list[-1] = -sub_list[-1]       
         
-            
+        elif li[i] == "*":
+            if len(sub_list) == 1:
+                sub_list[-1] = sub_list[-1] * 2
+            else:
+                sub_list[-2] = sub_list[-2] * 2
+                sub_list[-1] = sub_list[-1] * 2
+                
+    for sub in sub_list:
+        answer += sub
+        
     return int(answer)
 
 
