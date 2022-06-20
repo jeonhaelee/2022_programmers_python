@@ -41,36 +41,41 @@ def solution(dartResult):
             del li[0]
             
             sub = math.pow(done_num, get_num)
-            sub_list.append(sub)
-            print(f'sub : {sub}')
-            print(f'sub_list : {sub_list}')
             
             if len(li) == 0:
+                sub_list.append(sub)
                 print(f'sub_list : {sub_list}')
                 answer += get_sub_sum(sub_list)
+                print(f'answer : {answer}')
                 break
+            
+            if li[0] == "#":
+                sub_list.append(-sub)
+                del li[0]
+            else:
+                sub_list.append(sub)
+                
+            print(f'sub : {sub}')
+            print(f'sub_list : {sub_list}')
                 
             if li[0] == "*":
                 if len(sub_list) == 1:
                     answer += sub_list[-1] * 2
                     del sub_list[-1]
+                    print(f'answer : {answer}')
     
                 else:
                     answer += sub_list[-1] * 2
                     del sub_list[-1]
                     answer += sub_list[-1] * 2
                     del sub_list[-1]
+                    print(f'answer : {answer}')
                     
                 del li[0]
                 answer += get_sub_sum(sub_list)
+                print(f'answer : {answer}')
                 sub_list = []
-
-            elif li[0] == "#":
-                answer -= sub_list[-1]
-                del sub_list[-1]
-                del li[0]
-                answer += get_sub_sum(sub_list)
-                sub_list = []
+        
             
     return int(answer)
 
