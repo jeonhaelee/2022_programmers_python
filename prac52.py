@@ -14,25 +14,36 @@ def get_number(s):
     
 def solution(dartResult):
     answer = 0
-    for i in range(len(dartResult)):
-        sub = 0
+    
+    number = ""; sub = 0
+    
+    i = 0
+    while i < len(dartResult):
         
-        number = ""
-        if dartResult[i].isdigit:
-            number += dartResult[i]    
+        if dartResult[i].isdigit():
+            number += dartResult[i] 
+            i += 1
             continue
         
         sub = math.pow(int(number),get_number(dartResult[i]))
         
         if i == len(dartResult) - 1:
             answer += sub
-            pass
+            number = ""
+            sub = 0
+            i += 1
         else:
             if dartResult[i+1] == "*":
                 answer = answer * 2
                 answer += sub * 2
+                number = ""
+                sub = 0
+                i += 2
             elif dartResult[i+1] == "#":
                 answer -= sub
+                number = ""
+                sub = 0
+                i += 2
             
     return answer
 
