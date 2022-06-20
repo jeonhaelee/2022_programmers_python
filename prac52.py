@@ -69,8 +69,5 @@ def solution(dartResult):
     return int(answer)
 
 
-dartResult = "1S2D*3T" # 37
+dartResult = "1D#2S*3S" # 5
 print(solution(dartResult)) 
-
-dartResult = "1D2S3T*"
-print(solution(dartResult)) # 59
