@@ -18,36 +18,33 @@ def solution(dartResult):
     li = list(dartResult)
     print(li)
     
-    number = ""; sub = 0
-    
-    i = 0
-    while i < len(li):
+    number = ""
+    while len(li) > 0:
         
-        if li[i].isdigit():
-            number += li[i] 
-            i += 1
-            continue
-        
-        sub = math.pow(int(number),get_number(li[i]))
-
-        if i != len(li) - 1:
+        if li[0].isdigit():
+            number += li[0]
+            del li[0]
             
-            if li[i+1] == "*":
+        else:
+            done_num = int(number)
+            number = ""
+            
+            get_num = get_number(li[0])
+            del li[0]
+            
+            sub = math.pow(done_num, get_num)
+            
+            if li[0] == "*":
                 answer = answer * 2
                 answer += sub * 2
-                number = ""
-                sub = 0
-                i += 2
-            elif li[i+1] == "#":
+                del li[0]
+
+            elif li[0] == "#":
                 answer -= sub
-                number = ""
-                sub = 0
-                i += 2
+                del li[0]
+
             else:
                 answer += sub
-                number = ""
-                sub = 0
-                i += 1
             
     return answer
 
