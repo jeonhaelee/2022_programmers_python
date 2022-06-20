@@ -42,12 +42,7 @@ def solution(dartResult):
             
             sub = math.pow(done_num, get_num)
             
-            if len(li) == 0:
-                sub_list.append(sub)
-                print(f'sub_list : {sub_list}')
-                answer += get_sub_sum(sub_list)
-                print(f'answer : {answer}')
-                break
+            
             
             if li[0] == "#":
                 sub_list.append(-sub)
@@ -57,7 +52,13 @@ def solution(dartResult):
                 
             print(f'sub : {sub}')
             print(f'sub_list : {sub_list}')
-                
+            
+            if len(li) == 0:
+                print(f'sub_list : {sub_list}')
+                answer += get_sub_sum(sub_list)
+                print(f'answer : {answer}')
+                break
+            
             if li[0] == "*":
                 if len(sub_list) == 1:
                     answer += sub_list[-1] * 2
@@ -80,5 +81,5 @@ def solution(dartResult):
     return int(answer)
 
 
-dartResult = "1D#2S*3S" # 5
+dartResult = "1T2D3D#"
 print(solution(dartResult)) 
