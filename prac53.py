@@ -5,7 +5,8 @@
 def solution(n, arr1, arr2):
     answer = []
     for i in range(n):
-        answer.append([])
+        for j in range(n):
+            answer.append([0])
 
     arr1_fin = []
     for num in arr1:
@@ -19,10 +20,10 @@ def solution(n, arr1, arr2):
         str = list(bin(num)[2:])
         while len(str) != n:
             str.insert(0, '0')
-        arr1_fin.append(str)
+        arr2_fin.append(str)
     
-    # 만약 숫자의 길이가 5가 아닐경우가 있으니,
-    # 일단 n * n answer을 만들어주고 0을 채워넣자.
+    print(arr1_fin)
+    print(arr2_fin)
 
     for i in range(n):
         for j in range(n):
