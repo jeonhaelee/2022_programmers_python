@@ -17,6 +17,7 @@ def solution(n, arr1, arr2):
         str = bin(num)
         arr2_fin.append(list(str[2:]))
     
+
     for i in range(n):
         for j in range(n):
             if arr1_fin[i][j] == '0' and arr2_fin[i][j] == '0':
