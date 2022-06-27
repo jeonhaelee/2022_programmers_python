@@ -32,8 +32,15 @@ def solution(board, moves):
                     answer += 1
                     
                 break
+        if len(get) >= 2 and get[-2] == get[-1]:
+            del get[-1]
+            del get[-1]
+            answer += 1
             
-    
+    if len(get) >= 2 and get[-2] == get[-1]:
+                    del get[-1]
+                    del get[-1]
+                    answer += 1
     
             
     return answer
