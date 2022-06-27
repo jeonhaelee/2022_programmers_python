@@ -4,22 +4,24 @@
 
 def solution(board, moves):
     answer = 0
-    n = len(board)
-    get = []
+    # n = len(board)
+    # get = []
     
-    for i in range(len(moves)):
-        num = moves[i]
+    # for i in range(len(moves)):
+    #     num = moves[i]
         
-        get.append(board[num][-1])
-        board[num][-1] = 0
+    #     get.append(board[num][-1])
+    #     board[num][-1] = 0
         
-        if len(get) >= 2 and get[-2] == get[-1]:
-            del get[-1]
-            del get[-1]
-            answer += 1
+    #     if len(get) >= 2 and get[-2] == get[-1]:
+    #         del get[-1]
+    #         del get[-1]
+    #         answer += 1
             
-    print(board) 
-    print(get)
+    # print(board) 
+    # print(get)
+    
+    print(board[3][0])
     
     return answer
 
