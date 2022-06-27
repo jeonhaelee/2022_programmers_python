@@ -4,8 +4,7 @@
 
 def solution(board, moves):
     answer = 0
-    # n = len(board)
-    # get = []
+    get = []
     
     # for i in range(len(moves)):
     #     num = moves[i]
@@ -21,8 +20,22 @@ def solution(board, moves):
     # print(board) 
     # print(get)
     
-    print(board[3][0])
+    for n in moves:
+        for i in range(len(board)):
+            if board[i][n-1] != 0:
+                get.append(board[i][n-1])
+                board[i][n-1] = 0
+                
+                if len(get) >= 2 and get[-2] == get[-1]:
+                    del get[-1]
+                    del get[-1]
+                    answer += 1
+                    
+                break
+            
     
+    
+            
     return answer
 
 board = [[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]]
