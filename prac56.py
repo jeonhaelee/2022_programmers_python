@@ -1,30 +1,24 @@
 # 크레인 인형뽑기 게임
 # "N x N" 크기의 정사각 격자. 인형이 없는 칸은 빈칸.
 
+def get_item(board, check_n):
+    for i in range(len(board)):
+        if board[i][check_n] != 0:
+            board[i][check_n] = 0
+            return board[i][check_n]
 
+def if_same_remove():
+    
+    if len(get) > 1:
+    
 def solution(board, moves):
     answer = 0
     get = []
     
-    # for i in range(len(moves)):
-    #     num = moves[i]
-        
-    #     get.append(board[num][-1])
-    #     board[num][-1] = 0
-        
-    #     if len(get) >= 2 and get[-2] == get[-1]:
-    #         del get[-1]
-    #         del get[-1]
-    #         answer += 1
-            
-    # print(board) 
-    # print(get)
-    
     for n in moves:
-        for i in range(len(board)):
-            if board[i][n-1] != 0:
-                get.append(board[i][n-1])
-                board[i][n-1] = 0
+        
+        get.append(get_item(board, n))
+
                 
                 if len(get) >= 2 and get[-2] == get[-1]:
                     del get[-1]
