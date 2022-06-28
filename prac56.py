@@ -6,8 +6,11 @@
 def get_item(board, check_n):
     for i in range(len(board)):
         if board[i][check_n-1] != 0:
+            get_num = board[i][check_n-1]
             board[i][check_n-1] = 0
-            return board[i][check_n-1]
+            return get_num
+    
+    return 0
 
 def if_same_remove(get, answer):
     
@@ -15,6 +18,7 @@ def if_same_remove(get, answer):
         del get[-1]
         del get[-1]
         answer += 1
+        print(get)
     
     return answer
 
@@ -34,8 +38,12 @@ def solution(board, moves):
     get = []
     
     for n in moves:
-        get.append(get_item(board, n))
-        answer = if_same_remove(get, answer)
+        if get_item(board, n) == 0:
+            continue
+        else: 
+            get.append(get_item(board, n))
+            print(get)
+            answer = if_same_remove(get, answer)
     
     while check_same(get) :
         for i in range(len(get)-1):
@@ -43,7 +51,10 @@ def solution(board, moves):
                     answer += 1
                     del get[i]
                     del get[i]
+                    print(get)
     
+    print(board)
+    print(get)
     return answer
 
 board = [[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]]
