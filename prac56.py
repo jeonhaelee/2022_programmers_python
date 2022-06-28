@@ -15,6 +15,8 @@ def if_same_remove(get, answer):
         del get[-1]
         del get[-1]
         answer += 1
+    
+    return answer
 
 def check_same(get):
     result = False
@@ -33,7 +35,7 @@ def solution(board, moves):
     
     for n in moves:
         get.append(get_item(board, n))
-        if_same_remove(get, answer)
+        answer = if_same_remove(get, answer)
     
     while check_same(get) :
         for i in range(len(get)-1):
