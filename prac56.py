@@ -2,14 +2,21 @@
 # "N x N" 크기의 정사각 격자. 인형이 없는 칸은 빈칸.
 
 
+get = []
 
 def get_item(board, check_n):
+    global get
+    get_num = None
+    
     for i in range(len(board)):
         if board[i][check_n-1] != 0:
             get_num = board[i][check_n-1]
             board[i][check_n-1] = 0
-            return get_num
-    return 0
+            break
+    if get_num == None:
+        pass
+    else:
+        get.append(get_num)
 
 def if_same_remove(get, answer):
     
@@ -20,8 +27,9 @@ def if_same_remove(get, answer):
     
     return answer
 
-def check_same(get):
+def check_same():
     result = False
+    global get
     
     if len(get) >= 2:
         for i in range(len(get)-1):
@@ -33,17 +41,14 @@ def check_same(get):
 
 def solution(board, moves):
     answer = 0
-    get = []
+    global get
     
     for n in moves:
-        if get_item(board, n) == 0:
-            continue
-        else:
-            get.append(get_item(board, n))
+        get_item(board, n)
         print(f'{n} 넣은 후 get : {get}')
         answer = if_same_remove(get, answer)
     
-    while check_same(get) :
+    while check_same() :
         for i in range(len(get)-1):
             if get[i] == get[i+1]:
                     answer += 1
