@@ -38,12 +38,9 @@ def solution(board, moves):
     get = []
     
     for n in moves:
-        if get_item(board, n) == 0:
-            continue
-        else: 
-            get.append(get_item(board, n))
-            print(get)
-            answer = if_same_remove(get, answer)
+        get.append(get_item(board, n))
+        print(get)
+        answer = if_same_remove(get, answer)
     
     while check_same(get) :
         for i in range(len(get)-1):
