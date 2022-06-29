@@ -9,7 +9,6 @@ def get_item(board, check_n):
             get_num = board[i][check_n-1]
             board[i][check_n-1] = 0
             return get_num
-    
     return 0
 
 def if_same_remove(get, answer):
@@ -37,7 +36,10 @@ def solution(board, moves):
     get = []
     
     for n in moves:
-        get.append(get_item(board, n))
+        if get_item(board, n) == 0:
+            continue
+        else:
+            get.append(get_item(board, n))
         print(f'{n} 넣은 후 get : {get}')
         answer = if_same_remove(get, answer)
     
