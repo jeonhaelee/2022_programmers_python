@@ -87,7 +87,7 @@ def if_same_remove(get, answer):
     if len(get) >= 2 and get[-2] == get[-1]:
         del get[-1]
         del get[-1]
-        answer += 1
+        answer += 2
     
     return answer
 
@@ -109,19 +109,16 @@ def solution(board, moves):
     
     for n in moves:
         get_item(board, n)
-        print(f'{n} 넣은 후 get : {get}')
         answer = if_same_remove(get, answer)
     
     while check_same() :
         for i in range(len(get)-1):
             if get[i] == get[i+1]:
-                    answer += 1
+                    answer += 2
                     del get[i]
                     del get[i]
     
-    print(f'최종 board : {board}')
-    print(f'최종 get : {get}')
-    return answer*2
+    return answer
 
 board = [[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]]
 moves = [1,5,3,5,1,2,1,4]
