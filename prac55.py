@@ -3,4 +3,10 @@
 
 def solution(numbers, hand):
     answer = ''
+    
+    for num in numbers:
+        if num in (1, 4, 7):
+            answer += "L"
+        elif num in (3, 6, 9):
+            answer += "R"
     return answer
