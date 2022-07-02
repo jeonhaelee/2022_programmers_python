@@ -3,10 +3,17 @@
 
 def solution(numbers, hand):
     answer = ''
+    left_loc = 0
+    right_loc = 0
     
     for num in numbers:
         if num in (1, 4, 7):
             answer += "L"
+            left_loc = num
+            
         elif num in (3, 6, 9):
             answer += "R"
+            right_loc = num
+            
+        else:
     return answer
