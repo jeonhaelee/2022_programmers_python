@@ -1,6 +1,8 @@
 # 키패드 누르기
 # 맨 처음 왼손 엄지손가락은 * 키패드에 오른손 엄지손가락은 # 키패드 위치에서 시작.
 
+# 내 풀이
+
 left_loc = -1; right_loc = -1
 
 def check_distance_2(hand):
@@ -195,3 +197,47 @@ def solution(numbers, hand):
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 hand = "right"
 print(solution(numbers, hand)) # "LLRLLRLLRL"
+
+
+# 다른 사람 풀이
+
+def solution(numbers, hand):
+    answer = ''
+    key_dict = {1:(0,0),2:(0,1),3:(0,2),
+                4:(1,0),5:(1,1),6:(1,2),
+                7:(2,0),8:(2,1),9:(2,2),
+                '*':(3,0),0:(3,1),'#':(3,2)}
+
+    left = [1,4,7]
+    right = [3,6,9]
+    lhand = '*'
+    rhand = '#'
+    for i in numbers:
+        if i in left:
+            answer += 'L'
+            lhand = i
+        elif i in right:
+            answer += 'R'
+            rhand = i
+        else:
+            curPos = key_dict[i]
+            lPos = key_dict[lhand]
+            rPos = key_dict[rhand]
+            ldist = abs(curPos[0]-lPos[0]) + abs(curPos[1]-lPos[1])
+            rdist = abs(curPos[0]-rPos[0]) + abs(curPos[1]-rPos[1])
+
+            if ldist < rdist:
+                answer += 'L'
+                lhand = i
+            elif ldist > rdist:
+                answer += 'R'
+                rhand = i
+            else:
+                if hand == 'left':
+                    answer += 'L'
+                    lhand = i
+                else:
+                    answer += 'R'
+                    rhand = i
+
+    return answer
