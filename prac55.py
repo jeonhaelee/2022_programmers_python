@@ -1,10 +1,23 @@
 # 키패드 누르기
 # 맨 처음 왼손 엄지손가락은 * 키패드에 오른손 엄지손가락은 # 키패드 위치에서 시작.
 
+left_loc = 0
+right_loc = 0
+h = ""
+
+def check_distance(num):
+    global left_loc
+    global right_loc
+    global h
+    
+    if left_loc == num or right_loc == num:
+
 def solution(numbers, hand):
     answer = ''
-    left_loc = 0
-    right_loc = 0
+    global left_loc
+    global right_loc
+    global h
+    h = hand
     
     for num in numbers:
         if num in (1, 4, 7):
