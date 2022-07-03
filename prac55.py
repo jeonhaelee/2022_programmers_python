@@ -165,18 +165,21 @@ def solution(numbers, hand):
             answer += "R"
             right_loc = num
             
-        else:
-            if num == 2:
-                answer += check_distance_2(hand)
-            elif num == 5:
-                answer += check_distance_5(hand)
-            elif num == 8:
-                answer += check_distance_8(hand)
-            elif num == 0:
-                answer += check_distance_0(hand)
+        elif num == 2:
+            answer += check_distance_2(hand)
+            
+        elif num == 5:
+            answer += check_distance_5(hand)
+            
+        elif num == 8:
+            answer += check_distance_8(hand)
+            
+        elif num == 0:
+            answer += check_distance_0(hand)
+            
                 
     return answer
 
 numbers = [1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5]
 hand = "right"
-print(solution(numbers, hand))
+print(solution(numbers, hand)) # "LRLLLRLLRRL"
