@@ -16,4 +16,12 @@ def solution(numbers, hand):
             right_loc = num
             
         else:
+            if num == 2:
+            
+            elif num == 5:
+                
+            elif num == 8:
+                
+            elif num == 0:
+                
     return answer
