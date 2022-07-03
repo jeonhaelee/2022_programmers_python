@@ -22,11 +22,11 @@ def check_distance_2(hand):
     
     if right_loc == 2:
         right_score = 1
-    elif right_loc in (1, 5):
+    elif right_loc in (3, 5):
         right_score = 2
-    elif right_loc in (4, 8):
+    elif right_loc in (6, 8):
         right_score = 3
-    elif right_loc in (7, 0):
+    elif right_loc in (9, 0):
         right_score = 4
     else : right_score = 5
         
@@ -155,27 +155,51 @@ def check_distance_0(hand):
         
 def solution(numbers, hand):
     answer = ''
+    global left_loc
+    global right_loc
     
     for num in numbers:
+        print(f'num : {num}')
+        
         if num in (1, 4, 7):
             answer += "L"
             left_loc = num
+            print(f'answer : {answer}')
+            print(f'left_loc : {left_loc}')
+            print(f'right_loc : {right_loc}')
+            
             
         elif num in (3, 6, 9):
             answer += "R"
             right_loc = num
+            print(f'answer : {answer}')
+            print(f'left_loc : {left_loc}')
+            print(f'right_loc : {right_loc}')
+            
             
         elif num == 2:
             answer += check_distance_2(hand)
+            print(f'answer : {answer}')
+            print(f'left_loc : {left_loc}')
+            print(f'right_loc : {right_loc}')
             
         elif num == 5:
             answer += check_distance_5(hand)
+            print(f'answer : {answer}')
+            print(f'left_loc : {left_loc}')
+            print(f'right_loc : {right_loc}')
             
         elif num == 8:
             answer += check_distance_8(hand)
+            print(f'answer : {answer}')
+            print(f'left_loc : {left_loc}')
+            print(f'right_loc : {right_loc}')
             
         elif num == 0:
             answer += check_distance_0(hand)
+            print(f'answer : {answer}')
+            print(f'left_loc : {left_loc}')
+            print(f'right_loc : {right_loc}')
             
                 
     return answer
