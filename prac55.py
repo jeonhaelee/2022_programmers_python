@@ -1,9 +1,7 @@
 # 키패드 누르기
 # 맨 처음 왼손 엄지손가락은 * 키패드에 오른손 엄지손가락은 # 키패드 위치에서 시작.
 
-left_loc = -1
-right_loc = -1
-
+left_loc = -1; right_loc = -1
 
 def check_distance_2(hand):
     global left_loc
@@ -159,47 +157,26 @@ def solution(numbers, hand):
     global right_loc
     
     for num in numbers:
-        print(f'num : {num}')
         
         if num in (1, 4, 7):
             answer += "L"
             left_loc = num
-            print(f'answer : {answer}')
-            print(f'left_loc : {left_loc}')
-            print(f'right_loc : {right_loc}')
-            
             
         elif num in (3, 6, 9):
             answer += "R"
             right_loc = num
-            print(f'answer : {answer}')
-            print(f'left_loc : {left_loc}')
-            print(f'right_loc : {right_loc}')
-            
             
         elif num == 2:
             answer += check_distance_2(hand)
-            print(f'answer : {answer}')
-            print(f'left_loc : {left_loc}')
-            print(f'right_loc : {right_loc}')
             
         elif num == 5:
             answer += check_distance_5(hand)
-            print(f'answer : {answer}')
-            print(f'left_loc : {left_loc}')
-            print(f'right_loc : {right_loc}')
-            
+
         elif num == 8:
             answer += check_distance_8(hand)
-            print(f'answer : {answer}')
-            print(f'left_loc : {left_loc}')
-            print(f'right_loc : {right_loc}')
             
         elif num == 0:
             answer += check_distance_0(hand)
-            print(f'answer : {answer}')
-            print(f'left_loc : {left_loc}')
-            print(f'right_loc : {right_loc}')
             
                 
     return answer
