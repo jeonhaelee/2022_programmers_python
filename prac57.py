@@ -49,6 +49,7 @@ def solution(people, limit) :
     return len(people) - answer
 
 # 다른 사람 풀이 2
+# deque(데크)란? 양방향 큐라고 생각하면 된다.
 
 from collections import deque
 
