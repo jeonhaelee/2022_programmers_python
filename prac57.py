@@ -8,6 +8,10 @@ def solution(people, limit):
         if people[0] + people[-1] > limit:
             answer += 1
             del people[0]
+        else:
+            answer += 1
+            del people[0]
+            del people[-1]
             
     if len(people) == 1:
         answer += 1
