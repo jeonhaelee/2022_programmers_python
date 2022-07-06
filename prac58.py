@@ -3,8 +3,8 @@
 def compare_menu(i, orders):
     target = orders[i]
     
-    for order in range(i+1, len(orders)):
-        if order[:len(target)] == target:
+    for j in range(i+1, len(orders)):
+        if orders[j][:len(target)] == target:
             return True
         
 def solution(orders, course):
