@@ -23,6 +23,8 @@ def solution(orders, course):
     print(f'orders : {orders}')
     
     for i, order in enumerate(orders):
+        if orders[i] in answer:
+            continue
         if len(orders[i]) not in course:
             continue
         if compare_menu(i, orders):
@@ -30,7 +32,14 @@ def solution(orders, course):
 
     return answer
 
-orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
-course = [2,3,4]
-print(solution(orders, course)) # ["AC", "ACDE", "BCFG", "CDE"]
+# orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
+# course = [2,3,4]
+# print(solution(orders, course)) # ["AC", "ACDE", "BCFG", "CDE"]
 
+orders = ["ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"]
+course = [2,3,5]
+print(solution(orders, course)) # ["ACD", "AD", "ADE", "CD", "XYZ"]
+
+# orders = ["XYZ", "XWY", "WXA"]
+# course = [2,3,4]
+# print(solution(orders, course)) # ["WX", "XY"]
