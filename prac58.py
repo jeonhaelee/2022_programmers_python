@@ -23,6 +23,8 @@ def solution(orders, course):
     print(f'orders : {orders}')
     
     for i, order in enumerate(orders):
+        if len(orders[i]) not in course:
+            continue
         if compare_menu(i, orders):
             answer.append(orders[i])
 
