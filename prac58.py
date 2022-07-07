@@ -2,7 +2,7 @@
 # 동 길이일 때는 가장 많이 나온 것을 채택. 동 길이가 여러개일 경우 여러개 다 채택.
 # 나에게 남은 미션 : make_menu 함수 만들기.
 
-def make_menu(): # course에 해당하는 개수가 없을 때 임의로 만들기 위해 확인
+def make_menu(orders, course): # course에 해당하는 개수가 없을 때 임의로 만들기 위해 확인
     return ""
 
 def compare_menu(i, orders): # course에 해당하는 개수가 있을 때 확인
@@ -23,6 +23,8 @@ def solution(orders, course):
     sub_answer = []
     orders.sort(key = lambda x : len(x))
     
+    make_menu()
+    
     print(f'orders : {orders}')
     
     for i, order in enumerate(orders):
@@ -38,6 +40,9 @@ def solution(orders, course):
             answer.append(orders)
             sub_answer.append(1)
 
+
+    # 동 길이일 때는 가장 많이 나온 것을 채택. 동 길이가 여러개일 경우 여러개 다 채택.
+    
     return answer
 
 # orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
