@@ -39,13 +39,21 @@ def compare_menu(i, orders): # course에 해당하는 개수가 있을 때 확�
 
 def solution(orders, course):
     
+    real_answer = []
+    
     global answer
     global count_answer
     orders.sort(key = lambda x : len(x))
     
     for co in course:
-        make_menu(orders, co)
-    
+        result = make_menu(orders, co)
+        for r in result:
+            if r in answer:
+                count_answer[answer.index(r)] += 1
+                continue
+            answer.append(r)
+            count_answer.append(1)
+            
     print(f'orders : {orders}')
     
     for i, order in enumerate(orders):
@@ -61,10 +69,27 @@ def solution(orders, course):
             answer.append(orders)
             count_answer.append(1)
 
-
+    print(f'answer : {answer}')
+    print(f'count_answer : {count_answer}')
+    
     # 동 길이일 때는 가장 많이 나온 것을 채택. 동 길이가 여러개일 경우 여러개 다 채택.
     
-    return answer
+    for co in course:
+        max = 2
+        get = []
+        for ans in answer:
+            if len(ans) != co:
+                continue
+            if count_answer[answer.index(ans)] == max:
+                get.append(ans)
+            elif count_answer[answer.index(ans)] > max:
+                max = count_answer[answer.index(ans)]
+                get = [ans]
+        real_answer.extend(get)
+
+        
+        
+    return real_answer
 
 # orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
 # course = [2,3,4]
