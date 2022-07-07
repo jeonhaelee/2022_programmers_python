@@ -4,22 +4,23 @@
 from itertools import combinations
 
 answer = []
-sub_answer = []
+count_answer = []
     
-def make_menu(orders, course): # course에 해당하는 개수가 없을 때 임의로 만들기 위해 확인
-    global answer
-    global sub_answer
+def make_menu(orders, n): # course에 해당하는 개수가 없을 때 임의로 만들기 위해 확인
+
+    result = []
     
     menus = []
-    
-    for n in course:
-        for order in orders:
-            if len(order) < n:
-                continue
-            order = list(order)
-            menus.extend(list(map(list, combinations(order, n))))
+    for order in orders:
+        if len(order) < n:
+            continue
+        order = list(order)
+        menus.extend(list(combinations(order, n)))
 
-    return menus
+    for menu in menus:
+        result.append(''.join(menu))
+        
+    return result
 
 
 
@@ -39,17 +40,18 @@ def compare_menu(i, orders): # course에 해당하는 개수가 있을 때 확�
 def solution(orders, course):
     
     global answer
-    global sub_answer
+    global count_answer
     orders.sort(key = lambda x : len(x))
     
-    make_menu(orders, course)
+    for co in course:
+        make_menu(orders, co)
     
     print(f'orders : {orders}')
     
     for i, order in enumerate(orders):
         
         if order in answer:
-            sub_answer[answer.index(order)] += 1
+            count_answer[answer.index(order)] += 1
             continue
             
         if len(orders[i]) not in course:
@@ -57,7 +59,7 @@ def solution(orders, course):
 
         if compare_menu(i, orders):
             answer.append(orders)
-            sub_answer.append(1)
+            count_answer.append(1)
 
 
     # 동 길이일 때는 가장 많이 나온 것을 채택. 동 길이가 여러개일 경우 여러개 다 채택.
