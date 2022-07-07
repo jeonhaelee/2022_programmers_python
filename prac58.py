@@ -20,17 +20,23 @@ def compare_menu(i, orders): # course에 해당하는 개수가 있을 때 확�
 
 def solution(orders, course):
     answer = []
+    sub_answer = []
     orders.sort(key = lambda x : len(x))
     
     print(f'orders : {orders}')
     
     for i, order in enumerate(orders):
-        if orders[i] in answer:
+        
+        if order in answer:
+            sub_answer[answer.index(order)] += 1
             continue
+            
         if len(orders[i]) not in course:
             continue
+
         if compare_menu(i, orders):
-            answer.append(orders[i])
+            answer.append(orders)
+            sub_answer.append(1)
 
     return answer
 
