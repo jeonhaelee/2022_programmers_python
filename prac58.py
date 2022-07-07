@@ -5,6 +5,8 @@
 def make_menu(orders, course): # course에 해당하는 개수가 없을 때 임의로 만들기 위해 확인
     return ""
 
+
+
 def compare_menu(i, orders): # course에 해당하는 개수가 있을 때 확인
     target = list(orders[i])
     
@@ -19,6 +21,7 @@ def compare_menu(i, orders): # course에 해당하는 개수가 있을 때 확�
     return result
 
 def solution(orders, course):
+    
     answer = []
     sub_answer = []
     orders.sort(key = lambda x : len(x))
