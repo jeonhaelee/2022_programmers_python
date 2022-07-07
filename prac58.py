@@ -1,9 +1,20 @@
 # 메뉴 리뉴얼
 # 동 길이일 때는 가장 많이 나온 것을 채택. 동 길이가 여러개일 경우 여러개 다 채택.
 # 나에게 남은 미션 : make_menu 함수 만들기.
+from itertools import combinations
+
 
 def make_menu(orders, course): # course에 해당하는 개수가 없을 때 임의로 만들기 위해 확인
-    return ""
+    menus = []
+    
+    for n in course:
+        for order in orders:
+            if len(order) < n:
+                continue
+            order = list(order)
+            menus.extend(list(map(list, combinations(order, n))))
+
+    return menus
 
 
 
