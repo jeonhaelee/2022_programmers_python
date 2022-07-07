@@ -3,8 +3,13 @@
 # 나에게 남은 미션 : make_menu 함수 만들기.
 from itertools import combinations
 
-
+answer = []
+sub_answer = []
+    
 def make_menu(orders, course): # course에 해당하는 개수가 없을 때 임의로 만들기 위해 확인
+    global answer
+    global sub_answer
+    
     menus = []
     
     for n in course:
@@ -33,11 +38,11 @@ def compare_menu(i, orders): # course에 해당하는 개수가 있을 때 확�
 
 def solution(orders, course):
     
-    answer = []
-    sub_answer = []
+    global answer
+    global sub_answer
     orders.sort(key = lambda x : len(x))
     
-    make_menu()
+    make_menu(orders, course)
     
     print(f'orders : {orders}')
     
