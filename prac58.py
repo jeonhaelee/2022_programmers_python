@@ -66,18 +66,18 @@ def solution(orders, course):
             
     print(f'orders : {orders}')
     
-    # for i, order in enumerate(orders):
+    for i, order in enumerate(orders):
         
-    #     if order in answer:
-    #         count_answer[answer.index(order)] += 1
-    #         continue
+        if order in answer:
+            count_answer[answer.index(order)] += 1
+            continue
             
-    #     if len(orders[i]) not in course:
-    #         continue
+        if len(orders[i]) not in course:
+            continue
 
-    #     if compare_menu(i, orders):
-    #         answer.append(orders)
-    #         count_answer.append(1)
+        if compare_menu(i, orders):
+            answer.append(orders)
+            count_answer.append(1)
 
     print(f'answer : {answer}')
     print(f'count_answer : {count_answer}')
