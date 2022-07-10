@@ -14,6 +14,7 @@ def solution(number, k):
     pairs = list(combinations(numbers, k))
     
     for pair in pairs:
+        pair = list(pair)
         if pair[0] < pair[1]:
             pair[0], pair[1] = pair[1], pair[0]
             result.append(''.join(pair))
