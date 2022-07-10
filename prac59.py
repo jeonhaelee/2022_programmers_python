@@ -4,8 +4,26 @@
 
 # 탐욕법 - 미래를 생각하지 않고 각 단계에서 가장 최선의 선택을 하는 기법.
 
+from itertools import combinations
+
 def solution(number, k):
-    answer = ''
+    result = []
+    
+    numbers = list(number)
+    
+    pairs = list(combinations(numbers, k))
+    
+    for pair in pairs:
+        if pair[0] < pair[1]:
+            pair[0], pair[1] = pair[1], pair[0]
+            result.append(''.join(pair))
+        else:
+            result.append(''.join(pair))
+    
+    result.sort(reverse=True)
+    
+    answer = result[0]
+    
     return answer
 
 number = "1924"
