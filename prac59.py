@@ -4,22 +4,20 @@
 
 # 탐욕법 - 미래를 생각하지 않고 각 단계에서 가장 최선의 선택을 하는 기법.
 
-from itertools import combinations
+# print(list(map(''.join, itertools.permutations(pool, 2))))
+
+from itertools import permutations
 
 def solution(number, k):
     result = []
     
     numbers = list(number)
     
-    pairs = list(combinations(numbers, k))
+    pairs = list(permutations(numbers, k))
     
     for pair in pairs:
         pair = list(pair)
-        if pair[0] < pair[1]:
-            pair[0], pair[1] = pair[1], pair[0]
-            result.append(''.join(pair))
-        else:
-            result.append(''.join(pair))
+        result.append(''.join(pair))
     
     result.sort(reverse=True)
     
