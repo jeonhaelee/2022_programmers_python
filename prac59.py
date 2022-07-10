@@ -4,25 +4,10 @@
 
 # 탐욕법 - 미래를 생각하지 않고 각 단계에서 가장 최선의 선택을 하는 기법.
 
-
-from itertools import combinations
+# 문제 파악 실수 -> 다시 해보자!
 
 def solution(number, k):
-    result = []
-    
-    numbers = list(number)
-    
-    pairs = list(combinations(numbers, len(number)-k))
-    
-    for pair in pairs:
-        pair = list(pair)
-        pair.sort(reverse=True)
-        result.append(''.join(pair))
-
-    result.sort(reverse=True)
-    
-    answer = result[0]
-    
+    answer = ''
     return answer
 
 number = "1924"
@@ -36,24 +21,3 @@ print(solution(number, k)) # "3234"
 number = "4177252841"
 k = 4
 print(solution(number, k)) # "775841"
-
-# print(list(map(''.join, itertools.permutations(pool, 2))))
-
-# from itertools import permutations
-
-# def solution(number, k):
-#     result = []
-    
-#     numbers = list(number)
-    
-#     pairs = list(permutations(numbers, k))
-    
-#     for pair in pairs:
-#         pair = list(pair)
-#         result.append(''.join(pair))
-    
-#     result.sort(reverse=True)
-    
-#     answer = result[0]
-    
-#     return answer
