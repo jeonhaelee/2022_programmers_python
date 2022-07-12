@@ -6,8 +6,13 @@
 
 # 문제 파악 실수 -> 다시 해보자!
 
+from itertools import combinations
+
 def solution(number, k):
     answer = ''
+    numbers = list(number)
+    sets = list(combinations(len(numbers), k))
+    print(sets)
     return answer
 
 number = "1924"
