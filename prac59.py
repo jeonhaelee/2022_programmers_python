@@ -11,11 +11,21 @@ from itertools import combinations
 def solution(number, k):
     answer = ''
     numbers = list(number)
+    
     idx = []
     for i in range(len(numbers)):
         idx.append(i)
+        
     sets = list(combinations(idx, k))
-    print(sets)
+    
+    result = []
+    for set in sets:
+        result.append(''.join(numbers[-set]))
+
+    result.sort(reverse=True)
+    
+    answer = result[0]
+    
     return answer
 
 number = "1924"
