@@ -10,7 +10,7 @@ from itertools import combinations
 
 def solution(number, k):
     answer = ''
-    # numbers = list(number)
+    numbers = list(number)
     
     idx = []
     for i in range(len(number)):
@@ -27,12 +27,16 @@ def solution(number, k):
             
         print(f'set : {a, b}')
         
-        get1 = number[-a]
-        print(f'get1 : {get1}')
-        # get2 = get1[-b]
-        # print(f'get2 : {get2}')
-        # result.append(''.join(get2))
-
+        f_number = numbers
+        del f_number[a]
+        print(f'get1 : {f_number}')
+        
+    #     del f_number[b-1]
+    #     print(f'get2 : {f_number}')
+    #     result.append(''.join(f_number))
+        
+    # print(result)
+    
     # result.sort(reverse=True)
     
     # answer = result[0]
