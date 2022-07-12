@@ -5,6 +5,8 @@
 # 탐욕법 - 미래를 생각하지 않고 각 단계에서 가장 최선의 선택을 하는 기법.
 
 # 문제 파악 실수 -> 다시 해보자!
+# 시간 초과 나옴. 이중 for문 없애보자.
+
 
 from itertools import combinations
 
