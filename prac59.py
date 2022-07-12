@@ -20,18 +20,22 @@ def solution(number, k):
     
     result = []
     for set in sets:
+        
         a, b = set[0], set[1]
         if a > b:
             a, b = b, a-1
+            
+        print(f'set : {a, b}')
+        
         get1 = number[-a]
         print(f'get1 : {get1}')
-        get2 = get1[-b]
-        print(f'get2 : {get2}')
-        result.append(''.join(get2))
+        # get2 = get1[-b]
+        # print(f'get2 : {get2}')
+        # result.append(''.join(get2))
 
-    result.sort(reverse=True)
+    # result.sort(reverse=True)
     
-    answer = result[0]
+    # answer = result[0]
     
     return answer
 
@@ -39,10 +43,10 @@ number = "1924"
 k = 2
 print(solution(number, k)) # "94"
 
-number = "1231234"
-k = 3
-print(solution(number, k)) # "3234"
+# number = "1231234"
+# k = 3
+# print(solution(number, k)) # "3234"
 
-number = "4177252841"
-k = 4
-print(solution(number, k)) # "775841"
+# number = "4177252841"
+# k = 4
+# print(solution(number, k)) # "775841"
