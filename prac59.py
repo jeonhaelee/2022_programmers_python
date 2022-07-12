@@ -10,6 +10,15 @@
 
 from itertools import combinations
 
+def get_make(set, numbers):
+    get = ""
+    for i in range(len(numbers)):
+        if i in set:   
+            pass
+        else:
+            get += numbers[i]
+    return get
+
 def solution(number, k):
     answer = ''
     numbers = list(number)
@@ -22,14 +31,7 @@ def solution(number, k):
     
     result = []
     for set in sets:
-
-        get = ""
-        for i in range(len(numbers)):
-            if i in set:   
-                pass
-            else:
-                get += numbers[i]
-    
+        get = get_make(set, numbers)
         result.append(get)
     
     result.sort(reverse=True)
