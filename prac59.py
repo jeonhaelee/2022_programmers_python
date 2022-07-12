@@ -20,26 +20,21 @@ def solution(number, k):
     
     result = []
     for set in sets:
-        
-        a, b = set[0], set[1]
-        if a > b:
-            a, b = b, a-1
-            
-        print(f'set : {a, b}')
-        
-        f_number = numbers
-        del f_number[a]
-        print(f'get1 : {f_number}')
-        
-    #     del f_number[b-1]
-    #     print(f'get2 : {f_number}')
-    #     result.append(''.join(f_number))
-        
-    # print(result)
+
+        get = ""
+        for i in range(len(numbers)):
+            if i in set:   
+                pass
+            else:
+                get += numbers[i]
     
-    # result.sort(reverse=True)
+        result.append(get)
+        
+    print(result)
     
-    # answer = result[0]
+    result.sort(reverse=True)
+    
+    answer = result[0]
     
     return answer
 
