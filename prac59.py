@@ -13,7 +13,7 @@ def solution(number, k):
     # numbers = list(number)
     
     idx = []
-    for i in range(len(numbers)):
+    for i in range(len(number)):
         idx.append(i)
         
     sets = list(combinations(idx, k))
@@ -22,10 +22,12 @@ def solution(number, k):
     for set in sets:
         a, b = set[0], set[1]
         if a > b:
-            a, b = b, a
-        get = number[-a]
-        get = get[-(b-1)]
-        result.append(''.join(get))
+            a, b = b, a-1
+        get1 = number[-a]
+        print(f'get1 : {get1}')
+        get2 = get1[-b]
+        print(f'get2 : {get2}')
+        result.append(''.join(get2))
 
     result.sort(reverse=True)
     
