@@ -11,7 +11,10 @@ from itertools import combinations
 def solution(number, k):
     answer = ''
     numbers = list(number)
-    sets = list(combinations(len(numbers), k))
+    idx = []
+    for i in range(len(numbers)):
+        idx.append(i)
+    sets = list(combinations(idx, k))
     print(sets)
     return answer
 
