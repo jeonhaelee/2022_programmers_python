@@ -4,49 +4,60 @@
 
 from itertools import combinations
 
-g_orders = []
 
-def make_menu(num):
-    global g_orders
+def make_menu(num, orders):
+
     result = []
     
+    menu_list = []
     menu_count = []
     
-    for order in g_orders:
+    menu_sum = []
+    for order in orders:
         order = list(order)
         menus = list(combinations(order,num))
-        
-    for menu in menus:
+        menu_sum.extend(menus)
+    
+    print(f'menu_sum : {menu_sum}')
+    
+    for menu in menu_sum:
         menu = list(menu)
         menu.sort()
         menu = ''.join(menu)
-        if menu in menu_count:
-            menu_count[menu_count.index(menu)][1] += 1
+        print(f'menu : {menu}')
+        if menu in menu_list:
+            menu_count[menu_list.index(menu)] += 1
         else:
-            menu_count.append([menu, 1])
-            
+            menu_list.append(menu)
+            menu_count.append(1)
+        
+    print(f'menu_list : {menu_list}')
+    print(f'menu_count : {menu_count}')
+    
     point = 2
     for i in range(len(menu_count)):
-        if menu_count[i][1] < 2:
+        if menu_count[i] < 2:
             continue
-        elif menu_count[i][1] > point:
-            point = menu_count[i][1]
+        elif menu_count[i] > point:
+            point = menu_count[i]
     
     for i in range(len(menu_count)):
-        if menu_count[i][1] == point:
-            result.append(menu_count[i][0])
-    
+        if menu_count[i] == point:
+            result.append(menu_list[i])
+            
+    print(f'num : {num}\nresult : {result}')
     return result
 
 def solution(orders, course):
-    global g_orders
-    g_orders = orders
+
     answer = []
     
     for num in course:
-        answer.extend(make_menu(num))
-        
-    return answer.sort()
+        answer.extend(make_menu(num, orders))
+    
+    answer.sort()
+    
+    return answer
 
 
 # orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
