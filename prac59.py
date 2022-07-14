@@ -8,40 +8,36 @@
 # 시간 초과 나옴. 조합이 문제? 그리디 알고리즘 이용해서 다시.
 
 
-from itertools import combinations
-
-def get_make(set, numbers):
-    get = ""
-    for i in range(len(numbers)):
-        if i in set:   
-            pass
-        else:
-            get += numbers[i]
-    return get
-
 def solution(number, k):
     answer = ''
+    
     numbers = list(number)
     
-    idx = []
-    for i in range(len(number)):
-        idx.append(i)
+    i = 1
+    out_idx = []
+    set_idx = 0
+    while i < len(numbers)-1:
         
-    sets = list(combinations(idx, k))
-    
-    result = []
-    
-    c = 0
-    while c < len(sets):
-        get = get_make(sets[c], numbers)
-        result.append(get)
-        c += 1
-    
-    result.sort(reverse=True)
-    
-    answer = result[0]
-    
+        if numbers[i] < numbers[set_idx]:
+            out_idx.append(i)
+            i += 1
+        else :
+            out_idx.append(set_idx)
+            set_idx = i
+            i += 1
+            
+        if len(out_idx) == k:
+            break
+
+        
+    for n in range(len(numbers)):
+        if n in out_idx:
+            continue
+        else:
+            answer += numbers[n]
+            
     return answer
+
 
 number = "1924"
 k = 2
