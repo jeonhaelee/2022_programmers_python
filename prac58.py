@@ -17,6 +17,7 @@ def make_menu(num):
         menus = list(combinations(order,num))
         
     for menu in menus:
+        menu = list(menu)
         menu.sort()
         menu = ''.join(menu)
         if menu in menu_count:
@@ -35,7 +36,8 @@ def make_menu(num):
         if menu_count[i][1] == point:
             result.append(menu_count[i][0])
     
-    
+    return result
+
 def solution(orders, course):
     global g_orders
     g_orders = orders
