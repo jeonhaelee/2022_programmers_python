@@ -13,28 +13,17 @@ def solution(number, k):
     
     numbers = list(number)
     
-    i = 1
-    out_idx = []
-    set_idx = 0
-    while i < len(numbers)-1:
+    set_numbers = sorted(numbers)
+    out_list = set_numbers[:k]
         
-        if numbers[i] < numbers[set_idx]:
-            out_idx.append(i)
-            i += 1
-        else :
-            out_idx.append(set_idx)
-            set_idx = i
-            i += 1
-            
-        if len(out_idx) == k:
-            break
-
-        
-    for n in range(len(numbers)):
-        if n in out_idx:
-            continue
+    c = 0
+    for number in numbers:
+        if number in out_list:
+            if c == k:
+                answer += number
+            c += 1
         else:
-            answer += numbers[n]
+            answer += number
             
     return answer
 
@@ -50,3 +39,4 @@ print(solution(number, k)) # "3234"
 number = "4177252841"
 k = 4
 print(solution(number, k)) # "775841"
+
