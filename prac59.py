@@ -30,9 +30,11 @@ def solution(number, k):
     sets = list(combinations(idx, k))
     
     result = []
-    for set in sets:
-        get = get_make(set, numbers)
+        
+    while len(sets) != 0:
+        get = get_make(sets[0], numbers)
         result.append(get)
+        del sets[0]
     
     result.sort(reverse=True)
     
