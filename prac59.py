@@ -4,28 +4,16 @@
 
 # 탐욕법 - 미래를 생각하지 않고 각 단계에서 가장 최선의 선택을 하는 기법.
 
-# 문제 파악 실수 -> 다시 해보자!
-# 시간 초과 나옴. 조합이 문제? 그리디 알고리즘 이용해서 다시.
-
-
 def solution(number, k):
-    answer = ''
-    
-    numbers = list(number)
-    
-    set_numbers = sorted(numbers)
-    out_list = set_numbers[:k]
-        
-    c = 0
-    for number in numbers:
-        if number in out_list:
-            if c == k:
-                answer += number
-            c += 1
-        else:
-            answer += number
-            
-    return answer
+    answer = []
+    for num in number:
+        while answer and answer[-1] < num and k > 0:
+            k -= 1
+            answer.pop()
+        answer.append(num)
+    if k != 0:
+        answer = answer[:-k]
+    return ''.join(answer)
 
 
 number = "1924"
