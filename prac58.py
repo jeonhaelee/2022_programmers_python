@@ -1,105 +1,51 @@
 # 메뉴 리뉴얼
 # 동 길이일 때는 가장 많이 나온 것을 채택. 동 길이가 여러개일 경우 여러개 다 채택.
-# 나에게 남은 미션 : make_menu 함수 만들기.
+
+
 from itertools import combinations
 
-answer = []
-count_answer = []
-    
-def make_menu(orders, n): # course에 해당하는 개수가 없을 때 임의로 만들기 위해 확인
+g_orders = []
 
+def make_menu(num):
+    global g_orders
     result = []
     
-    menus = []
-    for order in orders:
-        if len(order) < n:
-            continue
+    menu_count = []
+    
+    for order in g_orders:
         order = list(order)
-        menus.extend(list(combinations(order, n)))
-
+        menus = list(combinations(order,num))
+        
     for menu in menus:
-        result.append(''.join(menu))
-        
-    return result
-
-
-
-def compare_menu(i, orders): # course에 해당하는 개수가 있을 때 확인
-    target = list(orders[i])
+        menu.sort()
+        menu = ''.join(menu)
+        if menu in menu_count:
+            menu_count[menu_count.index(menu)][1] += 1
+        else:
+            menu_count.append([menu, 1])
+            
+    point = 2
+    for i in range(len(menu_count)):
+        if menu_count[i][1] < 2:
+            continue
+        elif menu_count[i][1] > point:
+            point = menu_count[i][1]
     
-    result = False
-    for j in range(i+1, len(orders)):
-        compare_target = list(orders[j])
-        for t in target:
-            if t not in compare_target:
-                break
-        result = True
-        
-    return result
-
+    for i in range(len(menu_count)):
+        if menu_count[i][1] == point:
+            result.append(menu_count[i][0])
+    
+    
 def solution(orders, course):
+    global g_orders
+    g_orders = orders
+    answer = []
     
-    real_answer = []
-    
-    global answer
-    global count_answer
-    orders.sort(key = lambda x : len(x))
-    
-    make_course = []
-    for co in course:
-        co_count = 0
-        for order in orders:
-            if len(order) == co:
-                co_count += 1
-        if co_count > 1:
-            make_course.append(co)
-    
-    
-    for co in make_course:
-        result = make_menu(orders, co)
-        for r in result:
-            if r in answer:
-                count_answer[answer.index(r)] += 1
-                continue
-            answer.append(r)
-            count_answer.append(1)
-            
-    print(f'orders : {orders}')
-    
-    for i, order in enumerate(orders):
+    for num in course:
+        answer.extend(make_menu(num))
         
-        if order in answer:
-            count_answer[answer.index(order)] += 1
-            continue
-            
-        if len(orders[i]) not in course:
-            continue
+    return answer.sort()
 
-        if compare_menu(i, orders):
-            answer.append(orders)
-            count_answer.append(1)
-
-    print(f'answer : {answer}')
-    print(f'count_answer : {count_answer}')
-    
-    # 동 길이일 때는 가장 많이 나온 것을 채택. 동 길이가 여러개일 경우 여러개 다 채택.
-    
-    for co in course:
-        max = 2
-        get = []
-        for ans in answer:
-            if len(ans) != co:
-                continue
-            if count_answer[answer.index(ans)] == max:
-                get.append(ans)
-            elif count_answer[answer.index(ans)] > max:
-                max = count_answer[answer.index(ans)]
-                get = [ans]
-        real_answer.extend(get)
-
-        
-        
-    return real_answer
 
 # orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
 # course = [2,3,4]
