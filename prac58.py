@@ -18,21 +18,17 @@ def make_menu(num, orders):
         menus = list(combinations(order,num))
         menu_sum.extend(menus)
     
-    print(f'menu_sum : {menu_sum}')
-    
     for menu in menu_sum:
         menu = list(menu)
         menu.sort()
         menu = ''.join(menu)
-        print(f'menu : {menu}')
+
         if menu in menu_list:
             menu_count[menu_list.index(menu)] += 1
         else:
             menu_list.append(menu)
             menu_count.append(1)
         
-    print(f'menu_list : {menu_list}')
-    print(f'menu_count : {menu_count}')
     
     point = 2
     for i in range(len(menu_count)):
@@ -44,8 +40,7 @@ def make_menu(num, orders):
     for i in range(len(menu_count)):
         if menu_count[i] == point:
             result.append(menu_list[i])
-            
-    print(f'num : {num}\nresult : {result}')
+
     return result
 
 def solution(orders, course):
@@ -60,13 +55,13 @@ def solution(orders, course):
     return answer
 
 
-# orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
-# course = [2,3,4]
-# print(solution(orders, course)) # ["AC", "ACDE", "BCFG", "CDE"]
+orders = ["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"]
+course = [2,3,4]
+print(solution(orders, course)) # ["AC", "ACDE", "BCFG", "CDE"]
 
-# orders = ["ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"]
-# course = [2,3,5]
-# print(solution(orders, course)) # ["ACD", "AD", "ADE", "CD", "XYZ"]
+orders = ["ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"]
+course = [2,3,5]
+print(solution(orders, course)) # ["ACD", "AD", "ADE", "CD", "XYZ"]
 
 orders = ["XYZ", "XWY", "WXA"]
 course = [2,3,4]
