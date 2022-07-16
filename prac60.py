@@ -22,13 +22,15 @@ def check_place(place):
                 if j >= 3:
                     pass
                 else:
-                    if place[i][j+1] != 'X' and place[i][j+2] == 'P':
-                        return 0
+                    if place[i][j+2] == 'P':
+                        if place[i][j+1] != 'X':
+                            return 0
                 if i >= 3:
                     pass
                 else:
-                    if place[i+1][j] != 'X' and place[i+2][j] == 'P':
-                        return 0
+                    if place[i+2][j] == 'P':
+                        if place[i+1][j] != 'X':
+                            return 0
                 if place[i+1][j+1] == 'P':
                     if place[i][j+1] != 'X' or place[i+1][j] != 'X':
                         return 0
