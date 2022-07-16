@@ -14,15 +14,21 @@ def check_place(place):
     for i in range(len(place)):
         place_list.append((list(place[i])))
     
-    for i in range(5):
-        for j in range(5):
+    for i in range(4):
+        for j in range(4):
             if place[i][j] == 'P':
                 if place[i][j+1] or place[i+1][j] == 'P':
                     return 0
-                if place[i][j+1] != 'X' and place[i][j+2] == 'P':
-                    return 0
-                if place[i+1][j] != 'X' and place[i+2][j] == 'P':
-                    return 0
+                if j >= 3:
+                    pass
+                else:
+                    if place[i][j+1] != 'X' and place[i][j+2] == 'P':
+                        return 0
+                if i >= 3:
+                    pass
+                else:
+                    if place[i+1][j] != 'X' and place[i+2][j] == 'P':
+                        return 0
                 if (place[i][j+1] != 'X' or place[i+1][j] != 'X') and place[i+1][j+1] == 'P':
                     return 0
                     
