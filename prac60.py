@@ -13,7 +13,9 @@ def check_place(place):
 
     for i in range(len(place)):
         place_list.append((list(place[i])))
-        
+    
+    print(place_list)
+
     return 1
 
 def solution(places):
