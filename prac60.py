@@ -6,7 +6,6 @@
 # 오른쪽에 X, 아래쪽에 X가 있으면 오른쪽아래대각선은 생각 안 해도 되니까.
 # 이것들 중 X가 없을 경우에만 한칸 더 가서 P인지 아닌지만 따져주면 될 듯!!!
 
-place = ["POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"]
 
 def check_place(place):
     place_list = []
@@ -16,23 +15,23 @@ def check_place(place):
     
     for i in range(4):
         for j in range(4):
-            if place[i][j] == 'P':
-                if place[i][j+1] or place[i+1][j] == 'P':
+            if place_list[i][j] == 'P':
+                if place_list[i][j+1] or place_list[i+1][j] == 'P':
                     return 0
-                if j >= 3:
+                if j >= 2:
                     pass
                 else:
-                    if place[i][j+2] == 'P':
-                        if place[i][j+1] != 'X':
+                    if place_list[i][j+2] == 'P':
+                        if place_list[i][j+1] != 'X':
                             return 0
-                if i >= 3:
+                if i >= 2:
                     pass
                 else:
-                    if place[i+2][j] == 'P':
-                        if place[i+1][j] != 'X':
+                    if place_list[i+2][j] == 'P':
+                        if place_list[i+1][j] != 'X':
                             return 0
-                if place[i+1][j+1] == 'P':
-                    if place[i][j+1] != 'X' or place[i+1][j] != 'X':
+                if place_list[i+1][j+1] == 'P':
+                    if place_list[i][j+1] != 'X' or place_list[i+1][j] != 'X':
                         return 0
                     
 
