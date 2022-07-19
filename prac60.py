@@ -37,6 +37,11 @@ def check_place(place):
                     if not (place_list[i][j+1] == 'X' and place_list[i+1][j] == 'X'):
                         return 0
                     
+                if i >= 1:
+                    if place_list[i-1][j+1] == 'P':
+                        if not (place_list[i-1][j] == 'X' and place_list[i][j+1] == 'X'):
+                            return 0
+                    
     for i in range(4):
         if place_list[i][4] == 'P':
             if place_list[i+1][4] == 'P':
@@ -56,6 +61,10 @@ def check_place(place):
             else:
                 if place_list[4][i+1] != 'X' and place_list[4][i+2] == 'P':    
                     return 0
+            
+            if place_list[3][i+1] == 'P':
+                if not (place_list[3][i] == 'X' and place_list[4][i+1] == 'X'):
+                    return 0
                         
     return 1
 
@@ -67,9 +76,9 @@ def solution(places):
         
     return answer
 
-places = [["POOOP", "OXXOX", "OPXPX", "OOXOX", "POXXP"], ["POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"], 
+places = [["OOPOO", "OPOOO", "OOOOO", "OOOOO", "OOOOO"], ["POOPX", "OXPXP", "PXXXO", "OXXXO", "OOOPP"], 
           ["PXOPX", "OXOXP", "OXPOX", "OXXOP", "PXPOX"], ["OOOXX", "XOOOX", "OOOXX", "OXOOX", "OOOOO"], 
           ["PXPXP", "XPXPX", "PXPXP", "XPXPX", "PXPXP"]]
-print(solution(places)) # [1, 0, 1, 1, 1]
+print(solution(places)) # [0, 0, 1, 1, 1]
 
 
