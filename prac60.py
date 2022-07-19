@@ -1,6 +1,7 @@
 # 거리두기 확인하기
 
 
+# 내 풀이
 def check_place(place):
     place_list = []
 
@@ -75,4 +76,60 @@ places = [["OOPOO", "OPOOO", "OOOOO", "OOOOO", "OOOOO"], ["POOPX", "OXPXP", "PXX
           ["PXPXP", "XPXPX", "PXPXP", "XPXPX", "PXPXP"]]
 print(solution(places)) # [0, 0, 1, 1, 1]
 
+# 다른 사람 풀이 1
+def check(place):
+    for irow, row in enumerate(place):
+        for icol, cell in enumerate(row):
+            if cell != 'P':
+                continue
+            if irow != 4 and place[irow + 1][icol] == 'P':
+                return 0
+            if icol != 4 and place[irow][icol + 1] == 'P':
+                return 0
+            if irow < 3 and place[irow + 2][icol] == 'P' and place[irow + 1][icol] != 'X':
+                return 0
+            if icol < 3 and place[irow][icol + 2] == 'P' and place[irow][icol + 1] != 'X':
+                return 0
+            if irow != 4 and icol != 4 and place[irow + 1][icol + 1] == 'P' and (place[irow + 1][icol] != 'X' or place[irow][icol + 1] != 'X'):
+                return 0
+            if irow != 4 and icol != 0 and place[irow + 1][icol - 1] == 'P' and (place[irow + 1][icol] != 'X' or place[irow][icol - 1] != 'X'):
+                return 0
+    return 1
 
+def solution(places):
+    return [check(place) for place in places]
+
+# 다른 사람 풀이2
+def solution(places):
+    result = []
+    dx = [-1, 1, 0, 0]
+    dy = [0, 0, -1, 1]
+
+    def f(i, j, cnt):
+        nonlocal good
+        if cnt >2 : return
+        if -1<i<5 and -1<j<5:
+            if graph[i][j] == 'X':
+                return
+
+            if cnt != 0 and graph[i][j] == 'P':
+                good = 0
+                return
+
+            graph[i][j] = 'X'
+
+            for w in range(4):
+                ni = i+dx[w]
+                nj = j+dy[w]
+                f(ni, nj, cnt+1)
+
+    for case in places:
+        graph = [list(r) for r in case]
+        good = 1
+        for i in range(5):
+            for j in range(5):
+                if graph[i][j]=='P':
+                    f(i,j,0)
+
+        result.append(good)
+    return result
