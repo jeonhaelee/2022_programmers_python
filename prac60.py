@@ -44,7 +44,16 @@ def check_place(place):
                 if place_list[i+1][4] != 'X' and place_list[i+2][4] == 'P':    
                     return 0
                 
-                
+    for i in range(4):
+        if place_list[4][i] == 'P':
+            if place_list[4][i+1] == 'P':
+                return 0
+            if i >= 3:
+                pass
+            else:
+                if place_list[4][i+1] != 'X' and place_list[4][i+2] == 'P':    
+                    return 0
+                        
     return 1
 
 def solution(places):
