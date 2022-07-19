@@ -18,20 +18,23 @@ def check_place(place):
             if place_list[i][j] == 'P':
                 if place_list[i][j+1] == 'P' or place_list[i+1][j] == 'P':
                     return 0
+                
                 if j >= 2:
                     pass
                 else:
                     if place_list[i][j+2] == 'P':
                         if place_list[i][j+1] != 'X':
                             return 0
+                        
                 if i >= 2:
                     pass
                 else:
                     if place_list[i+2][j] == 'P':
                         if place_list[i+1][j] != 'X':
                             return 0
+                        
                 if place_list[i+1][j+1] == 'P':
-                    if place_list[i][j+1] != 'X' or place_list[i+1][j] != 'X':
+                    if not (place_list[i][j+1] == 'X' and place_list[i+1][j] == 'X'):
                         return 0
                     
     for i in range(4):
