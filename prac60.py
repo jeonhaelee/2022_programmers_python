@@ -36,7 +36,7 @@ def check_place(place):
                     
     for i in range(4):
         if place_list[i][4] == 'P':
-            if place_list[i+1][j] == 'P':
+            if place_list[i+1][4] == 'P':
                 return 0
             if i > 3:
                 pass
