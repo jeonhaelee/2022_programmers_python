@@ -4,11 +4,11 @@
 def make_short(s, n):
     result = ""
     
-    target = s[0]
+    target = s[0:n]
     target_count = 1
     
-    for i in range(1, len(s)):
-        if s[i] == target:
+    for i in range(n, len(s), n):
+        if s[i:i+n] == target:
             target_count += 1
         else:
             if target_count == 1:
@@ -16,21 +16,22 @@ def make_short(s, n):
             else:
                 result += str(target_count)
             result += target
-            target = s[i]
+            target = s[i:i+n]
             target_count = 1
+            
     if target_count == 1:
         pass
     else:
         result += str(target_count)
     result += target
-    target = s[i]
-    target_count = 1
+
     
     print(f'n : {n}, result : {result}')
     return result
 
 def solution(s):
     answer = len(s)
+    print(f'len(s) : {len(s)}')
     
     for n in range(1, len(s)):
         result = make_short(s, n)
