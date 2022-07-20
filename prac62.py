@@ -1,11 +1,50 @@
 # 오픈채팅방
-# 시간초과 해결 요함.
+# 시간초과 해결 요함. 딕셔너리 이용해보자.
 
+
+# def solution(record):
+#     answer = []
+#     user_id = []
+#     user_name = []
+    
+#     for re in record:
+#         action, info = re.split(maxsplit=1)
+        
+#         if action == 'Enter':
+#             id, name = info.split()
+#             if id not in user_id:
+#                 user_id.append(id)
+#                 user_name.append(name)
+#             else:
+#                 idx = user_id.index(id)
+#                 user_name[idx] = name
+        
+#         if action == 'Change':
+#             id, name = info.split()
+#             idx = user_id.index(id)
+#             user_name[idx] = name
+        
+#     for re in record:
+#         action, info = re.split(maxsplit=1)
+    
+#         if action == 'Enter':
+#             id, name = info.split()
+#             idx = user_id.index(id)
+#             sentence = user_name[idx] + "님이 들어왔습니다."
+#             answer.append(sentence)
+            
+#         if action == 'Leave':
+#             id = info
+#             idx = user_id.index(id)
+#             sentence = user_name[idx] + "님이 나갔습니다."
+#             answer.append(sentence)
+            
+#     return answer
 
 def solution(record):
     answer = []
     user_id = []
-    user_name = []
+    user_info = {}
     
     for re in record:
         action, info = re.split(maxsplit=1)
@@ -14,29 +53,25 @@ def solution(record):
             id, name = info.split()
             if id not in user_id:
                 user_id.append(id)
-                user_name.append(name)
+                user_info[id] = name
             else:
-                idx = user_id.index(id)
-                user_name[idx] = name
+                user_info[id] = name
         
         if action == 'Change':
             id, name = info.split()
-            idx = user_id.index(id)
-            user_name[idx] = name
+            user_info[id] = name
         
     for re in record:
         action, info = re.split(maxsplit=1)
     
         if action == 'Enter':
             id, name = info.split()
-            idx = user_id.index(id)
-            sentence = user_name[idx] + "님이 들어왔습니다."
+            sentence = user_info[id] + "님이 들어왔습니다."
             answer.append(sentence)
             
         if action == 'Leave':
             id = info
-            idx = user_id.index(id)
-            sentence = user_name[idx] + "님이 나갔습니다."
+            sentence = user_info[id] + "님이 나갔습니다."
             answer.append(sentence)
             
     return answer
