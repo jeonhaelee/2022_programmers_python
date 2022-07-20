@@ -1,7 +1,31 @@
 # 문자열 압축
 
+
+def make_short(s, n):
+    result = ""
+    
+    target = s[0]
+    target_count = 1
+    
+    for i in range(1, len(s)):
+        if s[i] == target:
+            target_count += 1
+        else:
+            result += str(target_count)
+            result += target
+            target = s[i]
+            target_count = 1
+
+    return result
+
 def solution(s):
-    answer = 0
+    answer = len(s)
+    
+    for n in range(1, len(s)):
+        result = make_short(s, n)
+        if len(result) < answer:
+            answer = len(result)
+        
     return answer
 
 s = "aabbaccc"
