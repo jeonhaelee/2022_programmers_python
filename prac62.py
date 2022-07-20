@@ -1,4 +1,6 @@
 # 오픈채팅방
+# 시간초과 해결 요함.
+
 
 def solution(record):
     answer = []
@@ -7,7 +9,6 @@ def solution(record):
     
     for re in record:
         action, info = re.split(maxsplit=1)
-        print(f'action : {action}, info : {info}')
         
         if action == 'Enter':
             id, name = info.split()
@@ -23,7 +24,21 @@ def solution(record):
             idx = user_id.index(id)
             user_name[idx] = name
         
-        
+    for re in record:
+        action, info = re.split(maxsplit=1)
+    
+        if action == 'Enter':
+            id, name = info.split()
+            idx = user_id.index(id)
+            sentence = user_name[idx] + "님이 들어왔습니다."
+            answer.append(sentence)
+            
+        if action == 'Leave':
+            id = info
+            idx = user_id.index(id)
+            sentence = user_name[idx] + "님이 나갔습니다."
+            answer.append(sentence)
+            
     return answer
 
 record = ["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]
