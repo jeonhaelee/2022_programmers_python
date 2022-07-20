@@ -11,11 +11,22 @@ def make_short(s, n):
         if s[i] == target:
             target_count += 1
         else:
-            result += str(target_count)
+            if target_count == 1:
+                pass
+            else:
+                result += str(target_count)
             result += target
             target = s[i]
             target_count = 1
-
+    if target_count == 1:
+        pass
+    else:
+        result += str(target_count)
+    result += target
+    target = s[i]
+    target_count = 1
+    
+    print(f'n : {n}, result : {result}')
     return result
 
 def solution(s):
