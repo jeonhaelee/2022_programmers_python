@@ -20,13 +20,21 @@ def solution(str1, str2):
     if len(str1_list) == 0 and len(str2_list) == 0:
         answer = 1
     
-    sum_count = len(str1_list) + len(str2_list)
+    li = str1_list
+    li.extend(str2_list)
+    li = set(li)
+    
+    print(f'li : {li}')
+    
+    sum_count = len(set(li))
+    print(f'sum_count : {sum_count}')
     
     inter_count = 0
     for word in str1_list:
         if word in str2_list:
             inter_count += 1
             del str2_list[str2_list.index(word)]
+    print(f'inter_count : {inter_count}')
     
     answer = int((inter_count/sum_count) * 65536)   
             
