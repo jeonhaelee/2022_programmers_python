@@ -17,6 +17,19 @@ def solution(str1, str2):
     print(str1_list)
     print(str2_list)
     
+    if len(str1_list) == 0 and len(str2_list) == 0:
+        answer = 1
+    
+    sum_count = len(str1_list) + len(str2_list)
+    
+    inter_count = 0
+    for word in str1_list:
+        if word in str2_list:
+            inter_count += 1
+            del str2_list[str2_list.index(word)]
+    
+    answer = int((inter_count/sum_count) * 65536)   
+            
     return answer
 
 str1 = 'FRANCE'
