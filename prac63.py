@@ -6,11 +6,13 @@ def solution(str1, str2):
     
     for i in range(len(str1)-1):
         str = str1[i:i+2]
-        str1_list.append(str)
+        if str.isalpha() :
+            str1_list.append(str.lower())
     
     for i in range(len(str2)-1):
         str = str2[i:i+2]
-        str2_list.append(str)
+        if str.isalpha() :
+            str2_list.append(str.lower())
     
     print(str1_list)
     print(str2_list)
