@@ -2,6 +2,48 @@
 
 def solution(info, query):
     answer = []
+    people = []
+    
+    for i in info:
+        a, b, c, d, e = i.split(" ")
+        person = {
+            'language' : a,
+            'type' : b,
+            'technic' : c,
+            'food' : d,
+            'score' : e
+        }
+        people.append(person)
+        
+    for q in query:
+        
+        q = q.replace('and ', '')
+        print(q)
+        
+        a, b, c, d, e = q.split(" ")
+        
+        # if a == '-':
+        #     a = ('cpp' | 'java' | 'python')
+            
+        # if b == '-':
+        #     b = ('backend' | 'frontend')
+        
+        # if c == '-':
+        #     c = ('junior | senior')
+        
+        # if d == '-':
+        #     d = ('chicken | pizza')
+        
+        if '-' not in (a, b, c, d, e):
+            count = 0
+            for p in people:
+                print(p)
+                if p['language'] == a and p['type'] == b and p['technic'] == c and p['food'] == d and p['score'] >= e:
+                    count += 1
+        
+        answer.append(count)
+        
+        
     return answer
 
 info = ["java backend junior pizza 150","python frontend senior chicken 210","python frontend senior chicken 150",
