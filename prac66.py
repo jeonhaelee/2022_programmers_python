@@ -1,4 +1,5 @@
 # 순위 검색
+# 효율성 테스트 다시.
 
 def solution(info, query):
     answer = []
@@ -22,7 +23,6 @@ def solution(info, query):
         
         a, b, c, d, e = q.split(" ")
     
-        
         if a == '-':
             a = ('cpp' , 'java' , 'python')
         else:
@@ -48,9 +48,7 @@ def solution(info, query):
             if p['language'] in a and p['type'] in b and p['technic'] in c and p['food'] in d and int(p['score']) >= int(e):
                 print(p)
                 count += 1
-        
 
-        
         answer.append(count)
         
         
