@@ -22,24 +22,38 @@ def solution(info, query):
         
         a, b, c, d, e = q.split(" ")
         
-        # if a == '-':
-        #     a = ('cpp' | 'java' | 'python')
+        if a == '-':
+            a = ['cpp' , 'java' , 'python']
+        else:
+            a = list(a)
             
-        # if b == '-':
-        #     b = ('backend' | 'frontend')
+        if b == '-':
+            b = ['backend' , 'frontend']
+        else:
+            b = list(b)
+            
+        if c == '-':
+            c = ['junior , senior']
+        else:
+            c = list(c)
+            
+        if d == '-':
+            d = ['chicken , pizza']
+        else:
+            d = list(d)
+            
+        count = 0
+        for p in people:
+            print(p)
+            if p['language'] in a and p['type'] in b and p['technic'] in c and p['food'] in d and p['score'] >= e:
+                count += 1
         
-        # if c == '-':
-        #     c = ('junior | senior')
-        
-        # if d == '-':
-        #     d = ('chicken | pizza')
-        
-        if '-' not in (a, b, c, d, e):
-            count = 0
-            for p in people:
-                print(p)
-                if p['language'] == a and p['type'] == b and p['technic'] == c and p['food'] == d and p['score'] >= e:
-                    count += 1
+        # if '-' not in (a, b, c, d, e):
+        #     count = 0
+        #     for p in people:
+        #         print(p)
+        #         if p['language'] == a and p['type'] == b and p['technic'] == c and p['food'] == d and p['score'] >= e:
+        #             count += 1
         
         answer.append(count)
         
