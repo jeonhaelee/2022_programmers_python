@@ -2,24 +2,29 @@
 
 import math
 
-def solution(arr):
-    answer = 0
-    max_num = max(arr)
-    
-    i = max_num
-    while True:
+
+def get_min(arr):
+    i = 1
+    for i in range(2, min(arr)+1):
         count = 0
         for n in arr:
-            if i % n != 0:
+            if n % i == 0:
                 count += 1
-        
-        if count == 0:
-            answer = i
-            break
-        else:
-            i *= 2
-            
-    return answer
+        if count == len(arr):
+            return i
+    return i
+
+
+def solution(arr):
+    answer = 1
+    min_num = min(arr)
+    
+    i = get_min(arr)
+
+    for num in arr:
+        answer *= int(num / i)
+    
+    return answer * i
 
 arr = [2,6,8,14]
 print(solution(arr)) # 168
