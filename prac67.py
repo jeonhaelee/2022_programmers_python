@@ -12,11 +12,13 @@ def solution(arr):
         for n in arr:
             if i % n != 0:
                 count += 1
-        if count > 0:
-            i *= 2
-        else:
+        
+        if count == 0:
             answer = i
             break
+        else:
+            i *= 2
+            
     return answer
 
 arr = [2,6,8,14]
