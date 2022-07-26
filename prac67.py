@@ -1,29 +1,33 @@
 # N개의 최소공배수
-# 다시
 
 
-def get_min(arr):
-    i = 1
-    for i in range(2, min(arr)+1):
-        count = 0
-        for n in arr:
-            if n % i == 0:
-                count += 1
-        if count == len(arr):
-            return i
-    return i
+def get(a, b):
+    if b > a:
+        a, b = b, a
+    
+    while True:
+        a, b = b, a % b
+        if b == 0:
+            break
+    return a
 
 
 def solution(arr):
     answer = 1
-    min_num = min(arr)
-    
-    i = get_min(arr)
 
-    for num in arr:
-        answer *= int(num / i)
+    while len(arr) != 1:
+        a = arr.pop()
+        b = arr.pop()
+        
+        gcd = get(a, b)
+        
+        result = a * b / gcd
+        arr.append(int(result))
     
-    return answer * i
+    answer = arr[0]
+    
+    return answer
 
 arr = [2,6,8,14]
 print(solution(arr)) # 168
+
