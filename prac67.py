@@ -1,6 +1,5 @@
 # N개의 최소공배수
-
-import math
+# 다시
 
 
 def get_min(arr):
