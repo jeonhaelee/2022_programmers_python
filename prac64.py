@@ -12,20 +12,20 @@ def solution(cacheSize, cities):
     pocket = []
     
     for city in cities:
-        if city in pocket:
-            del pocket[pocket.index(city)]
-            pocket.append(city)
+        if city.lower() in pocket:
+            del pocket[pocket.index(city.lower())]
+            pocket.append(city.lower())
             answer += 1
         else:
-            if len(pocket) < 3:
-                pocket.append(city)
+            if len(pocket) < cacheSize:
+                pocket.append(city.lower())
             else:
                 del pocket[0]
-                pocket.append(city)
+                pocket.append(city.lower())
             answer += 5
             
     return answer
 
-cacheSize = 3
-cities = ["Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"]
-print(solution(cacheSize, cities)) # 50
+cacheSize = 2
+cities = ["Jeju", "Pangyo", "NewYork", "newyork"]
+print(solution(cacheSize, cities)) # 16
