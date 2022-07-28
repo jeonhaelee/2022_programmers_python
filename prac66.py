@@ -6,50 +6,30 @@ def solution(info, query):
     people = []
     
     for i in info:
-        a, b, c, d, e = i.split(" ")
-        person = {
-            'language' : a,
-            'type' : b,
-            'technic' : c,
-            'food' : d,
-            'score' : e
-        }
-        people.append(person)
         
+        a, b, c, d, e = i.split(" ")
+        person = a + b + c + d
+        p_score = int(e)
+        people.append([person, p_score])
+        
+    print(people)
+    
     for q in query:
         
         q = q.replace('and ', '')
-        print(q)
-        
+        q = q.replace('-', '')
         a, b, c, d, e = q.split(" ")
-    
-        if a == '-':
-            a = ('cpp' , 'java' , 'python')
-        else:
-            a = (a)
-            
-        if b == '-':
-            b = ('backend' , 'frontend')
-        else:
-            b = (b)
-            
-        if c == '-':
-            c = ('junior , senior')
-        else:
-            c = (c)
-            
-        if d == '-':
-            d = ('chicken , pizza')
-        else:
-            d = (d)
-            
+        qu = a + b + c + d
+        score = int(e)
+        print(f'qu : {qu}'), print(f'score : {score}')
+        
         count = 0
         for p in people:
-            if p['language'] in a and p['type'] in b and p['technic'] in c and p['food'] in d and int(p['score']) >= int(e):
-                print(p)
+            if a in p[0] and b in p[0] and c in p[0] and d in p[0] and score <= p[1]:
                 count += 1
-
+        
         answer.append(count)
+
         
         
     return answer
