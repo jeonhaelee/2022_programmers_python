@@ -14,15 +14,10 @@ def solution(expression):
             num += expression[i]
         else:
             cal.append(expression[i])
-            numbers.append(num)
+            numbers.append(int(num))
             num = ""
     
-    num_cal = []
-    num_cal.append(numbers[0])
-    
-    for i in range(1, len(numbers)):
-        num_cal.append(cal[i] + numbers[i])
-    
+
     cals_permutations = []
     cals_permutations.append(list(permutations(set(cal))))
     
@@ -33,19 +28,19 @@ def solution(expression):
     # 만약 우선순위 순서가 -, +, *라면
     
     results = []
-    result = int(num_cal[0])
-    for i in range(1, len(num_cal)):
-        if num_cal[i][0] == '-':
-            result -= int(num_cal[i][1:])
     
-    for i in range(1, len(num_cal)):
-        if num_cal[i][0] == '+':
-            result += int(num_cal[i][1:])
-            
-    for i in range(1, len(num_cal)):
-        if num_cal[i][0] == '*':
-            result *= int(num_cal[i][1:])
-            
+    # 만약 -, +, * 순서라면,
+    
+    
+    while cal.index('-'):
+        idx = cal.index('-')
+        result = numbers[idx-1]
+        result -= numbers[idx]
+        numbers[idx-1] = result
+        del numbers[idx]
+        
+    # 그 뒤 +, *도 해준다.
+        
     results.append(abs(result))
     
     answer = max(results)
