@@ -31,15 +31,30 @@ def solution(expression):
     
     # 만약 -, +, * 순서라면,
     
-    
+    result = 0
     while cal.index('-'):
         idx = cal.index('-')
         result = numbers[idx-1]
         result -= numbers[idx]
         numbers[idx-1] = result
         del numbers[idx]
-        
-    # 그 뒤 +, *도 해준다.
+        del cal[idx]
+    
+    while cal.index('+'):
+        idx = cal.index('+')
+        result = numbers[idx-1]
+        result += numbers[idx]
+        numbers[idx-1] = result
+        del numbers[idx]
+        del cal[idx]
+    
+    while cal.index('*'):
+        idx = cal.index('*')
+        result = numbers[idx-1]
+        result *= numbers[idx]
+        numbers[idx-1] = result
+        del numbers[idx]
+        del cal[idx]
         
     results.append(abs(result))
     
