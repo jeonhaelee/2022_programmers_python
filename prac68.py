@@ -16,7 +16,11 @@ def solution(expression):
             cal.append(expression[i])
             numbers.append(int(num))
             num = ""
+    numbers.append(int(num))
     
+    print(f'numbers : {numbers}')
+    print(f'cal : {cal}')
+
 
     cals_permutations = []
     cals_permutations.append(list(permutations(set(cal))))
@@ -32,32 +36,48 @@ def solution(expression):
     # 만약 -, +, * 순서라면,
     
     result = 0
-    while cal.index('-'):
+    
+    while '-' in cal:
         idx = cal.index('-')
-        result = numbers[idx-1]
-        result -= numbers[idx]
-        numbers[idx-1] = result
-        del numbers[idx]
+        result = numbers[idx]
+        result -= numbers[idx+1]
+        numbers[idx] = result
+        del numbers[idx+1]
         del cal[idx]
+        print("==============")
+        print(f'result : {result}')
+        print(f'numbers : {numbers}')
+        print(f'cal : {cal}')
     
-    while cal.index('+'):
+
+    while '+' in cal:
         idx = cal.index('+')
-        result = numbers[idx-1]
-        result += numbers[idx]
-        numbers[idx-1] = result
-        del numbers[idx]
+        result = numbers[idx]
+        result += numbers[idx+1]
+        numbers[idx] = result
+        del numbers[idx+1]
         del cal[idx]
+        print("==============")
+        print(f'result : {result}')
+        print(f'numbers : {numbers}')
+        print(f'cal : {cal}')
     
-    while cal.index('*'):
+
+    while '*' in cal:
         idx = cal.index('*')
-        result = numbers[idx-1]
-        result *= numbers[idx]
-        numbers[idx-1] = result
-        del numbers[idx]
+        result = numbers[idx]
+        result *= numbers[idx+1]
+        numbers[idx] = result
+        del numbers[idx+1]
         del cal[idx]
+        print("==============")
+        print(f'result : {result}')
+        print(f'numbers : {numbers}')
+        print(f'cal : {cal}')
         
     results.append(abs(result))
     
+    print(results)
     answer = max(results)
     
     return answer
