@@ -3,8 +3,10 @@
 
 
 from itertools import permutations
+import copy
 
 def do_minus(numbers_2, cal_2):
+    result = 0
     while '-' in cal_2:
         idx = cal_2.index('-')
         result = numbers_2[idx]
@@ -16,9 +18,10 @@ def do_minus(numbers_2, cal_2):
         print(f'result : {result}')
         print(f'numbers : {numbers_2}')
         print(f'cal : {cal_2}')
-    return result
+
 
 def do_plus(numbers_2, cal_2):
+    result = 0
     while '+' in cal_2:
         idx = cal_2.index('+')
         result = numbers_2[idx]
@@ -30,9 +33,10 @@ def do_plus(numbers_2, cal_2):
         print(f'result : {result}')
         print(f'numbers : {numbers_2}')
         print(f'cal : {cal_2}')
-    return result
+
         
 def do_multi(numbers_2, cal_2):
+    result = 0
     while '*' in cal_2:
         idx = cal_2.index('*')
         result = numbers_2[idx]
@@ -44,7 +48,7 @@ def do_multi(numbers_2, cal_2):
         print(f'result : {result}')
         print(f'numbers : {numbers_2}')
         print(f'cal : {cal_2}')
-    return result
+
 
 
 
@@ -72,38 +76,39 @@ def solution(expression):
     print(cals_permutations)
     
     results = []
-    
 
     for cals in cals_permutations[0]:
         print(f'cals:{cals}')
         a, b, c = cals[0], cals[1], cals[2]
         
-        numbers_2 = numbers
-        cal_2 = cal
+        numbers_2 = copy.deepcopy(numbers)
+        cal_2 = copy.deepcopy(cal)
         
-        result = 0
+        print(f'numbers_2 : {numbers_2}')
+        print(f'cal_2 : {cal_2}')
+    
         if a == '-':
-            result = do_minus(numbers_2, cal_2)
+            do_minus(numbers_2, cal_2)
         elif a == '+':
-            result = do_plus(numbers_2, cal_2)
+            do_plus(numbers_2, cal_2)
         elif a == '*':
-            result = do_multi(numbers_2, cal_2)
+            do_multi(numbers_2, cal_2)
             
         if b == '-':
-            result = do_minus(numbers_2, cal_2)
+            do_minus(numbers_2, cal_2)
         elif b == '+':
-            result = do_plus(numbers_2, cal_2)
+            do_plus(numbers_2, cal_2)
         elif b == '*':
-            result = do_multi(numbers_2, cal_2)
+            do_multi(numbers_2, cal_2)
             
         if c == '-':
-            result = do_minus(numbers_2, cal_2)
+            do_minus(numbers_2, cal_2)
         elif c == '+':
-            result = do_plus(numbers_2, cal_2)
+            do_plus(numbers_2, cal_2)
         elif c == '*':
-            result = do_multi(numbers_2, cal_2)    
+            do_multi(numbers_2, cal_2)    
         
-        results.append(abs(result))
+        results.append(abs(numbers_2[0]))
     
     print(results)
     answer = max(results)
