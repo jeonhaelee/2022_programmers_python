@@ -1,9 +1,53 @@
 # 수식 최대화
 # +, -, *
-# 아니지. 우선순위 높은게 뒤쪽에 나올 경우도 생각하면 앞 뒤 숫자를 다 생각해야지.
-# 우선순위 젤 높은게 -라면, -위치 찾아서 앞 뒤 숫자 구해주고, 앞 - 뒤 위치에 연산 결과 숫자를 넣어주는 식으로?
+
 
 from itertools import permutations
+
+def do_minus(numbers_2, cal_2):
+    while '-' in cal_2:
+        idx = cal_2.index('-')
+        result = numbers_2[idx]
+        result -= numbers_2[idx+1]
+        numbers_2[idx] = result
+        del numbers_2[idx+1]
+        del cal_2[idx]
+        print("==============")
+        print(f'result : {result}')
+        print(f'numbers : {numbers_2}')
+        print(f'cal : {cal_2}')
+    return result
+
+def do_plus(numbers_2, cal_2):
+    while '+' in cal_2:
+        idx = cal_2.index('+')
+        result = numbers_2[idx]
+        result += numbers_2[idx+1]
+        numbers_2[idx] = result
+        del numbers_2[idx+1]
+        del cal_2[idx]
+        print("==============")
+        print(f'result : {result}')
+        print(f'numbers : {numbers_2}')
+        print(f'cal : {cal_2}')
+    return result
+        
+def do_multi(numbers_2, cal_2):
+    while '*' in cal_2:
+        idx = cal_2.index('*')
+        result = numbers_2[idx]
+        result *= numbers_2[idx+1]
+        numbers_2[idx] = result
+        del numbers_2[idx+1]
+        del cal_2[idx]
+        print("==============")
+        print(f'result : {result}')
+        print(f'numbers : {numbers_2}')
+        print(f'cal : {cal_2}')
+    return result
+
+
+
 
 def solution(expression):
 
@@ -27,55 +71,39 @@ def solution(expression):
     
     print(cals_permutations)
     
-    # cals 돌면서 cal 우선순위대로 숫자 계산해서 가장 높은 숫자 리턴
-    
-    # 만약 우선순위 순서가 -, +, *라면
-    
     results = []
     
-    # 만약 -, +, * 순서라면,
-    
-    result = 0
-    
-    while '-' in cal:
-        idx = cal.index('-')
-        result = numbers[idx]
-        result -= numbers[idx+1]
-        numbers[idx] = result
-        del numbers[idx+1]
-        del cal[idx]
-        print("==============")
-        print(f'result : {result}')
-        print(f'numbers : {numbers}')
-        print(f'cal : {cal}')
-    
 
-    while '+' in cal:
-        idx = cal.index('+')
-        result = numbers[idx]
-        result += numbers[idx+1]
-        numbers[idx] = result
-        del numbers[idx+1]
-        del cal[idx]
-        print("==============")
-        print(f'result : {result}')
-        print(f'numbers : {numbers}')
-        print(f'cal : {cal}')
-    
-
-    while '*' in cal:
-        idx = cal.index('*')
-        result = numbers[idx]
-        result *= numbers[idx+1]
-        numbers[idx] = result
-        del numbers[idx+1]
-        del cal[idx]
-        print("==============")
-        print(f'result : {result}')
-        print(f'numbers : {numbers}')
-        print(f'cal : {cal}')
+    for cals in cals_permutations[0]:
+        print(f'cals:{cals}')
+        a, b, c = cals[0], cals[1], cals[2]
         
-    results.append(abs(result))
+        numbers_2 = numbers
+        cal_2 = cal
+        
+        result = 0
+        if a == '-':
+            result = do_minus(numbers_2, cal_2)
+        elif a == '+':
+            result = do_plus(numbers_2, cal_2)
+        elif a == '*':
+            result = do_multi(numbers_2, cal_2)
+            
+        if b == '-':
+            result = do_minus(numbers_2, cal_2)
+        elif b == '+':
+            result = do_plus(numbers_2, cal_2)
+        elif b == '*':
+            result = do_multi(numbers_2, cal_2)
+            
+        if c == '-':
+            result = do_minus(numbers_2, cal_2)
+        elif c == '+':
+            result = do_plus(numbers_2, cal_2)
+        elif c == '*':
+            result = do_multi(numbers_2, cal_2)    
+        
+        results.append(abs(result))
     
     print(results)
     answer = max(results)
