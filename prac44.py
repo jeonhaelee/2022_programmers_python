@@ -1,52 +1,15 @@
-# 타겟넘버 
-
+# 타겟넘버
+# 다시
+# target으로 만들 수 있는 +, - 조합 찾은 후
+# 같은 숫자끼리 +, - 순서 바꿔서??
 
 import math
 
 def solution(numbers, target):
-    true_answer = 0
-    li_answer = []
+    answer = 0
 
-    count = 0
-    while count < len(numbers):
-      answer = numbers[count]
-      li = []
-      for i in range(len(numbers)):
-        if i == count:
-          li.append(['+', numbers[count]])
-          continue
-        if answer < target:
-          answer += numbers[i]
-          li.append(['+', numbers[i]])
-        else :
-          answer -= numbers[i]
-          li.append(['-', numbers[i]])
-      
-      if li not in li_answer:
-        li_answer.append(li)
-        if answer == target:
-          true_answer += 1
+    return answer
 
-
-      answer = -numbers[count]
-      li = []
-      for i in range(len(numbers)):
-        if i == count:
-          li.append(['-', numbers[count]])
-          continue
-        if answer < target:
-          answer += numbers[i]
-          li.append(['+', numbers[i]])
-        else :
-          answer -= numbers[i]
-          li.append(['-', numbers[i]])
-
-      if li not in li_answer:
-        li_answer.append(li)
-        if answer == target:
-          true_answer += 1
-
-      count += 1
-
-
-    return true_answer
+numbers = [1, 1, 1, 1, 1]
+target = 3
+print(solution(numbers, target)) # 5
