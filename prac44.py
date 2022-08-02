@@ -1,3 +1,5 @@
+# 타겟넘버 
+
 
 import math
 
