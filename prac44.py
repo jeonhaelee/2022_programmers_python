@@ -8,17 +8,24 @@ import math
 def solution(numbers, target):
     answer = 0
 
+    cal = []
     idx = 0
     result = 0
-    while idx != len(numbers)-1:
+    while idx < len(numbers):
         if result < target:
             result += numbers[idx]
+            cal.append('+')
             idx += 1
         else:
             result -= numbers[idx]
+            cal.append('-')
             idx += 1
 
+    print(cal)
     print(result)
+    
+    
+    
     
     return answer
 
