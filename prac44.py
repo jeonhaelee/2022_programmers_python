@@ -3,29 +3,25 @@
 # target으로 만들 수 있는 +, - 조합 찾은 후
 # 같은 숫자끼리 +, - 순서 바꿔서??
 
-import math
+from itertools import permutations
+
 
 def solution(numbers, target):
     answer = 0
-
-    cal = []
-    idx = 0
+  
+    results = []
     result = 0
-    while idx < len(numbers):
-        if result < target:
-            result += numbers[idx]
-            cal.append('+')
-            idx += 1
+    for n in numbers:
+        if result <= target:
+            result += n
+            results.append([n, '+'])
         else:
-            result -= numbers[idx]
-            cal.append('-')
-            idx += 1
+            result -= n
+            results.append([n, '-'])
 
-    print(cal)
-    print(result)
-    
-    
-    
+    print(results)
+
+
     
     return answer
 
