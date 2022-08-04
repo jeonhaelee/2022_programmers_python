@@ -2,7 +2,19 @@
 
 def solution(n):
     ans = 0
-
+    
+    ans += 1
+    place = 1
+    
+    state = True
+    while state :
+        result = place * 2
+        if result > n:
+            state = False
+        else:
+            place = result
+    
+    
     return ans
 
 n = 5
