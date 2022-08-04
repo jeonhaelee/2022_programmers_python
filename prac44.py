@@ -1,30 +1,40 @@
 # 타겟넘버
-# 다시
-# target으로 만들 수 있는 +, - 조합 찾은 후
-# 같은 숫자끼리 +, - 순서 바꿔서??
-
-from itertools import permutations
+# BFS, DFS를 익히자.
 
 
+# 풀이 1
 def solution(numbers, target):
     answer = 0
-  
-    results = []
-    result = 0
-    for n in numbers:
-        if result <= target:
-            result += n
-            results.append([n, '+'])
-        else:
-            result -= n
-            results.append([n, '-'])
-
-    print(results)
-
-
-    
+    leaves = [0]
+    for num in numbers:
+        tmp = []
+        for parent in leaves:
+            tmp.append(parent + num)
+            tmp.append(parent - num)
+        leaves = tmp
+    for leaf in leaves:
+        if leaf == target:
+            answer += 1
     return answer
 
+# 풀이 2
+def solution(numbers, target):
+    answer = DFS(numbers, target, 0)
+    return answer
+
+def DFS(numbers, target, depth):
+    answer = 0
+    if depth == len(numbers):
+        print(numbers)
+        if sum(numbers) == target:
+            return 1
+        else: return 0
+    else:
+        answer += DFS(numbers, target, depth+1)
+        numbers[depth] *= -1
+        answer += DFS(numbers, target, depth+1)
+        return answer
+    
 numbers = [1, 1, 1, 1, 1]
 target = 3
 print(solution(numbers, target)) # 5
