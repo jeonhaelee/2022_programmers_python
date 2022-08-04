@@ -14,6 +14,7 @@ def solution(n):
         else:
             place = result
     
+    ans += n - place
     
     return ans
 
