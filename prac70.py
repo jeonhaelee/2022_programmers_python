@@ -1,10 +1,16 @@
 # 점프와 순간이동
+# 효율성 테스트 다시.
+
 
 def get_twice(num, count, n, counts):
+    
+    while True:
         if num * 2 > n:
             counts.append(count + n - num)
+            break
         elif num * 2 == n:
             counts.append(count)
+            break
         else:
             num *= 2
             get_twice(num, count, n, counts)
