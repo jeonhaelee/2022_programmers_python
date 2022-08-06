@@ -1,6 +1,6 @@
 # 점프와 순간이동
 
-def go_2multi(now, n):
+def go_2multi(now, n, count):
     counts = []
     while True:
         get = now * 2
@@ -18,8 +18,10 @@ def go_2multi(now, n):
 
 def solution(n):
     ans = 0
-    now = 0; count = 0
+    now = 0
     
+    
+    count = 0
     counts = []
     for i in range(n):
         now = i
@@ -28,10 +30,11 @@ def solution(n):
             count += 1
             continue
         
-        counts.extend(go_2multi(now, n))
+        counts.extend(go_2multi(now, n, count))
     
     print(counts)
 
+    ans = min(counts)
     return ans
 
 n = 5
