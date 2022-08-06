@@ -1,22 +1,41 @@
 # 점프와 순간이동
 
+def go_2multi(now, n):
+    counts = []
+    while True:
+        get = now * 2
+        if get > n:
+            count += (n-now)
+            counts.append(count)
+            break
+        elif get == n:
+            counts.append(count)
+            break
+        else: now = get
+    
+    return counts
+
+
 def solution(n):
     ans = 0
+    now = 0; count = 0
     
-    ans += 1
-    place = 1
+    counts = []
+    for i in range(n):
+        now = i
+        
+        if now == 0:
+            count += 1
+            continue
+        
+        counts.extend(go_2multi(now, n))
     
-    state = True
-    while state :
-        result = place * 2
-        if result > n:
-            state = False
-        else:
-            place = result
-    
-    ans += n - place
-    
+    print(counts)
+
     return ans
 
 n = 5
+print(solution(n)) # 2
+
+n = 6
 print(solution(n)) # 2
