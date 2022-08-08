@@ -3,7 +3,10 @@
 
 def solution(n):
     count = 0
-    
+    while n != 0 :
+        n, m = n // 2, n % 2
+        if m == 1 :
+            count += 1
     return count
 
 n = 5
