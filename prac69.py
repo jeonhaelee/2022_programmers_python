@@ -1,7 +1,5 @@
 # 예상 대진표
 
-import math
-
 def get_2(n):
     count = 0
     while n != 1:
@@ -16,10 +14,13 @@ def solution(n,a,b):
     if a > b:
         a, b = b, a
     
-    standard = n//2
-    if a <= standard and b > standard:
-        answer += get_2(n)
-    
+    while answer == 0:
+        standard = n//2
+        if a <= standard and b > standard:
+            answer += get_2(n)
+        else:
+            n = n//2
+        
     return answer
 
 n = 8
