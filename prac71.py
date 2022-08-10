@@ -1,7 +1,10 @@
 # 행렬 테두리 회전하기
+import numpy as np
 
 def solution(rows, columns, queries):
     answer = []
+    arr = np.arange(1, rows * columns + 1).reshape(rows, columns)
+    print(arr)
     return answer
 
 rows = 6
