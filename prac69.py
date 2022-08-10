@@ -1,15 +1,24 @@
 # 예상 대진표
 
+import math
+
+def get_2(n):
+    count = 0
+    while n != 1:
+        count += 1
+        n = n//2
+    return count
+
+
 def solution(n,a,b):
     answer = 0
     
     if a > b:
         a, b = b, a
     
-    while n != 1:
-        standard = n//2
-        if a < standard and b > standard:
-            answer += 1
+    standard = n//2
+    if a <= standard and b > standard:
+        answer += get_2(n)
     
     return answer
 
