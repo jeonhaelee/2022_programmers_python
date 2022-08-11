@@ -11,9 +11,29 @@ def solution(rows, columns, queries):
         x1 -= 1; y1 -= 1; x2 -= 1; y2 -= 1
         
         temp = arr[x1, y1-1]
-        while x1 < x2:
+        count = y1
+        while count < y2:
             arr[x1, y1] = temp
-            temp = arr[x1+1, y1]
+            temp = arr[x1, y1 + 1]
+            count += 1
+        
+        count = x1
+        while count < x2:
+            arr[x1, y2] = temp
+            temp = arr[x1+1, y2]
+            count += 1
+            
+        count = y2
+        while count > y1:
+            arr[x1, y1] = temp
+            temp = arr[x1, y1-1]
+            count -= 1
+            
+        count = x2
+        while count > x1:
+            arr[x1, y1] = temp
+            temp = arr[x1-1, y1]
+            count -= 1
 
         
         
