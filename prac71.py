@@ -5,6 +5,19 @@ def solution(rows, columns, queries):
     answer = []
     arr = np.arange(1, rows * columns + 1).reshape(rows, columns)
     print(arr)
+    
+    for query in queries:
+        x1, y1, x2, y2 = query
+        x1 -= 1; y1 -= 1; x2 -= 1; y2 -= 1
+        
+        temp = arr[x1, y1-1]
+        while x1 < x2:
+            arr[x1, y1] = temp
+            temp = arr[x1+1, y1]
+
+        
+        
+        
     return answer
 
 rows = 6
