@@ -4,7 +4,6 @@ import numpy as np
 def solution(rows, columns, queries):
     answer = []
     arr = np.arange(1, rows * columns + 1).reshape(rows, columns)
-    print(arr)
     
     for query in queries:
         x1, y1, x2, y2 = query
