@@ -9,35 +9,41 @@ def solution(rows, columns, queries):
     for query in queries:
         x1, y1, x2, y2 = query
         x1 -= 1; y1 -= 1; x2 -= 1; y2 -= 1
+        temp_list = []
         
         temp = arr[x1, y1-1]
+        temp_list.append(temp)
+
         count = y1
         while count < y2:
             arr[x1, y1] = temp
             temp = arr[x1, y1 + 1]
+            temp_list.append(temp)
             count += 1
         
         count = x1
         while count < x2:
             arr[x1, y2] = temp
             temp = arr[x1+1, y2]
+            temp_list.append(temp)
             count += 1
             
         count = y2
         while count > y1:
             arr[x1, y1] = temp
             temp = arr[x1, y1-1]
+            temp_list.append(temp)
             count -= 1
             
         count = x2
         while count > x1:
             arr[x1, y1] = temp
             temp = arr[x1-1, y1]
+            temp_list.append(temp)
             count -= 1
+            
+        answer.append(min(temp_list))
 
-        
-        
-        
     return answer
 
 rows = 6
