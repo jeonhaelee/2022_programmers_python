@@ -11,30 +11,30 @@ def solution(rows, columns, queries):
         x1 -= 1; y1 -= 1; x2 -= 1; y2 -= 1
         temp_list = []
         
-        temp = arr[x1, y1-1]
+        temp = arr[x1+1, y1]
         temp_list.append(temp)
 
         count = y1
         while count < y2:
-            arr[x1, count], temp = temp, arr[x1, count+1]
+            arr[x1, count], temp = temp, arr[x1, count]
             temp_list.append(temp)
             count += 1
         
         count = x1
         while count < x2:
-            arr[count, y2], temp = temp, arr[count+1, y2]
+            arr[count, y2], temp = temp, arr[count, y2]
             temp_list.append(temp)
             count += 1
             
         count = y2
         while count > y1:
-            arr[x2, count], temp = temp, arr[x2, count-1]
+            arr[x2, count], temp = temp, arr[x2, count]
             temp_list.append(temp)
             count -= 1
             
         count = x2
         while count > x1:
-            arr[count, y1], temp = temp, arr[count-1, y1]
+            arr[count, y1], temp = temp, arr[count, y1]
             temp_list.append(temp)
             count -= 1
             
