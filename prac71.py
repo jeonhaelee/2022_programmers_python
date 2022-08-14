@@ -1,4 +1,6 @@
 # 행렬 테두리 회전하기
+# 테스트는 통과. but 제출시 int64 불가? 다시 해보자.
+
 import numpy as np
 
 def solution(rows, columns, queries):
