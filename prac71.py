@@ -39,7 +39,7 @@ def solution(rows, columns, queries):
             temp_list.append(temp)
             count -= 1
             
-        answer.append(min(temp_list))
+        answer.append(int(min(temp_list)))
 
     return answer
 
