@@ -90,6 +90,7 @@ def solution(rows, columns, queries):
 
 
 # 다른 사람 풀이 2
+# deque의 rotate를 이용한 풀이
 from collections import deque
 def solution(rows, columns, queries):
     arr = [[i+columns*j for i in range(1,columns+1)] for j in range(rows)]
