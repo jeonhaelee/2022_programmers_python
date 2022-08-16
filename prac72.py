@@ -2,6 +2,12 @@
 
 def solution(name):
     answer = 0
+    
+    n = ""
+    for i in range(len(name)):
+        n += "A"
+        
+        
     return answer
 
 name = "JEROEN"
