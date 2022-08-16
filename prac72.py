@@ -6,7 +6,8 @@ def solution(name):
     n = ""
     for i in range(len(name)):
         n += "A"
-        
+    
+    print(n)
         
     return answer
 
