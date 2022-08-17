@@ -2,6 +2,14 @@
 
 def solution(n):
     answer = []
+    
+    count = 1
+    while count <= n:
+  
+        count += 1
+        
+        
+        
     return answer
 
 n = 4
