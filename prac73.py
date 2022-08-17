@@ -1,12 +1,16 @@
 # 삼각 달팽이
 
+
 def solution(n):
     answer = []
+    num_count = sum(i for i in range(1, n+1))
+    print(num_count)
+    
     li = []
 
     for i in range(n):
         li.append([i+1])
-        
+    
 
     print(li)
     
