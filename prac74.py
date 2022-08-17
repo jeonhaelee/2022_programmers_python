@@ -1,5 +1,6 @@
 # 올바른 괄호
 
+# 내 풀이
 def solution(s):
     answer = True
 
@@ -29,3 +30,27 @@ print(solution(s)) # False
 
 s = "(()("
 print(solution(s)) # False
+
+# 다른 사람 풀이 1
+def is_pair(s):
+    x = 0
+    for w in s:
+        if x < 0:
+            break
+        x = x+1 if w=="(" else x-1 if w==")" else x
+    return x==0
+
+# 다른 사람 풀이 2
+def is_pair(s):
+    st = list()
+    for c in s:
+        if c == '(':
+            st.append(c)
+
+        if c == ')':
+            try:
+                st.pop()
+            except IndexError:
+                return False
+
+    return len(st) == 0
