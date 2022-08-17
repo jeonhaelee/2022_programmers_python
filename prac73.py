@@ -2,14 +2,14 @@
 
 def solution(n):
     answer = []
+    li = []
+
+    for i in range(n):
+        li.append([i+1])
+        
+
+    print(li)
     
-    count = 1
-    while count <= n:
-  
-        count += 1
-        
-        
-        
     return answer
 
 n = 4
