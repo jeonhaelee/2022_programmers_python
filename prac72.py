@@ -3,12 +3,9 @@
 def solution(name):
     answer = 0
     
-    n = ""
-    for i in range(len(name)):
-        n += "A"
-    
-    print(n)
-        
+    for n in name:
+        answer += min(ord(n)-ord('A'), ord('Z')-ord(n))
+    print(ord(name[0]))
     return answer
 
 name = "JEROEN"
