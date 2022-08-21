@@ -7,17 +7,22 @@ def solution(n):
     
     if n % 2 == 0:
         two_num = n // 2
-        for two_count in range(two_num):
-            num_li = [1] * (n - two_count)
-            two_li = [2] * two_count
+        for i in range(two_num + 1):
+            num_li = [1] * (n - i * 2)
+            print(f'num_li : {num_li}')
+            two_li = [2] * i
+            print(f'two_li : {two_li}')
             num_li.extend(two_li)
-            result = list(permutations(num_li))
+            print(f'num_li : {num_li}')
+            result = list(set(permutations(num_li)))
+            print(f'result : {result}')
+            
             answer += len(result)
             
     else:
         two_num = n // 2
-        num_li = [1] * (n - two_count + 1)
-        two_li = [2] * two_count
+        num_li = [1] * (n - i * 2 + 1)
+        two_li = [2] * i
         num_li.extend(two_li)
         result = list(permutations(num_li))
         answer += len(result)
