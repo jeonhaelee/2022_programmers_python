@@ -1,5 +1,4 @@
 # 멀리 뛰기 - 1칸 또는 2칸씩
-# 2번째 테스트케이스 다시.
 
 from itertools import permutations
 
@@ -17,10 +16,10 @@ def solution(n):
             
     else:
         for i in range(two_num + 1):
-            num_li = [1] * (n - i * 2 + 1)
+            num_li = [1] * (n - i * 2)
             two_li = [2] * i
             num_li.extend(two_li)
-            result = list(permutations(num_li))
+            result = list(set(permutations(num_li)))
             answer += len(result)
         
     return answer % 1234567
