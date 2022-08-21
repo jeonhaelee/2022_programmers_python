@@ -2,7 +2,7 @@
 
 def solution(n):
     answer = 0
-    return answer
+    return answer % 1234567
 
 n = 4
 print(solution(n)) # 5
