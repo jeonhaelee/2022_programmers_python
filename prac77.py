@@ -14,11 +14,13 @@ def solution(maps):
     count += 1
     for x in range(5):
         for y in range(5):
+            count += 1
             if maps[x][y] == 0:
                 continue
-            else:
-                count += 1
-                break
+            if x < 4:
+                if maps[x+1][y] == 1:
+                    break
+
     answer_li.append(count)
                 
         
