@@ -18,6 +18,7 @@ def solution(maps):
                 continue
             else:
                 count += 1
+                break
     answer_li.append(count)
                 
         
