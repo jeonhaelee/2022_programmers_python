@@ -10,6 +10,12 @@ def solution(maps):
             print(maps[x][y], end="")
         print()
     
+    for x in range(5):
+        for y in range(5):
+            if maps[x][y] == 0:
+                pass
+                
+        
     return answer
 
 maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]
