@@ -10,7 +10,7 @@ def solution(maps):
             print(maps[x][y], end="")
         print()
     
-    # while문 거리 리스트 만들기
+    target_touch = False
     count += 1
     for x in range(5):
         for y in range(5):
@@ -21,10 +21,16 @@ def solution(maps):
                 if maps[x+1][y] == 1:
                     break
 
-    answer_li.append(count)
-                
+            if x == 4 and y == 4:
+                target_touch = True
+
+    
+    if target_touch == True:
+        return count
+    else:
+        return -1
         
-    return min(answer_li)
+
 
 maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]
 print(solution(maps)) # 11
