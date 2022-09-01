@@ -14,18 +14,21 @@ def solution(maps):
     count = 0
     x = 0; y = 0
     while x < n or y < m:
-        if maps[x+1][y] == 1 and x + 1 < n:
-            x += 1
-            count += 1
-        elif maps[x][y+1] == 1 and y + 1 < m:
-            y += 1
-            count += 1
-        else:
-            maps[x][y] = 0
-            x -= 1
-            count += 1
+        if x + 1 < n:
+            if maps[x+1][y] == 1:
+                x += 1
+                count += 1
+        elif y + 1 < m:
+            if maps[x][y+1] == 1:
+                y += 1
+                count += 1
+        elif x - 1 >= 0:
+            if maps[x-1][y] == 1:
+                maps[x][y] = 0
+                x -= 1
+                count += 1
         
-        if x == n and y == m:
+        if x == n-1 and y == m-1:
             return count
         
     return -1
@@ -34,5 +37,5 @@ def solution(maps):
 maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]
 print(solution(maps)) # 11
 
-maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]
-print(solution(maps)) # -1
+# maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]
+# print(solution(maps)) # -1
