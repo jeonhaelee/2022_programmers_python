@@ -30,6 +30,9 @@ def solution(maps):
                 x -= 1
                 count += 1
                 continue
+            else:
+                break
+
     
     return -1
 
@@ -39,5 +42,5 @@ def solution(maps):
 maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]
 print(solution(maps)) # 11
 
-# maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]
-# print(solution(maps)) # -1
+maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]
+print(solution(maps)) # -1
