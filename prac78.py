@@ -1,17 +1,16 @@
 # 타겟 넘버
 
-from itertools import permutations
+from itertools import product
 
-def get_result(numbers, cal, target):
+def get_cal(numbers, cal, target):
     
-    result = numbers[0]
-    for c in cal:
-        if c == 0:
-            continue
-        if result >= target:
-            result -= numbers[c]
+    result = 0
+    
+    for i in range(len(numbers)):
+        if cal[i] == "+":
+            result += numbers[i]
         else:
-            result += numbers[c]
+            result -= numbers[i]                
     
     return result
     
@@ -19,13 +18,15 @@ def get_result(numbers, cal, target):
     
 def solution(numbers, target):
     answer = 0
-    l = [i for i in range(0, len(numbers))]
-    cal_li = list(set(permutations(l)))
+    li = ["+", "-"]
+    cal_li = list(set(product(li, repeat = len(numbers))))
     print(cal_li)
         
     for cal in cal_li:
-        result = get_result(numbers, cal, target)
+        result = get_cal(numbers, cal, target)
         if result == target:
+            print(f'cal : {cal}')
+            print(f'result : {result}')
             answer += 1
             
     return answer
