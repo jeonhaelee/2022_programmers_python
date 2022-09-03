@@ -6,7 +6,24 @@ def solution(maps):
 
     n = len(maps); m = len(maps[0])
 
-    return -1
+    x = 0; y = 0
+    while x < n and y < m:
+        if maps[x+1][y] == 1:
+            maps[x+1][y] += maps[x][y]
+            x += 1
+            
+        elif maps[x][y+1] == 1:
+            maps[x][y+1] += maps[x][y]
+            y += 1
+            
+        elif maps[x-1][y] == 1:
+            maps[x-1][y] += maps[x][y]
+            x -= 1
+    
+    if maps[n-1][m-1] > 1:
+        return maps[n-1][m-1]
+    else:
+        return -1
 
 
 
