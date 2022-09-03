@@ -8,15 +8,15 @@ def solution(maps):
 
     x = 0; y = 0
     while x < n and y < m:
-        if maps[x+1][y] == 1:
+        if maps[x+1][y] == 1 and x+1 < n and y < m:
             maps[x+1][y] += maps[x][y]
             x += 1
             
-        elif maps[x][y+1] == 1:
+        elif maps[x][y+1] == 1 and x < n and y+1 < m:
             maps[x][y+1] += maps[x][y]
             y += 1
             
-        elif maps[x-1][y] == 1:
+        elif maps[x-1][y] == 1 and x-1 > 0 and y < m:
             maps[x-1][y] += maps[x][y]
             x -= 1
     
@@ -31,5 +31,5 @@ def solution(maps):
 maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]
 print(solution(maps)) # 11
 
-maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]
-print(solution(maps)) # -1
+# maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]
+# print(solution(maps)) # -1
