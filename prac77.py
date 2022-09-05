@@ -13,16 +13,17 @@ def solution(maps):
         if x == n-1 and y == m-1:
             return maps[n-1][m-1]
         
-        if x+1 < n and y < m and maps[x+1][y] == 1:
+        if maps[x+1][y] == 1:
             maps[x+1][y] += maps[x][y]
             x += 1
             
-        elif x < n and y+1 < m and maps[x][y+1] == 1:
+        elif maps[x][y+1] == 1:
             maps[x][y+1] += maps[x][y]
             y += 1
             
-        elif x-1 > 0 and y < m and maps[x-1][y] == 1:
+        elif maps[x-1][y] == 1:
             maps[x-1][y] += maps[x][y]
+            maps[x][y] = 0
             x -= 1
     
     if maps[n-1][m-1] > 1:
@@ -36,5 +37,5 @@ def solution(maps):
 maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,1],[0,0,0,0,1]]
 print(solution(maps)) # 11
 
-maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]
-print(solution(maps)) # -1
+# maps = [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]
+# print(solution(maps)) # -1
