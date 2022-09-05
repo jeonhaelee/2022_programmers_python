@@ -8,6 +8,11 @@ def solution(maps):
 
     x = 0; y = 0
     while x < n and y < m:
+        print(f'x : {x}, y : {y}')
+        
+        if x == n-1 and y == m-1:
+            return maps[n-1][m-1]
+        
         if maps[x+1][y] == 1 and x+1 < n and y < m:
             maps[x+1][y] += maps[x][y]
             x += 1
