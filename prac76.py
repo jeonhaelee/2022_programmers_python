@@ -1,5 +1,4 @@
 # 멀리 뛰기
-# 시간초과 다시..
 
 
 from itertools import permutations
