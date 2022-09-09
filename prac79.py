@@ -5,21 +5,26 @@
 import sys
 sys.setrecursionlimit(10**7)
 
-answer = [0, 0]
-
-def solution(s):
-    global answer
+def get_s(s, answer):
     
     after_s = s.replace("0", "")
-    answer[1] += len(s) - len(after_s)
     answer[0] += 1
+    answer[1] += len(s) - len(after_s)
 
     s = bin(int(len(after_s)))
+    s = s[2:]
     
-    if s == 1:
-        return answer
-    else:
-        solution(s)
+    return s
+
+    
+def solution(s):
+
+    answer = [0, 0]
+    
+    while s != "1":
+        s = get_s(s, answer)
+
+    return answer
 
 s = "110010101001"
 print(solution(s)) # [3,8]
