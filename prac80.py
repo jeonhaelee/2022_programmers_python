@@ -1,6 +1,7 @@
 # 괄호 회전하기
 
 
+# 내 풀이
 def before_check(s):
     word_li = [[0, 0], [0, 0], [0, 0]]
     
@@ -36,14 +37,20 @@ def check_true(s):
             head1 += 1
         elif s[i] == "]":
             tail1 += 1
+            if s[i-1] == "(" or s[i-1] == "{":
+                return False
         elif s[i] == "(":
             head2 += 1
         elif s[i] == ")":
             tail2 += 1
+            if s[i-1] == "[" or s[i-1] == "{":
+                return False
         elif s[i] == "{":
             head3 += 1
         elif s[i] == "}":
             tail3 += 1
+            if s[i-1] == "[" or s[i-1] == "(":
+                return False
         
         if head1 < tail1:
             return False
@@ -51,6 +58,8 @@ def check_true(s):
             return False
         if head3 < tail3:
             return False
+        
+
         
     return True
     
@@ -94,3 +103,64 @@ print(solution(s)) # 0
 
 s = "}}}"
 print(solution(s)) # 0
+
+
+# 다른 사람 풀이 1
+def is_valid(s):
+    stack = []
+    for ch in s:
+        if not stack:
+            stack.append(ch)
+        elif stack[-1] == '(':
+            if ch==')': stack.pop()
+            else: stack.append(ch)
+        elif stack[-1] == '{':
+            if ch=='}': stack.pop()
+            else: stack.append(ch)
+        elif stack[-1] == '[':
+            if ch==']': stack.pop()
+            else: stack.append(ch)
+
+    return False if stack else True
+
+def solution(s):
+    answer = 0
+    for i in range(len(s)):
+        answer += is_valid(s[i:]+s[:i])
+    return answer
+
+
+# 다른 사람 풀이 2
+from collections import deque
+
+def check(string):
+    stack = []
+    for s in string:
+        if len(stack) == 0:
+            if s == ')' or s == '}' or s == ']':
+                return False
+        if s == '(' or s == '{' or s == '[':
+            stack.append(s)
+        else:
+            if s == ')' and stack[-1] == '(':
+                stack.pop()
+            elif s == '}' and stack[-1] == '{':
+                stack.pop()
+            elif s == ']' and stack[-1] == '[':
+                stack.pop()
+    if stack:
+        return False
+    else:
+        return True
+
+def solution(s):
+    answer = 0
+    queue = deque(list(s))
+    i = 0
+    while i != len(queue):
+        if check(queue):
+            answer += 1
+        queue.rotate(-1)
+        i += 1
+
+    return answer
