@@ -63,18 +63,21 @@ def solution(s):
     
     if not before_check(s):
         return 0
-    
-    # 처음 입력받은 s가 올바른 괄호이면 값 리턴.
-    result = check_true(s)
-    if result:
-        return result
+        
+    # 처음 입력받은 s가 올바른 괄호인지 확인하기.
+    print(f's : {s}')
+    if check_true(s):
+        answer += 1
     
     # s 회전하여 올바른 괄호인지 확인하기.
     count = 0
-    while count < len(s):
+    while count < len(s) - 1:
         s = s[1:] + s[0]
+        print(f's : {s}')
+        
         if check_true(s):
-            return count
+            answer += 1
+            count += 1
         else:
             count += 1
         
@@ -83,11 +86,11 @@ def solution(s):
 s = "[](){}"
 print(solution(s)) # 3
 
-# s = "}]()[{"
-# print(solution(s)) # 2
+s = "}]()[{"
+print(solution(s)) # 2
 
-# s = "[)(]"
-# print(solution(s)) # 0
+s = "[)(]"
+print(solution(s)) # 0
 
-# s = "}}}"
-# print(solution(s)) # 0
+s = "}}}"
+print(solution(s)) # 0
