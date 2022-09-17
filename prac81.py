@@ -4,6 +4,13 @@
 
 from datetime import datetime
 
+
+## 누적시간에 따른 요금계산 함수 만들기
+def cal_cash(dic):
+    
+    
+    
+    
 def solution(fees, records):
     answer = []
     car_li = []; time_li = []
@@ -29,8 +36,8 @@ def solution(fees, records):
             del car_li[idx]
             del time_li[idx]
             
-            
-    ## 누적시간에 따른 요금계산 함수 만들기
+    dic.sort()
+    
     ## car_li에 남아있는 아직 out 하지 않은 자동차 시간도 따져서 더해주기
     
     
