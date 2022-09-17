@@ -13,7 +13,7 @@ def solution(fees, records):
         
         car_num = record[6:10]
         if car_num not in dic:
-            dic[car_num] = 0
+            dic[car_num] = datetime.strptime('00:00', '%H:%M')
             
         if record[11:] == "IN": # in 일 때
             if car_num not in car_li:
@@ -24,6 +24,7 @@ def solution(fees, records):
         else: # out 일 때
             idx = car_li.index(car_num)
             d = datetime.strptime(record[:5], '%H:%M') - time_li[idx]
+            print(f'd : {d}')
             dic[car_num] += d
             del car_li[idx]
             del time_li[idx]
