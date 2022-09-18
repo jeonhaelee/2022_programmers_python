@@ -5,9 +5,11 @@
 from datetime import datetime
 
 
-## 누적시간에 따른 요금계산 함수 만들기
-# def cal_cash(dic):
+# ## 누적시간에 따른 요금계산 함수 만들기
+# def cal_cash(fees, dic):
     
+#     for c, t in dic.items():
+#         dic[c] 
     
     
     
@@ -33,15 +35,24 @@ def solution(fees, records):
             d = datetime.strptime(record[:5], '%H:%M') - time_li[idx]
             print(f'd : {d}')
             dic[car_num] += d
+            print(f'car_num : {car_num}')
+            print(f'dic[car_num] : {dic[car_num]}')
             del car_li[idx]
             del time_li[idx]
             
 
-    dic = dict(sorted(dic.items()))
-    
     ## car_li에 남아있는 아직 out 하지 않은 자동차 시간도 따져서 더해주기
+    print(f'car_li : {car_li}')
+    print(f'time_li : {time_li}')
     
-    
+    if len(car_li) > 0:
+        for i in range(len(car_li)):
+            d = datetime.strptime('23:59', '%H:%M') - time_li[i]
+            dic[car_num] += d
+            
+            
+    dic = dict(sorted(dic.items()))
+    print(f'dic : {dic}')
     return answer
 
 
