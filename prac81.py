@@ -3,6 +3,7 @@
 
 
 from datetime import datetime
+from math import ceil
 
 
 ## 누적시간 분으로 변환해주는 함수 만들기
@@ -12,10 +13,23 @@ def cal_time(dic):
         time = dic[c].hour * 60 + dic[c].minute
         dic[c] = time
 
+
 ## 누적시간에 따른 요금계산 함수 만들기
-# def cal_cash(fees, dic)
+def cal_cash(fees, dic):
+    answer = []
     
+    for c, t in dic.items():
+        
+        if dic[c] <= fees[0]:
+            result = fees[1]
+            answer.append(result)
+            continue
+        
+        result = fees[1]
+        result += ceil((dic[c] - fees[0]) // fees[2]) * fees[3]
+        answer.append(result)
     
+    return answer
     
 def solution(fees, records):
     answer = []
@@ -62,6 +76,7 @@ def solution(fees, records):
     
     print(f'dic : {dic}')
     
+    answer = cal_cash(fees, dic)
     
     return answer
 
