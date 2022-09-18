@@ -5,11 +5,15 @@
 from datetime import datetime
 
 
-# ## 누적시간에 따른 요금계산 함수 만들기
-# def cal_cash(fees, dic):
+## 누적시간 분으로 변환해주는 함수 만들기
+def cal_time(dic):
     
-#     for c, t in dic.items():
-#         dic[c] 
+    for c, t in dic.items():
+        time = dic[c].hour * 60 + dic[c].minute
+        dic[c] = time
+
+## 누적시간에 따른 요금계산 함수 만들기
+# def cal_cash(fees, dic)
     
     
     
@@ -48,11 +52,17 @@ def solution(fees, records):
     if len(car_li) > 0:
         for i in range(len(car_li)):
             d = datetime.strptime('23:59', '%H:%M') - time_li[i]
-            dic[car_num] += d
+            dic[car_li[i]] += d
             
             
     dic = dict(sorted(dic.items()))
     print(f'dic : {dic}')
+    
+    cal_time(dic)
+    
+    print(f'dic : {dic}')
+    
+    
     return answer
 
 
