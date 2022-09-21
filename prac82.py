@@ -1,31 +1,29 @@
 # 땅따먹기
+# product를 이용해 모든 경우의 수를 고려해보자.
+
+from itertools import product
 
 def solution(land):
     answer = []
-    
-    while len(answer) < 4:
-        
-        used_idx = [len(answer)]
-        result = land[0][len(answer)]
-        
-        for row in land[1:]:
-            li = row[:]
-            
-            if result == 0:
-                result += max(li)
-                used_idx.append(li.index(max(li)))
-                continue
-            
-            if li.index(max(li)) == used_idx[-1]:
-                del li[li.index(max(li))]
-                result += max(li)
-                li.index(max(li))
-            else:
-                result += max(li)
-                li.index(max(li))
-            
-        answer.append(result)
 
+    lands = []
+    for l in land:
+        sub_lands = []
+        for i, v in enumerate(l):
+            sub_lands.append((i, v))
+        lands.append(sub_lands)
+            
+            
+    print(list(product(*lands)))
+
+    # for l in lands:
+    #     result = 0
+    #     for i in range(len(l)-1):
+    #         if l[i] == l[i+1]:
+    #             continue
+    #         result += l[i]
+    #     answer.append(result)
+        
     return max(answer)
 
 
