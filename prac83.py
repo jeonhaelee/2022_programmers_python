@@ -24,11 +24,25 @@ def head_sort(answer):
     
     head_li.sort()
     
-    print(f'head_li : {head_li}')
+    result = []
+    for target in head_li:
+        for head, number, tail in answer:
+            if head.lower() == target:
+                result.append([head, number, tail])
+    
+    return result
     
     
-    
-    
+def number_sort(answer):
+    result = []
+    return result
+
+
+def tail_sort(answer):
+    result = []
+    return result
+
+
 def solution(files):
     answer = []
     
@@ -37,9 +51,14 @@ def solution(files):
         answer.append(check_file(file))
         
     # 정렬하기
-    ## head 정렬, number 정렬, 그래도 같다면 tail은 입력 순으로
-    head_sort(answer)
+    ## head 정렬
+    answer = head_sort(answer)
     
+    ## number 정렬
+    answer = number_sort(answer)
+    
+    ## tail 정렬 (위 조건이 다 같다면 입력 순으로)
+    answer = tail_sort(answer)
     
     return answer
 
