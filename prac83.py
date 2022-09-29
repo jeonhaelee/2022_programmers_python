@@ -17,8 +17,10 @@ def check_file(file):
 
 def head_sort(answer):
     
+    input_origin = []
     head_li = []
     for head, number, tail in answer:
+        input_origin.append(tail)
         if head.lower() not in head_li:
             head_li.append(head.lower())
     
@@ -30,7 +32,7 @@ def head_sort(answer):
             if head.lower() == target:
                 result.append([head, number, tail])
     
-    return result
+    return result, input_origin
     
     
 def number_sort(answer):
@@ -45,6 +47,7 @@ def tail_sort(answer):
 
 def solution(files):
     answer = []
+    input_origin = []
     
     # head, number, tail 별로 구분지어 담아주기
     for file in files:
@@ -52,7 +55,7 @@ def solution(files):
         
     # 정렬하기
     ## head 정렬
-    answer = head_sort(answer)
+    answer, input_origin = head_sort(answer)
     
     ## number 정렬
     answer = number_sort(answer)
