@@ -1,9 +1,18 @@
-# 큰수만들기 - 2차
+# 큰수만들기2
 
 def solution(number, k):
     answer = []
    
-    return answer
+    for n in number:
+        while answer and k and n > answer[-1]:
+            answer.pop()
+            k -= 1
+        answer.append(n)
+    
+    if k :
+        return number[:-k]
+    else:
+        return ''.join(answer)
 
 number = "1924"
 k = 2
