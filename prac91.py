@@ -1,12 +1,14 @@
 # 주차요금계산 2
 
-from datetime import timedelta
+import math
 from datetime import datetime
 
 def car_time(time1, time2):
-    time2 = datetime.strptime(time2, '%H:%M').hour * 60 + datetime.strptime(time2, '%H:%M').minute
     time1 = datetime.strptime(time1, '%H:%M').hour * 60 + datetime.strptime(time1, '%H:%M').minute
-    return time2 - time1
+    time2 = datetime.strptime(time2, '%H:%M').hour * 60 + datetime.strptime(time2, '%H:%M').minute
+
+    return time1 - time2
+    
     
 def solution(fees, records):
     answer = []
@@ -23,19 +25,23 @@ def solution(fees, records):
                 info_dic[car] = time
             else:
                 time_dic[car] += car_time(time, info_dic[car])
-                info_dic[car] = time
+                info_dic[car] = -1
                 
         else:
             info_dic[car] = time
             time_dic[car] = 0
+    
+    for car, info in info_dic.items():
+        if info != -1:
+            time_dic[car] += car_time('23:59', info)
         
     info_dic = dict(sorted(info_dic.items()))
-    
+
     for car in info_dic.keys():
         if time_dic[car] <= 180:
             answer.append(base_fee)
         else:
-            result = base_fee + round((time_dic[car] - 180) / unit_time) * unit_fee
+            result = base_fee + math.ceil((time_dic[car] - 180) / unit_time) * unit_fee
             answer.append(result)
         
     return answer
